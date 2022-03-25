@@ -14,6 +14,8 @@ Names and Canvas IDs
 
 ![alt text](screens.png)
 
+https://miro.com/app/board/uXjVOIKRW6w=/
+
 ### Onboarding
 The user can sign in with Google or Discord or create their own account.
 
