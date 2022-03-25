@@ -4,10 +4,10 @@ Tinder for books. You get suggestions of books and you swipe left or right in or
 
 Names and Canvas IDs
 
-Emil Lantz, 77314
-Mattias Arvidsson, 77973
-Elvira Dzidic, 77673 
-Simon Döbele, 121732
+- Emil Lantz, 77314
+- Mattias Arvidsson, 77973
+- Elvira Dzidic, 77673 
+- Simon Döbele, 121732
 
 
 ## Screens
