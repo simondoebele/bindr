@@ -22,7 +22,8 @@ function SearchFormView(props){
                 {props.dishTypeOptions.map(dishTypeOptionsCB)}
             </select>
             <button onClick={onSearchACB}>Search!</button>
-            <button onClick={function(){window.location.hash="#summary"}}>Summary</button> 
+            <button onClick={function(){window.location.hash="#summary"}}>Summary</button>
+            <button onClick={function(){window.location.hash="#login"}}>Login</button>  
         </div> 
     );
 }
