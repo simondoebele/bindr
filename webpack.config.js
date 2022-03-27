@@ -4,16 +4,6 @@ const webpack= require("webpack");
 
 const prefix=  fs.existsSync("./src/solved-utilities.js")?"solved-":"";
 
-// make a HTML path for each TW entry. For example tw1.2.js will result in http://localhost:8080/tw1.2.html
-// all such entries are based on a single HTML template /src/index.html
-function makeHtmlCB(file){
-    return new HtmlWebpackPlugin({
-        filename: path.parse(file).name+".html",
-        template: './src/'+prefix+'index.html',
-        chunks: [path.parse(file).name],
-    });
-}
-
 // bootstrap entries
 const bootstrap= ["vuejs", "reactjs"]
       .map(function framework2PathCB(x){return {[x] :"./src/"+x+"/"+prefix+"index.js"}; })   // find file path and return {frameworkJS: path}
