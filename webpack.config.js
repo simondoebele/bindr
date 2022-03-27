@@ -4,13 +4,6 @@ const webpack= require("webpack");
 
 const prefix=  fs.existsSync("./src/solved-utilities.js")?"solved-":"";
 
-// we will make a webpack entry out of every tw/tw*.js file
-const tws= fs.readdirSync("./tw").filter(function(file){return path.parse(file).ext===".js" && path.parse(file).name.startsWith("tw");});
-
-function makeEntryCB(acc, file){   // reducer for making a large object. entry  below needs to be an object
-    return { ... acc, [path.parse(file).name]: './tw/'+file};     // we ... spread the current object, then add one more property
-}
-
 // make a HTML path for each TW entry. For example tw1.2.js will result in http://localhost:8080/tw1.2.html
 // all such entries are based on a single HTML template /src/index.html
 function makeHtmlCB(file){
@@ -38,7 +31,7 @@ function makeBootrapHtmlCB(framework){     // framework bootstrap is at framewor
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: tws.reduce(makeEntryCB, {...bootstrap, test:"./test/index.js"}),   // all tw entries, plus the tests
+    entry: bootstrap,
     output: {
         path: __dirname +"/public",
         publicPath: '/',
@@ -49,14 +42,9 @@ module.exports = {
         },
     },
     plugins: [
-        ...tws.map(makeHtmlCB),    // a HTML for each TW entry, map() produces an array, which we spread ...
         ...Object.keys(bootstrap).map(makeBootrapHtmlCB),   // a HTML for each existing bootstrap index.js
         
-        new HtmlWebpackPlugin({    // the test.html for tests, see the test entry above
-            filename: "test.html",
-            template: './test/'+prefix+'index.html',
-            chunks: ["test"],
-        }),
+        
         new webpack.SourceMapDevToolPlugin(    // the source map plugin, specifying "Debug here!" in the browser Devtools (chrome)
             {
                 moduleFilenameTemplate: "[resource]",
