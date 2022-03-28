@@ -13,6 +13,8 @@ const Search=require("../"+PREFIX+"/searchPresenter.js").default;
 
 const Details=require("../"+PREFIX+"/detailsPresenter.js").default;
 
+const Login=require("../"+PREFIX+"/loginPresenter.js").default;
+
 import Show from "./../vuejs/show.js";
 
 
@@ -21,12 +23,13 @@ function App(props){
     
     return (<div class = "flexParent">
                 
-                <div class = "sideBar"><Sidebar model={props.model} /></div>
                 
-                <div class = "mainContent"> 
-                                           <Show hash="#search"> <Search model={props.model}/> </Show>
+                
+                <div class = "mainContent">
+                                          <Show hash="#search"> <Search model={props.model}/> </Show>
                                            <Show hash="#details"> <Details model={props.model}/> </Show>
                                            <Show hash="#summary"> <Summary model={props.model}/> </Show>
+                                           <Show hash="#login"><Login/> </Show>
                                             
                 </div>
             </div>
