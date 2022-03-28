@@ -1,268 +1,272 @@
 /* A debug class, used to separate components graphically during development */
 
-
 a:link {
-    color: steelblue;
-    text-decoration: none;
-  }
+  color: steelblue;
+  text-decoration: none;
+}
 
-a:visited{
-    color: steelblue;
-    text-decoration: none;
-
+a:visited {
+  color: steelblue;
+  text-decoration: none;
 }
 
 .summary {
-    padding-top: 20px;
-    margin-left: 20px;
-    font-size: 16px;
-
+  padding-top: 20px;
+  margin-left: 20px;
+  font-size: 16px;
 }
 
-.summary th{
-    padding: 12px 12px 12px 12px;
+.summary th {
+  padding: 12px 12px 12px 12px;
 }
 
-.summary button{
-    font-family : inherit;
-    height: 50px;
-    width: 150px;
-    background-color: rgba(70, 131, 180, 0.331) ;
-    color: black;
-    margin-left: 1px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 25vw;
-
+.summary button {
+  font-family: inherit;
+  height: 50px;
+  width: 150px;
+  background-color: rgba(70, 131, 180, 0.331);
+  color: black;
+  margin-left: 1px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 25vw;
 }
 
-
-.right{
-    text-align: right;
+.right {
+  text-align: right;
 }
 
-
-.qt{
-    text-align: right;
+.qt {
+  text-align: right;
 }
 
-.flexParent{
-    font-family: 'Trebuchet MS', sans-serif;
-    display: flex;
-    flex-direction: row;
+.flexParent {
+  font-family: "Trebuchet MS", sans-serif;
+  display: flex;
+  flex-direction: row;
 }
 
-.sideBar{
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 14px;
-    margin: 20px;
-    height: 100%;
-    width: 20%;
+.sideBar {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 14px;
+  margin: 20px;
+  height: 100%;
+  width: 20%;
 }
 
-.sideBar button{
-    height: 25px;
-    width: 25px;
-    font-size: 16px;
-    border-radius: 5px
-
+.sideBar button {
+  height: 25px;
+  width: 25px;
+  font-size: 16px;
+  border-radius: 5px;
 }
-#addGuestLeft{
-    margin-right: 5px;
-}
-
-#addGuestRight{
-    margin-left: 5px;
-}
-#nrGuests{
-    font-size: 25px;
+#addGuestLeft {
+  margin-right: 5px;
 }
 
-.guestView{
-    border-bottom: solid steelblue;
-    padding-bottom: 5px;
+#addGuestRight {
+  margin-left: 5px;
+}
+#nrGuests {
+  font-size: 25px;
 }
 
-.noData{
-    margin: 20px;
+.guestView {
+  border-bottom: solid steelblue;
+  padding-bottom: 5px;
 }
 
-
-.mainContent{
-    font-size: 10px;
-    height: 100%;
-    width: 75%;
+.noData {
+  margin: 20px;
 }
 
-.entry{
-    width: 100px;
+.mainContent {
+  font-size: 10px;
+  height: 100%;
+  width: 75%;
 }
 
-.searchForm{
-    font-family : inherit;
-    margin: 20px;
-    height: 100%;
+.entry {
+  width: 100px;
 }
 
-.searchForm input{
-    font-family : inherit;
-    width: 300px; 
-    height: 50px;
-    border-radius: 10px;
-    font-size: 20px;
-    margin-right: 10px;
+.searchForm {
+  font-family: inherit;
+  margin: 20px;
+  height: 100%;
 }
 
-.searchForm select{
-    font-family : inherit;
-    width: 150px; 
-    height: 50px;
-    border-radius: 10px;
-    font-size: 20px;
-    margin-right: 10px;
-    color:rgba(0, 0, 0, 0.632);
-    background-color: rgba(70, 131, 180, 0.331) ;
-    
+.searchForm input {
+  font-family: inherit;
+  width: 300px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
-
-.searchForm button{
-    font-family : inherit;
-    height: 50px;
-    width: 150px;
-    background-color: rgba(70, 131, 180, 0.331) ;
-    color: black;
-    margin-left: 1px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: bold;
+.searchForm select {
+  font-family: inherit;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.632);
+  background-color: rgba(70, 131, 180, 0.331);
 }
 
-
-.searchResult{
-    text-align: center;
-    overflow: hidden;
-    display: inline-block;
-    width: 200px;
-    height: 150px;
-    margin: 10px;
-    border: 2px solid steelblue;
-    border-radius: 10px;
-    padding: 5px;
-    vertical-align: text-top;
-    font-size: 14px;
-    font-weight: bold;
+.searchForm button {
+  font-family: inherit;
+  height: 50px;
+  width: 150px;
+  background-color: rgba(70, 131, 180, 0.331);
+  color: black;
+  margin-left: 1px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.searchResult img{
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-
+.searchResult {
+  text-align: center;
+  overflow: hidden;
+  display: inline-block;
+  width: 200px;
+  height: 150px;
+  margin: 10px;
+  border: 2px solid steelblue;
+  border-radius: 10px;
+  padding: 5px;
+  vertical-align: text-top;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.detailsView{
-     text-align: center;
-     display: flex;
-     font-size: 14px;
-     margin-left: 20px;
+.searchResult img {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
 }
 
-
-.detailsView button{
-    font-family : inherit;
-    height: 50px;
-    width: 150px;
-    background-color: rgba(70, 131, 180, 0.331) ;
-    color: black;
-    margin-left: 1px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: bold;    
+.detailsView {
+  text-align: center;
+  display: flex;
+  font-size: 14px;
+  margin-left: 20px;
 }
 
-.dishInfo{
- 
-    text-align: left;
-    margin: 10px;
-
+.detailsView button {
+  font-family: inherit;
+  height: 50px;
+  width: 150px;
+  background-color: rgba(70, 131, 180, 0.331);
+  color: black;
+  margin-left: 1px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-
-
-
-.detailsTitle{
-
-
-    font-weight: bold;
-    color: black;
-    text-align: left;
-    font-size: 16px;
-    margin-top: 10px;
-    
+.dishInfo {
+  text-align: left;
+  margin: 10px;
 }
 
-
-.instructions{
-    font-weight: normal;
-    width: 300px;
-    text-align: left;
-    font-size: 12px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.detailsTitle {
+  font-weight: bold;
+  color: black;
+  text-align: left;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
-
-.ingredients{
-    font-size: 12px;
-    
-    border-radius: 25px;
-}
-.hidden{
-    visibility: hidden;
-    display: none;
+.instructions {
+  font-weight: normal;
+  width: 300px;
+  text-align: left;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+.ingredients {
+  font-size: 12px;
 
-.login{
-    width: 400px;
-    height: 800px;
-    font-size: 50px;
-    
-    border: 2px solid black;
-    text-align: center;
+  border-radius: 25px;
+}
+.hidden {
+  visibility: hidden;
+  display: none;
+}
 
-    display: inline-block;
-        position: absolute;
-        top:0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    
-        margin: auto;
+.login {
+  width: 400px;
+  height: 800px;
+  font-size: 50px;
+
+  border: 2px solid black;
+  text-align: center;
+
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.profileInfo {
+  width: 400px;
+  height: 800px;
+  font-size: 50px;
+  text-align: center;
+
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.table {
+  font-size: 30px;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid;
+  text-align: center;
+}
+
+.tablehead {
+  border: 1px solid;
 }
 
 @media only screen and (max-width: 400px) {
-    .flexParent{
-        flex-direction: column;
-    }
-
-
-    .login{
-        display: inline-block;
-        position: absolute;
-        top:0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    
-        margin: auto;
-        width: 90vw;
-        height: 90vh;
-        font-size: 50px;
-        border: 2px solid black;
-        text-align: center;
-    }
+  .flexParent {
+    flex-direction: column;
   }
+
+  .login {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    width: 90vw;
+    height: 90vh;
+    font-size: 50px;
+    border: 2px solid black;
+    text-align: center;
+  }
+}
