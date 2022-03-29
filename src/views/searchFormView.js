@@ -42,6 +42,7 @@ function SearchFormView(props) {
       >
         User Information
       </button>
+      <button onClick={function(){window.location.hash="#swipe"}}>Swipe!</button>  
     </div>
   );
 }

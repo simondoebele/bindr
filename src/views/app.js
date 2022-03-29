@@ -15,9 +15,13 @@ const Search = require("../" + PREFIX + "/searchPresenter.js").default;
 
 const Details = require("../" + PREFIX + "/detailsPresenter.js").default;
 
+////
+
 const Login = require("../" + PREFIX + "/loginPresenter.js").default;
 
 const UserInfo = require("../" + PREFIX + "/userInfoPresenter.js").default;
+
+const Swipe = require("../" + PREFIX + "/swipePresenter.js").default;
 
 import Show from "./../vuejs/show.js";
 
@@ -42,6 +46,9 @@ export default function App(props) {
         </Show>
         <Show hash="#userinfo">
           <UserInfo />{" "}
+        </Show>
+        <Show hash="#swipe">
+          <Swipe model={props.model}/>{" "}
         </Show>
       </div>
     </div>
