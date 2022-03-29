@@ -42,6 +42,13 @@ function SearchFormView(props) {
       >
         User Information
       </button>
+      <button
+        onClick={function () {
+          window.location.hash = "#create";
+        }}
+      >
+        Create User
+      </button>
     </div>
   );
 }

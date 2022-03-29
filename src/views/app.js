@@ -19,6 +19,8 @@ const Login = require("../" + PREFIX + "/loginPresenter.js").default;
 
 const UserInfo = require("../" + PREFIX + "/userInfoPresenter.js").default;
 
+const Create = require("../" + PREFIX + "/userCreationPresenter.js").default;
+
 import Show from "./../vuejs/show.js";
 
 export default function App(props) {
@@ -42,6 +44,9 @@ export default function App(props) {
         </Show>
         <Show hash="#userinfo">
           <UserInfo />{" "}
+        </Show>
+        <Show hash="#create">
+          <Create />{" "}
         </Show>
       </div>
     </div>
