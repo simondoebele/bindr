@@ -10,9 +10,7 @@ Names and Canvas IDs
 - Simon Döbele, 121732
 
 
-## Screens
-Mockup MVP.
-
+## Mockup MVP
 ![alt text](screens.png)
 
 https://miro.com/app/board/uXjVOIKRW6w=/
