@@ -17,9 +17,10 @@ Names and Canvas IDs
 https://miro.com/app/board/uXjVOIKRW6w=/
 
 ### Onboarding MVP
-The user can sign in with username and password credentials.
-The user can retrieve a lost password.
-The user can create a new account if not existing user.
+Goals:
+- The user can sign in with username and password credentials.
+- The user can retrieve a lost password.
+- The user can create a new account if not existing user.
 
 ### User Profile Creating
 The user can enter their name and add a profile picture.
