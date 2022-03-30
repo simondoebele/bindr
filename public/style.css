@@ -206,9 +206,9 @@ a:visited {
   width: 400px;
   height: 800px;
   font-size: 35px;
-
   color: tomato;
   background-color: aliceblue;
+  
 
   border: 2px solid black;
   border-radius: 10px;
@@ -222,6 +222,8 @@ a:visited {
   right: 0;
 
   margin: auto;
+
+  
 }
 
 .login input{
@@ -256,6 +258,8 @@ a:visited {
   margin-top: 10%;
   font-size: 100px;
   color:tomato;
+  text-shadow: 3px 3px grey;
+
 }
 
 
