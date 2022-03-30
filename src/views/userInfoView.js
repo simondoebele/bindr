@@ -1,14 +1,13 @@
 function userInfoView(props) {
-  const userIcon = "https://cdn-icons-png.flaticon.com/512/219/219986.png"
-  const bookIcon = "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg"
-
-
-
+  const userIcon = "https://cdn-icons-png.flaticon.com/512/219/219986.png";
+  const bookIcon =
+    "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
 
   return (
     <div class="profileInfo">
+      <br></br>
       <div>
-        <img src= {userIcon} alt = "User image" height="150" />
+        <img src={userIcon} alt="User image" height="150" />
       </div>
 
       <div>Hi User!</div>
@@ -22,26 +21,17 @@ function userInfoView(props) {
         </thead>
         <tbody>
           {" "}
-          <img
-            src= {bookIcon}
-            height="30"
-          />
+          <img src={bookIcon} height="30" />
           Book1
         </tbody>
         <tbody>
           {" "}
-          <img
-            src= {bookIcon}
-            height="30"
-          />
+          <img src={bookIcon} height="30" />
           Book2
         </tbody>
         <tbody>
           {" "}
-          <img
-            src= {bookIcon}
-            height="30"
-          />
+          <img src={bookIcon} height="30" />
           Book3
         </tbody>
       </table>
