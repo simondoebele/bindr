@@ -1,7 +1,7 @@
 import { getDishDetails, searchDishes } from "./dishSource";
 import resolvePromise from "./resolvePromise";
 
-class DinnerModel{
+class BinderModel{
     constructor(nrGuests=2, dishArray=[], currentDish){
         this.observers = [];
         this.setNumberOfGuests(nrGuests);
@@ -121,4 +121,4 @@ class DinnerModel{
  
 }
 
-export default DinnerModel;
+export default BinderModel;
