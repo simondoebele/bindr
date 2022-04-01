@@ -208,7 +208,6 @@ a:visited {
   font-size: 35px;
   color: tomato;
   background-color: aliceblue;
-  
 
   border: 2px solid black;
   border-radius: 10px;
@@ -222,11 +221,9 @@ a:visited {
   right: 0;
 
   margin: auto;
-
-  
 }
 
-.login input{
+.login input {
   text-align: center;
   margin-top: 10%;
   height: 5%;
@@ -236,10 +233,9 @@ a:visited {
   border-bottom: 3px solid rgba(255, 99, 71, 0.434);
   background-color: inherit;
   color: tomato;
-  
 }
 
-.login button{
+.login button {
   width: 25%;
   font-size: 20px;
   border-radius: 20px;
@@ -247,52 +243,52 @@ a:visited {
   margin-right: 5px;
   background-color: aliceblue;
   border: 2px solid grey;
-
 }
 
-.loginProperties{
-  margin-top: 20%
+.loginProperties {
+  margin-top: 20%;
 }
 
-.binder{
+.binder {
   margin-top: 10%;
   font-size: 100px;
-  color:tomato;
+  color: tomato;
   text-shadow: 3px 3px grey;
-
 }
 
-
-.forgotPassword{
+.forgotPassword {
   margin-top: 5%;
   font-size: 15px;
   font-weight: bold;
   width: auto;
 }
 
-.forgotPassword:hover{
+.forgotPassword:hover {
   text-decoration: underline;
-  cursor:pointer;
-
+  cursor: pointer;
 }
 
-.notRegistered{
+.notRegistered {
   margin-top: 50%;
   font-size: 15px;
   font-weight: bold;
   width: auto;
 }
 
-.notRegistered:hover{
+.notRegistered:hover {
   text-decoration: underline;
-  cursor:pointer;
-
+  cursor: pointer;
 }
 
 .profileInfo {
   width: 400px;
   height: 800px;
-  font-size: 50px;
+  font-size: 35px;
+  color: tomato;
+  background-color: aliceblue;
+
+  border: 2px solid black;
+  border-radius: 10px;
   text-align: center;
 
   display: inline-block;
@@ -341,4 +337,3 @@ a:visited {
     text-align: center;
   }
 }
-
