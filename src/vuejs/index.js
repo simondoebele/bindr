@@ -19,7 +19,6 @@ const App=require("/src/views/app.js").default;
 // import DinnerModel, navigation,
 
 import "../views/navigation.js"
-import DinnerModel from "../DinnerModel";
 // import promiseNoData, you will need it during resolve of firebaseModelPromise
 import PromiseNoData from "../views/promiseNoData.js";
 // resolvePromise may be useful as well!
