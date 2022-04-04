@@ -14,7 +14,7 @@ function LoginView(props){
             <div class = "forgotPassword" >Forgot your password?</div>
         </div>
 
-        <div class ="notRegistered" onClick = {function(){window.location.hash = "#userinfo"}}>   
+        <div class ="notRegistered" onClick = {function(){window.location.hash = "#create"}}>   
              Not yet registered? Create an account here!</div>
     </div>
     )

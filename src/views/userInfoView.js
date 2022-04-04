@@ -10,8 +10,8 @@ function userInfoView(props) {
         <img src={userIcon} alt="User image" height="150" />
       </div>
 
-      <div>Hi User!</div>
-      <div>Your books</div>
+      <div>Hi</div>
+      <div>Your Liked Books</div>
 
       <table class="table">
         <thead class="tablehead">
@@ -22,26 +22,26 @@ function userInfoView(props) {
         <tbody>
           {" "}
           <img src={bookIcon} height="30" />
-          Book1
+          Book 1
         </tbody>
         <tbody>
           {" "}
           <img src={bookIcon} height="30" />
-          Book2
+          Book 2
         </tbody>
         <tbody>
           {" "}
           <img src={bookIcon} height="30" />
-          Book3
+          Book 3
         </tbody>
       </table>
 
       <button
         onClick={function () {
-          window.location.hash = "#search";
+          window.location.hash = "#swipe";
         }}
       >
-        Back
+        Swipe
       </button>
     </div>
   );

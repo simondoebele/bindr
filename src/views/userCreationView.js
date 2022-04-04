@@ -1,16 +1,18 @@
 function UserCreationView(props){
     return(
     <div class ="create">
-        <div>User Creation</div>
-        Name:<input class ="createName"></input>
+        <div class = "binder">Binder</div>
+        <div>Create your account</div>
         
-        <div>Please pick 5 genres that interest you</div>
-        <div class="genres">
-            <button>Drama</button><button>Romance</button><button>Thriller</button>
-            <button>Science-Fiction</button><button class="test">Mystery</button>
-           
+
+        <div class = "loginProperties">
+            <input type = "text" placeholder="Username">Enter Username</input>
+            <input type = "password" placeholder="Password"></input>
+            <div>
+                <button onClick = {function(){window.location.hash = "#pick"}}>Create</button>
+                <button onClick = {function(){window.location.hash = "#login"}}>Cancel</button>
+            </div>
         </div>
-        <button onClick = {function(){window.location.hash = "#login"}}>Cancel</button>
     </div>
     )
 

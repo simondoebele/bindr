@@ -18,22 +18,36 @@ function SwipeView(props){
     // TODO: add Menu bar (or burger menu) to change between different views...
         // ... in order to do:  <button onClick = {function(){window.location.hash = "#search"}}>Cancel</button>
     return(
-    <div class = "detailsView">
-        <div class = "detailsTitle">
-            {props.dishData.title} The Book
-        </div>
-        <div class = "dishInfo">
-            <div class = "image">
-                <img src = {props.dishData.image} height = "150" ></img>
+    <div class = "swipe">
+        <button onClick={function(){window.location.hash = "#userinfo"}}>Profile</button>
+        <div class = "bookInfo">
+            <div class = "bookCover">
+                <img src = {props.dishData.image} ></img>
             </div>
             <div>
+        <div class = "swipeTitle">
+            {props.dishData.title}
+        </div>
                 Description
             </div>
         </div>
-        <div class = "buttons">
-            <button onClick = {addBookACB} disabled = {props.isDishInMenu}>Like!</button>
+
+        <div class = "like">
+            <img height = "75" 
+            width = "75" 
+            src = "https://upload.wikimedia.org/wikipedia/commons/9/97/Twemoji13_1f60d.svg" 
+            onClick={addBookACB}
+            >
+            </img>
         </div>
-        <button onClick = {function(){window.location.hash = "#search"}}>Back to Overview</button>
+        
+        <div class = "dislike">
+            <img height = "75" 
+            width = "75" 
+            src = "https://upload.wikimedia.org/wikipedia/commons/2/2c/Twemoji13_1f4a9.svg" 
+            onClick={deleteBookACB}
+            ></img>
+        </div>
     </div>
     );
 
