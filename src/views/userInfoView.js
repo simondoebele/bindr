@@ -12,7 +12,10 @@ function userInfoView(props) {
   function bookTableCB(bookarray) {
     return (
       <tr>
-        <td>{bookarray}</td>
+        <td>
+          <img src={bookIcon} height="30" />
+          {bookarray}
+        </td>
       </tr>
     );
   }
@@ -33,31 +36,8 @@ function userInfoView(props) {
             <th>Books</th>
           </tr>
         </thead>
-        <tbody>
-          {" "}
-          <img src={bookIcon} height="30" />
-          Book 1
-        </tbody>
-        <tbody>
-          {" "}
-          <img src={bookIcon} height="30" />
-          Book 2
-        </tbody>
-        <tbody>
-          {" "}
-          <img src={bookIcon} height="30" />
-          Book 3
-        </tbody>
-      </table>
 
-      <table class="table">
-        <thead class="tablehead">
-          <tr>
-            <th>Books</th>
-          </tr>
-        </thead>
-
-        <tbody>{bookTableCB(books)}</tbody>
+        <tbody>{books.map(bookTableCB)}</tbody>
       </table>
 
       <button
