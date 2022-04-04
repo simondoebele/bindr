@@ -314,6 +314,38 @@ a:visited {
   border: 1px solid;
 }
 
+.create {
+  width: 400px;
+  height: 800px;
+  font-size: 50px;
+  text-align: center;
+
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+.createName {
+  height: 50px;
+  width: 150px;
+  background-color: rgba(2, 2, 2, 0.331);
+  color: black;
+  margin-left: 1px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.genres {
+  border: 1px solid;
+}
+.test {
+  color: rgb(255, 0, 0);
+}
+
 @media only screen and (max-width: 400px) {
   .flexParent {
     flex-direction: column;

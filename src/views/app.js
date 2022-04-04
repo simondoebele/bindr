@@ -15,11 +15,11 @@ const Search = require("../" + PREFIX + "/searchPresenter.js").default;
 
 const Details = require("../" + PREFIX + "/detailsPresenter.js").default;
 
-////
-
 const Login = require("../" + PREFIX + "/loginPresenter.js").default;
 
 const UserInfo = require("../" + PREFIX + "/userInfoPresenter.js").default;
+
+const Create = require("../" + PREFIX + "/userCreationPresenter.js").default;
 
 const Swipe = require("../" + PREFIX + "/swipePresenter.js").default;
 
@@ -47,6 +47,11 @@ export default function App(props) {
         <Show hash="#userinfo">
           <UserInfo />{" "}
         </Show>
+
+        <Show hash="#create">
+          <Create />{" "}
+        </Show>
+
         <Show hash="#swipe">
           <Swipe model={props.model}/>{" "}
         </Show>
