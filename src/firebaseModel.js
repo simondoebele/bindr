@@ -2,7 +2,7 @@
 // this is needed so that unit tests can inject a mock firebase
 import firebaseConfig from "/src/firebaseConfig.js";
 import {getDishDetails}  from "./dishSource.js";
-import DinnerModel from "./DinnerModel";
+import BinderModel from "./binderModel";
 firebase.initializeApp({
     apiKey: "AIzaSyCPE1M8W5A_WQjfx9T8GZVDmtA2koRGtew",
     authDomain: "lab-dinner-planner.firebaseapp.com",
@@ -90,7 +90,7 @@ function updateModelFromFirebase(model) {
             }
 
             function createModelACB(dishArray){
-                return new DinnerModel(firebaseData.val().numberGuests, dishArray)
+                return new BinderModel(firebaseData.val().numberGuests, dishArray)
     
             }
 
