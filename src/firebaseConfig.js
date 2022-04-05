@@ -1,9 +1,9 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyCPE1M8W5A_WQjfx9T8GZVDmtA2koRGtew",
-  authDomain: "lab-dinner-planner.firebaseapp.com",
-  databaseURL: "https://lab-dinner-planner-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "lab-dinner-planner",
-  storageBucket: "lab-dinner-planner.appspot.com",
-  messagingSenderId: "329576991502",
-  appId: "1:329576991502:web:cf87743088fa1f17c1e55f"
+  apiKey: "AIzaSyBH2BtAtW0SS6jwGDw5dMjVDH_sOB9dZKY",
+  authDomain: "binder-e215b.firebaseapp.com",
+  databaseURL: "https://binder-e215b-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "binder-e215b",
+  storageBucket: "binder-e215b.appspot.com",
+  messagingSenderId: "684501139736",
+  appId: "1:684501139736:web:3276001a1e827f698d9e6d"
 };
