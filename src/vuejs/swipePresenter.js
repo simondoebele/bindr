@@ -10,9 +10,13 @@ function Swipe(props){
         return dish.id === props.model.currentDish;
     }
 
-    function onAddToMenuACB(){
-        props.model.addBookLiked({id:"hello"}) //Switch to currentBookPromiseState 
-        }
+    function onAddToMenuACB(book){
+        props.model.addBookLiked({id:book.title}) //Switch to currentBookPromiseState 
+    }
+    function changeCurrentBookACB(){
+        props.model.changeCurrentBook()
+    }
+    
 
 
     return (
@@ -20,8 +24,10 @@ function Swipe(props){
             <SwipeView 
                 guests={props.model.numberOfGuests} 
                 dishData = {props.model.currentDishPromiseState.data} 
+                currentBook = {props.model.currentBook}
                 onAddToMenu = {onAddToMenuACB}
-                isDishInMenu = {props.model.dishes.find(isDishInMenuCB)} 
+                isDishInMenu = {props.model.dishes.find(isDishInMenuCB)}
+                changeCurrentBook = {changeCurrentBookACB} 
             />)
 }
 

@@ -9,8 +9,15 @@ class BinderModel{
         this.searchResultsPromiseState = {};
         this.searchParams = {};
         this.currentDishPromiseState = {};
-
+        
         this.likedBooks = [];
+        this.listOfBooks = [{title: "Wuthering Heights", img:"https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"},
+                            {title:"Don Quioxte", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg"}, 
+                            {title:"Frankenstein", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"}
+                            
+                            ]
+        //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
+        this.currentBook = this.listOfBooks[0]; 
     }
 
     addBookLiked(title){
@@ -19,6 +26,19 @@ class BinderModel{
             this.likedBooks = [...this.likedBooks ,title.id] 
             this.notifyObservers({addBook: title})
         }
+    }
+
+    changeCurrentBook(){
+        this.listOfBooks.shift()
+        if(!this.listOfBooks.length){
+            this.listOfBooks = [{title: "Wuthering Heights", img:"https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"},
+                            {title:"Don Quioxte", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg"}, 
+                            {title:"Frankenstein", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"}
+                            
+                            ]
+        }
+        this.currentBook = this.listOfBooks[0]
+        console.log(this.listOfBooks.length)
     }
 
     addObserver(callback){
