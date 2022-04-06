@@ -7,14 +7,6 @@ const PREFIX = window.location.toString().includes("react")
   ? "reactjs"
   : "vuejs";
 
-const Summary = require("../" + PREFIX + "/summaryPresenter.js").default;
-
-const Sidebar = require("../" + PREFIX + "/sidebarPresenter.js").default;
-
-const Search = require("../" + PREFIX + "/searchPresenter.js").default;
-
-const Details = require("../" + PREFIX + "/detailsPresenter.js").default;
-
 const Login = require("../" + PREFIX + "/loginPresenter.js").default;
 
 const UserInfo = require("../" + PREFIX + "/userInfoPresenter.js").default;
@@ -31,18 +23,6 @@ export default function App(props) {
   return (
     <div class="flexParent">
       <div class="mainContent">
-        <Show hash="#search">
-          {" "}
-          <Search model={props.model} />{" "}
-        </Show>
-        <Show hash="#details">
-          {" "}
-          <Details model={props.model} />{" "}
-        </Show>
-        <Show hash="#summary">
-          {" "}
-          <Summary model={props.model} />{" "}
-        </Show>
         <Show hash="#login">
           <Login />{" "}
         </Show>

@@ -36,8 +36,23 @@ class BinderModel{
         }
     }
 
+
+
     changeCurrentBook(){
-        console.log(this.currentBookPromiseState.data.works[4].title)
+
+        function titleExtractorCB(elem){
+            return ({title:elem.title, img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"})
+            //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
+        }
+
+        console.log(this.currentBookPromiseState.data.works)
+
+        if(this.listOfBooks.length < 4){
+            const a = this.currentBookPromiseState.data.works.map(titleExtractorCB)
+            console.log(a)
+            this.listOfBooks = this.listOfBooks.concat(a)
+            console.log(this.listOfBooks)
+        }
 
         this.listOfBooks.shift()
         if(!this.listOfBooks.length){
