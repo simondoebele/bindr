@@ -2,12 +2,8 @@ function userInfoView(props) {
   const userIcon = "https://cdn-icons-png.flaticon.com/512/219/219986.png";
   const bookIcon =
     "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
-  const books = [
-    "Honey & Milk",
-    "Welcome Home",
-    "The Mountain is You",
-    "The Hunger Games",
-  ];
+  const books = props.likedBooks
+  console.log(books)
 
   function bookTableCB(bookarray) {
     return (
