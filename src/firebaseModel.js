@@ -4,18 +4,20 @@ import firebaseConfig from "/src/firebaseConfig.js";
 import {getDishDetails}  from "./dishSource.js";
 import BinderModel from "./binderModel";
 firebase.initializeApp({
-    apiKey: "AIzaSyCPE1M8W5A_WQjfx9T8GZVDmtA2koRGtew",
-    authDomain: "lab-dinner-planner.firebaseapp.com",
-    databaseURL: "https://lab-dinner-planner-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "lab-dinner-planner",
-    storageBucket: "lab-dinner-planner.appspot.com",
-    messagingSenderId: "329576991502",
-    appId: "1:329576991502:web:cf87743088fa1f17c1e55f"
+    apiKey: "AIzaSyBH2BtAtW0SS6jwGDw5dMjVDH_sOB9dZKY",
+    authDomain: "binder-e215b.firebaseapp.com",
+    databaseURL: "https://binder-e215b-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "binder-e215b",
+    storageBucket: "binder-e215b.appspot.com",
+    messagingSenderId: "684501139736",
+    appId: "1:684501139736:web:3276001a1e827f698d9e6d"
 });
 
 //  NN is your TW2_TW3 group number
-const REF = "dinnerModel50";
+const REF = "dinnerModel50"; //switch this to binder-e215b when old firebase is done
+const REF1 = "binder-e215b"
 
+firebase.database().ref(REF+"/test").set("dummy");
 
 
  function updateFirebaseFromModel(model) {
@@ -34,12 +36,36 @@ const REF = "dinnerModel50";
             if (payload.setCurrent) {
                 firebase.database().ref(REF + "/currentDish").set(payload.setCurrent);
             }
+            //New stuff
+            if (payload.addBook) {
+                firebase.database().ref(REF1 + "/Books/" + payload.addBook.id).set(payload.addBook.id);
+            }
+            if (payload.addGenre) {
+                firebase.database().ref(REF1 + "/Genres/" + payload.addGenre.id).set(payload.addGenre.id);
+            }
+            if (payload.addAccount) {
+                const auth = getAuth();
+                firebase.auth().createUserWithEmailAndPassword(payload.addAccount.email, payload.addAccount.pass).then(userWasCreatedACB).catch()
+                // sign-in automatically after first login
+                firebase.auth().signInWithEmailAndPassword(payload.addAccount.email, payload.addAccount.pass).then(userLoggedInACB).catch()   
+            }
+            if (payload.deleteAccount) {
+                // TODO
+            }
+            if (payload.signIn) {
+                const auth = getAuth();
+                firebase.auth().signInWithEmailAndPassword(payload.addAccount.email, payload.addAccount.pass).then(userLoggedInACB).catch()
+            }
+            if (payload.signOut) {
+                firebase.auth().signOut().then(signoutSuccessACB).catch(signoutErrorACB)
+            }
 
         }
     }
     model.addObserver(observerACB)
 
 }
+
 function updateModelFromFirebase(model) {
 
     firebase.database().ref(REF + "/numberGuests").on(
