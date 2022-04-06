@@ -2,7 +2,6 @@ function SwipeView(props){
 
     function addBookACB(){
         props.onAddToMenu();
-        window.location.hash = "#search";
     }
 
     function deleteBookACB(){

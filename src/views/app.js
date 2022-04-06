@@ -47,7 +47,7 @@ export default function App(props) {
           <Login />{" "}
         </Show>
         <Show hash="#userinfo">
-          <UserInfo />{" "}
+          <UserInfo model={props.model}/>{" "}
         </Show>
 
         <Show hash="#create">

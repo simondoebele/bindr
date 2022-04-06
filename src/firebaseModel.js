@@ -38,7 +38,7 @@ firebase.database().ref(REF+"/test").set("dummy");
             }
             //New stuff
             if (payload.addBook) {
-                firebase.database().ref(REF1 + "/Books/" + payload.addBook.id).set(payload.addBook.id);
+                firebase.database().ref(REF1 + "/likedBooks/" + payload.addBook.id).set(payload.addBook.id);
             }
             if (payload.addGenre) {
                 firebase.database().ref(REF1 + "/Genres/" + payload.addGenre.id).set(payload.addGenre.id);

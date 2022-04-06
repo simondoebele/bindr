@@ -11,8 +11,8 @@ function Swipe(props){
     }
 
     function onAddToMenuACB(){
-        props.model.addToMenu(props.model.currentDishPromiseState.data);
-    }
+        props.model.addBookLiked({id:"test"}) //Switch to currentBookPromiseState 
+        }
 
 
     return (

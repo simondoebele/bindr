@@ -9,8 +9,16 @@ class BinderModel{
         this.searchResultsPromiseState = {};
         this.searchParams = {};
         this.currentDishPromiseState = {};
+
+        this.likedBooks = ["test"];
     }
 
+    addBookLiked(title){
+        this.likedBooks = [...this.likedBooks ,title] //when sending in the list remember to send the this.list
+        
+        this.notifyObservers({addBook: title})
+        
+    }
 
     addObserver(callback){
         this.observers = [...this.observers, callback]
