@@ -1,4 +1,4 @@
-import { getDishDetails, searchDishes } from "./dishSource";
+import { getDishDetails, searchDishes, getBookDetails } from "./dishSource";
 import resolvePromise from "./resolvePromise";
 
 class BinderModel{
@@ -9,6 +9,7 @@ class BinderModel{
         this.searchResultsPromiseState = {};
         this.searchParams = {};
         this.currentDishPromiseState = {};
+        this.currentBookPromiseState = {};
         
         this.likedBooks = [];
         this.listOfBooks = [{title: "Wuthering Heights", img:"https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"},
@@ -18,6 +19,13 @@ class BinderModel{
                             ]
         //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
         this.currentBook = this.listOfBooks[0]; 
+
+        //this.book = getBookDetails();
+        // this.book.works is an array of 12 works
+        // each work has e.g a title.
+        resolvePromise(getBookDetails(), this.currentBookPromiseState)
+        
+        console.log(this.currentBookPromiseState.data)
     }
 
     addBookLiked(title){
@@ -29,6 +37,8 @@ class BinderModel{
     }
 
     changeCurrentBook(){
+        console.log(this.currentBookPromiseState.data.works[4].title)
+
         this.listOfBooks.shift()
         if(!this.listOfBooks.length){
             this.listOfBooks = [{title: "Wuthering Heights", img:"https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"},
