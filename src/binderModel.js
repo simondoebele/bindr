@@ -25,7 +25,6 @@ class BinderModel{
         // each work has e.g a title.
         resolvePromise(getBookDetails(), this.currentBookPromiseState)
         
-        console.log(this.currentBookPromiseState.data)
     }
 
     addBookLiked(title){
@@ -45,13 +44,13 @@ class BinderModel{
             //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
         }
 
-        console.log(this.currentBookPromiseState.data.works)
+        
 
         if(this.listOfBooks.length < 4){
             const a = this.currentBookPromiseState.data.works.map(titleExtractorCB)
-            console.log(a)
+           
             this.listOfBooks = this.listOfBooks.concat(a)
-            console.log(this.listOfBooks)
+           
         }
 
         this.listOfBooks.shift()
@@ -63,7 +62,6 @@ class BinderModel{
                             ]
         }
         this.currentBook = this.listOfBooks[0]
-        console.log(this.listOfBooks.length)
     }
 
     addObserver(callback){
