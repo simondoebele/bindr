@@ -24,16 +24,12 @@ function userInfoView(props) {
 
       <div>Hi!</div>
       <div>Your Liked Books</div>
-
-      <table class="table">
-        <thead class="tablehead">
-          <tr>
-            <th>Books</th>
-          </tr>
-        </thead>
-
-        <tbody>{books.map(bookTableCB)}</tbody>
-      </table>
+      
+      <div class = "tableContainer">
+        <table class="table">
+          <tbody>{books.map(bookTableCB)}</tbody>
+        </table>
+      </div>
 
       <button
         onClick={function () {

@@ -339,6 +339,20 @@ a:visited {
   border: none
 }
 
+.tableContainer{
+  width: 100%;
+  height: 400px;
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
 .create {
   width: 400px;
   height: 800px;
