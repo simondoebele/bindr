@@ -1,12 +1,12 @@
 function SwipeView(props){
 
     function addBookACB(){
-        props.onAddToMenu();
+        props.onAddToMenu(props.currentBook);
+        props.changeCurrentBook()
     }
 
     function deleteBookACB(){
-        props.onAddToMenu();
-        window.location.hash = "#search";
+        props.changeCurrentBook()
     }
 
 
@@ -21,11 +21,11 @@ function SwipeView(props){
         <button onClick={function(){window.location.hash = "#userinfo"}}>Profile</button>
         <div class = "bookInfo">
             <div class = "bookCover">
-                <img src = {props.dishData.image} ></img>
+                <img src = {props.currentBook.img} ></img>
             </div>
             <div>
         <div class = "swipeTitle">
-            {props.dishData.title}
+            {props.currentBook.title}
         </div>
                 Description
             </div>
