@@ -14,8 +14,9 @@ firebase.initializeApp({
 });
 
 //  NN is your TW2_TW3 group number
-const REF = "Binder";
+const REF = "binder-e215b";
 
+firebase.database().ref(REF+"/test").set("dummy");
 
 
  function updateFirebaseFromModel(model) {
@@ -40,6 +41,7 @@ const REF = "Binder";
     model.addObserver(observerACB)
 
 }
+
 function updateModelFromFirebase(model) {
 
     firebase.database().ref(REF + "/numberGuests").on(
