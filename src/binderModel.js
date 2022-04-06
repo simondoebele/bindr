@@ -41,7 +41,7 @@ class BinderModel{
     changeCurrentBook(){
 
         function titleExtractorCB(elem){
-            return ({title:elem.title, img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"})
+            return ({title:elem.title, img:"https://covers.openlibrary.org/b/id/240726-M.jpg"})
             //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
         }
 
