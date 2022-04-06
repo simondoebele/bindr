@@ -14,7 +14,8 @@ firebase.initializeApp({
 });
 
 //  NN is your TW2_TW3 group number
-const REF = "binder-e215b";
+const REF = "dinnerModel50"; //switch this to binder-e215b when old firebase is done
+const REF1 = "binder-e215b"
 
 firebase.database().ref(REF+"/test").set("dummy");
 
@@ -34,6 +35,29 @@ firebase.database().ref(REF+"/test").set("dummy");
             }
             if (payload.setCurrent) {
                 firebase.database().ref(REF + "/currentDish").set(payload.setCurrent);
+            }
+            //New stuff
+            if (payload.addBook) {
+                firebase.database().ref(REF1 + "/Books/" + payload.addBook.id).set(payload.addBook.id);
+            }
+            if (payload.addGenre) {
+                firebase.database().ref(REF1 + "/Genres/" + payload.addGenre.id).set(payload.addGenre.id);
+            }
+            if (payload.addAccount) {
+                const auth = getAuth();
+                firebase.auth().createUserWithEmailAndPassword(payload.addAccount.email, payload.addAccount.pass).then(userWasCreatedACB).catch()
+                // sign-in automatically after first login
+                firebase.auth().signInWithEmailAndPassword(payload.addAccount.email, payload.addAccount.pass).then(userLoggedInACB).catch()   
+            }
+            if (payload.deleteAccount) {
+                // TODO
+            }
+            if (payload.signIn) {
+                const auth = getAuth();
+                firebase.auth().signInWithEmailAndPassword(payload.addAccount.email, payload.addAccount.pass).then(userLoggedInACB).catch()
+            }
+            if (payload.signOut) {
+                firebase.auth().signOut().then(signoutSuccessACB).catch(signoutErrorACB)
             }
 
         }
