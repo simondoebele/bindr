@@ -11,14 +11,12 @@ class BinderModel{
         this.currentDishPromiseState = {};
 
         this.likedBooks = [];
-        console.log(this.likedBooks)
     }
 
     addBookLiked(title){
         
         if(!this.likedBooks.find(function isBookinCB(book){return book === title.id})){
             this.likedBooks = [...this.likedBooks ,title.id] 
-            console.log("I'm adding a title")
             this.notifyObservers({addBook: title})
         }
     }

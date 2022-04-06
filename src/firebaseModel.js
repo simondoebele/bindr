@@ -89,7 +89,6 @@ function updateModelFromFirebase(model) {
         }
     }
     function addLikedBook(data) {
-        console.log(data.key)
         if(!model.likedBooks.find(function isBookInLikedCB(book){return book.id == data.key})){
             model.addBookLiked({id:data.key})
         }
