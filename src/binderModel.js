@@ -10,14 +10,17 @@ class BinderModel{
         this.searchParams = {};
         this.currentDishPromiseState = {};
 
-        this.likedBooks = ["test"];
+        this.likedBooks = [];
+        console.log(this.likedBooks)
     }
 
     addBookLiked(title){
-        this.likedBooks = [...this.likedBooks ,title] //when sending in the list remember to send the this.list
         
-        this.notifyObservers({addBook: title})
-        
+        if(!this.likedBooks.find(function isBookinCB(book){return book === title.id})){
+            this.likedBooks = [...this.likedBooks ,title.id] 
+            console.log("I'm adding a title")
+            this.notifyObservers({addBook: title})
+        }
     }
 
     addObserver(callback){

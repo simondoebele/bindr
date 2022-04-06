@@ -3,6 +3,7 @@ function userInfoView(props) {
   const bookIcon =
     "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
   const books = props.likedBooks
+  console.log(books)
 
   function bookTableCB(bookarray) {
     return (

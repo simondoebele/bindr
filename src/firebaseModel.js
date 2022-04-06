@@ -17,7 +17,6 @@ firebase.initializeApp({
 const REF = "dinnerModel50"; //switch this to binder-e215b when old firebase is done
 const REF1 = "binder-e215b"
 
-firebase.database().ref(REF+"/test").set("dummy");
 
 
  function updateFirebaseFromModel(model) {
@@ -89,7 +88,13 @@ function updateModelFromFirebase(model) {
             fetchDishDataBasedOnID(data.key).then(function AddDishToMenu(dish) { model.addToMenu(dish)}) 
         }
     }
+    function addLikedBook(data) {
+        console.log(data.key)
+        if(!model.likedBooks.find(function isBookInLikedCB(book){return book.id == data.key})){
+            model.addBookLiked({id:data.key})
+        }
 
+    }
     function removeIdFromFirebase(data) {
         //doesnt need to init promise
         model.removeFromMenu({id : +data.key}) // dummy literal
@@ -102,6 +107,8 @@ function updateModelFromFirebase(model) {
     firebase.database().ref(REF + "/Dishes").on(
         "child_removed",
         removeIdFromFirebase)
+
+    firebase.database().ref(REF1 + "/likedBooks").on("child_added", addLikedBook)
     }
 
 
