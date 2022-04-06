@@ -8,7 +8,7 @@ function treatHTTPResponseACB(response){
     else{return response.json()}
 }
 
-function getBookDetails(isbn) {
+function getBookDetails() {
 
     return fetch(
       "https://openlibrary.org/subjects/love.json"
