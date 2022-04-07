@@ -13,8 +13,11 @@ function userInfoView(props) {
         <td>
           <img src={bookIcon} height="30" class="img" />
 
-          {" " + bookarray}
-          <button class="likedBookRemove" onClick={removeBookACB}>
+          <span class="cut-off">{bookarray}</span>
+          <button
+            style="position: relative;  left:0px; top:-8px;"
+            onClick={removeBookACB}
+          >
             x
           </button>
         </td>

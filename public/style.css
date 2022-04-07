@@ -333,6 +333,18 @@ Remove comment when functionality exists
   border: none;
   text-align: center;
   overflow: scroll;
+
+  white-space: nowrap;
+}
+
+.cut-off {
+  padding-left: 5px;
+  width: 280px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
 }
 
 .table tbody {
@@ -516,7 +528,10 @@ Remove comment when functionality exists
 }
 .img {
   position: relative;
-  top: 5px;
+}
+
+.likedBookRemove {
+  position: middle;
 }
 
 @media only screen and (max-width: 400px) {
