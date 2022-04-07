@@ -244,6 +244,10 @@ a:visited {
   background-color: aliceblue;
   border: 2px solid grey;
 }
+.login button:hover {
+  background-color:rgb(213, 235, 255);
+  border-color: black;
+}
 
 .loginProperties {
   margin-top: 20%;
@@ -262,11 +266,13 @@ a:visited {
   font-weight: bold;
   width: auto;
 }
-
+/*
 .forgotPassword:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+Remove comment when functionality exists
+*/ 
 
 .notRegistered {
   margin-top: 50%;
@@ -310,6 +316,10 @@ a:visited {
   background-color: aliceblue;
   border: 2px solid grey;
 
+}
+.profileInfo button:hover {
+  background-color:rgb(213, 235, 255);
+  border-color: black;
 }
 
 .table {
@@ -412,6 +422,12 @@ a:visited {
   background-color: aliceblue;
   border: 2px solid grey;
 }
+
+.create button:hover {
+  background-color:rgb(213, 235, 255);
+  border-color: black;
+}
+
 .createName {
   height: 50px;
   width: 150px;
@@ -456,6 +472,11 @@ a:visited {
   margin-left: -50%;
 }
 
+.swipe button:hover {
+  background-color:rgb(213, 235, 255);
+  border-color: black;
+}
+
 .swipeTitle {
   margin-top: 10%;
   font-size: 30px;
@@ -478,6 +499,9 @@ a:visited {
   left: 300px;
   position: absolute;
 }
+.like:hover {
+  transform: scale(1.2);
+}
 
 .dislike{
   width: 75px;
@@ -486,7 +510,9 @@ a:visited {
   bottom: 50px;
   left: 25px;
   position: absolute;
-
+}
+.dislike:hover {
+  transform: scale(1.2);
 }
 
 @media only screen and (max-width: 400px) {

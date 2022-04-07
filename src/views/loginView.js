@@ -9,7 +9,6 @@ function LoginView(props){
             <input type = "password" placeholder="Password"></input>
             <div>
                 <button onClick = {function(){window.location.hash = "#userinfo"}}>Login</button>
-                <button onClick = {function(){window.location.hash = "#search"}}>Cancel</button>
             </div>
             <div class = "forgotPassword" >Forgot your password?</div>
         </div>
