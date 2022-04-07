@@ -244,6 +244,10 @@ a:visited {
   background-color: aliceblue;
   border: 2px solid grey;
 }
+.login button:hover {
+  background-color:rgb(213, 235, 255);
+  border-color: black;
+}
 
 .loginProperties {
   margin-top: 20%;
@@ -310,6 +314,10 @@ a:visited {
   background-color: aliceblue;
   border: 2px solid grey;
 
+}
+.profileInfo button:hover {
+  background-color:rgb(213, 235, 255);
+  border-color: black;
 }
 
 .table {
@@ -412,6 +420,12 @@ a:visited {
   background-color: aliceblue;
   border: 2px solid grey;
 }
+
+.create button:hover {
+  background-color:rgb(213, 235, 255);
+  border-color: black;
+}
+
 .createName {
   height: 50px;
   width: 150px;
@@ -454,6 +468,11 @@ a:visited {
   background-color: aliceblue;
   border: 2px solid grey;
   margin-left: -50%;
+}
+
+.swipe button:hover {
+  background-color:rgb(213, 235, 255);
+  border-color: black;
 }
 
 .swipeTitle {
