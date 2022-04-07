@@ -28,8 +28,8 @@ function userInfoView(props) {
           <img src={userIcon} alt="User image" height="150" />
         </div>
 
-        <div>Hi!</div>
-        <div>Your Liked Books</div>
+        <div class = "profileInfoHeader">Hi.</div>
+        <div class = "profileInfoHeader">Here's your liked books.</div>
         
         <div class = "tableContainer">
           <table class="table">

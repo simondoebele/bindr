@@ -12,10 +12,8 @@ class BinderModel{
         this.currentBookPromiseState = {};
         
         this.likedBooks = [];
-        this.listOfBooks = [{title: "Wuthering Heights", img:"https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"},
-                            {title:"Don Quioxte", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg"}, 
+        this.listOfBooks = [{title:"Don Quioxte", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg"}, 
                             {title:"Frankenstein", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"}
-                            
                             ]
         //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
         this.currentBook = this.listOfBooks[0]; 
@@ -54,7 +52,11 @@ class BinderModel{
     changeCurrentBook(){
 
         function titleExtractorCB(elem){
-            return ({title:elem.title, img:"https://covers.openlibrary.org/b/id/240726-M.jpg"})
+            const base_url = "https://covers.openlibrary.org/b/id/"
+            const cover_id = elem.cover_id + "-M.jpg"
+            
+
+            return ({title:elem.title, img:base_url + cover_id})
             //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
         }
 
