@@ -1,8 +1,8 @@
 function LoginView(props){
     return(
     <div class = "login">
-        <div class = "binder">Binder</div>
-        <div>Tinder, for books!</div>
+        <div class = "binder">Bindr</div>
+        <div>Never judge a <br></br> book by its cover.</div>
 
         <div class = "loginProperties">
             <input type = "text" placeholder="Username">Enter Username</input>
