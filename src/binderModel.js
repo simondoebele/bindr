@@ -10,7 +10,9 @@ class BinderModel{
         this.searchParams = {};
         this.currentDishPromiseState = {};
         this.currentBookPromiseState = {};
-        
+
+        this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
+    
         this.likedBooks = [];
         this.listOfBooks = [{title:"Don Quioxte", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg"}, 
                             {title:"Frankenstein", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"}
@@ -21,7 +23,7 @@ class BinderModel{
         //this.book = getBookDetails();
         // this.book.works is an array of 12 works
         // each work has e.g a title.
-        resolvePromise(getBookDetails(), this.currentBookPromiseState)
+        resolvePromise(getBookDetails(this.userSubjects[0]), this.currentBookPromiseState)
         
     }
 
@@ -48,7 +50,12 @@ class BinderModel{
         }
     }
 
-
+    fetchNextSub(){
+        const tmp = this.userSubjects[0];
+        resolvePromise(getBookDetails(tmp), this.currentBookPromiseState)
+        this.userSubjects.shift();
+        this.userSubjects = [...this.userSubjects, tmp]
+    }
     changeCurrentBook(){
 
         function titleExtractorCB(elem){
@@ -62,21 +69,14 @@ class BinderModel{
 
         
 
-        if(this.listOfBooks.length < 4){
+        if(this.listOfBooks.length < 5){ //Beware!! This might be troublesome in the future, might wanna have an extra promisState.
             const a = this.currentBookPromiseState.data.works.map(titleExtractorCB)
-           
-            this.listOfBooks = this.listOfBooks.concat(a)
-           
+            this.fetchNextSub();
+            
+            this.listOfBooks = this.listOfBooks.concat(a);
         }
 
         this.listOfBooks.shift()
-        if(!this.listOfBooks.length){
-            this.listOfBooks = [{title: "Wuthering Heights", img:"https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"},
-                            {title:"Don Quioxte", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg"}, 
-                            {title:"Frankenstein", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"}
-                            
-                            ]
-        }
         this.currentBook = this.listOfBooks[0]
     }
 
