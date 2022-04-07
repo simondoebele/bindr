@@ -69,6 +69,7 @@ Currently, we have built the (Binder)Model, connection from the model to firebas
 
 
 ## Our project file structure (with short description/purpose of each file)
+```
 .
 ├── public
 │   └──  style.css          # our CSS style file
@@ -101,3 +102,4 @@ Currently, we have built the (Binder)Model, connection from the model to firebas
 │       ├── VueRoot.js                      # The Vue Root that ties the bindermodel and app together.
 │       └── ...                             # (Please ignore the other files, that are still boilerplate code.)
 └── ...
+```
