@@ -36,7 +36,6 @@ class BinderModel{
     }
 
     removeLikedBook(title){
-        console.log("called in model", title);
         function hasSameTitleCB(likedTitle){
 
             if(likedTitle != title){
@@ -45,9 +44,7 @@ class BinderModel{
             return false;
             
         }
-        console.log(this.likedBooks)
         if(this.likedBooks.find(function isBookInLikedCB(likedTitle){return likedTitle === title})){
-            console.log(this.likedBooks)
             this.likedBooks = this.likedBooks.filter(hasSameTitleCB);
             this.notifyObservers({removeLikedBook: title})   
         }

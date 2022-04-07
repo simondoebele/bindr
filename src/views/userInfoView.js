@@ -8,7 +8,6 @@ function userInfoView(props) {
   
   function bookTableCB(bookarray) {
     function removeBookACB(){
-      console.log("called Rem", bookarray);
       props.removeBook(bookarray);
     }
     return (
@@ -16,7 +15,7 @@ function userInfoView(props) {
         <td>
           <img src={bookIcon} height="30" />
           {bookarray}
-          <button onClick={removeBookACB}>x</button>
+          <button class="likedBookRemove" onClick={removeBookACB}>x</button>
         </td>
       </tr>
     );

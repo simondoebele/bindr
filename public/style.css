@@ -332,6 +332,19 @@ a:visited {
   margin-top: 10px;
 }
 
+.table button {
+  border-radius: 50%;
+  width: 7.5%;
+  height: 7.5%;
+  margin-left: 5px;
+  background-color: white;
+  transition: background-color 100ms ease-out 100ms
+}
+.table button:hover {
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+}
+
 .tablehead {
   color: black;
   font-size: 30px;
