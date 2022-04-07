@@ -39,6 +39,9 @@ const REF1 = "binder-e215b"
             if (payload.addBook) {
                 firebase.database().ref(REF1 + "/likedBooks/" + payload.addBook.id).set(payload.addBook.id);
             }
+            if (payload.removeLikedBook) {
+                firebase.database().ref(REF1 + "/likedBooks/" + payload.removeLikedBook).set(null);
+            }
             if (payload.addGenre) {
                 firebase.database().ref(REF1 + "/Genres/" + payload.addGenre.id).set(payload.addGenre.id);
             }
