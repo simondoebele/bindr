@@ -1,6 +1,8 @@
 function PromiseNoData(promiseState){
-
-    if(!promiseState.promise){
+    if(typeof(promiseState) == "undefined") {
+        return(<div class = "noData">No data</div>)
+    }else if(!promiseState.promise){
+    
         return(<div class = "noData">No data</div>)
 
     }else if(promiseState.promise && !promiseState.data && !promiseState.error){

@@ -20,32 +20,35 @@ function userInfoView(props) {
       </tr>
     );
   }
+  if(!(typeof(books) == "undefined")){
+    return (
+      <div class="profileInfo">
+        <br></br>
+        <div>
+          <img src={userIcon} alt="User image" height="150" />
+        </div>
 
-  return (
-    <div class="profileInfo">
-      <br></br>
-      <div>
-        <img src={userIcon} alt="User image" height="150" />
+        <div>Hi!</div>
+        <div>Your Liked Books</div>
+        
+        <div class = "tableContainer">
+          <table class="table">
+            <tbody>{books.map(bookTableCB)}</tbody>
+          </table>
+        </div>
+
+        <button
+          onClick={function () {
+            window.location.hash = "#swipe";
+          }}
+        >
+          Swipe
+        </button>
       </div>
-
-      <div>Hi!</div>
-      <div>Your Liked Books</div>
-      
-      <div class = "tableContainer">
-        <table class="table">
-          <tbody>{books.map(bookTableCB)}</tbody>
-        </table>
-      </div>
-
-      <button
-        onClick={function () {
-          window.location.hash = "#swipe";
-        }}
-      >
-        Swipe
-      </button>
-    </div>
-  );
+    );
+  } 
 }
+
+
 
 export default userInfoView;
