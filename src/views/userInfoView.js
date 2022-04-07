@@ -13,7 +13,9 @@ function userInfoView(props) {
         <td>
           <img src={bookIcon} height="30" class="img" />
 
-          <span class="cut-off">{bookarray}</span>
+          <span class="cut-off" title={bookarray}>
+            {bookarray}
+          </span>
           <button
             style="position: relative;  left:0px; top:-8px;"
             onClick={removeBookACB}
