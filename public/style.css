@@ -266,11 +266,13 @@ a:visited {
   font-weight: bold;
   width: auto;
 }
-
+/*
 .forgotPassword:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+Remove comment when functionality exists
+*/ 
 
 .notRegistered {
   margin-top: 50%;
@@ -497,6 +499,9 @@ a:visited {
   left: 300px;
   position: absolute;
 }
+.like:hover {
+  transform: scale(1.2);
+}
 
 .dislike{
   width: 75px;
@@ -505,7 +510,9 @@ a:visited {
   bottom: 50px;
   left: 25px;
   position: absolute;
-
+}
+.dislike:hover {
+  transform: scale(1.2);
 }
 
 @media only screen and (max-width: 400px) {
