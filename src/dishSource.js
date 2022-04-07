@@ -8,11 +8,11 @@ function treatHTTPResponseACB(response){
     else{return response.json()}
 }
 
-function getBookDetails() {
-
-    return fetch(
-      "https://openlibrary.org/subjects/love.json"
-    ) // change to isbn + base_url later
+function getBookDetails(subject) {
+    console.log("fetching: ", subject);
+    const base_url = "https://openlibrary.org/subjects/"
+    return fetch(base_url+ subject + ".json") 
+      // change to isbn + base_url later, or not
       .then((res) => res.json())
       .catch((err) => console.log(err));
   }
