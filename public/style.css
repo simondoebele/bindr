@@ -245,7 +245,7 @@ a:visited {
   border: 2px solid grey;
 }
 .login button:hover {
-  background-color:rgb(213, 235, 255);
+  background-color: rgb(213, 235, 255);
   border-color: black;
 }
 
@@ -272,7 +272,7 @@ a:visited {
   cursor: pointer;
 }
 Remove comment when functionality exists
-*/ 
+*/
 
 .notRegistered {
   margin-top: 30%;
@@ -319,10 +319,9 @@ Remove comment when functionality exists
   margin-right: 5px;
   background-color: aliceblue;
   border: 2px solid grey;
-
 }
 .profileInfo button:hover {
-  background-color:rgb(213, 235, 255);
+  background-color: rgb(213, 235, 255);
   border-color: black;
 }
 
@@ -354,7 +353,7 @@ Remove comment when functionality exists
   height: 7.5%;
   margin-left: 5px;
   background-color: white;
-  transition: background-color 100ms ease-out 100ms
+  transition: background-color 100ms ease-out 100ms;
 }
 .table button:hover {
   background-color: tomato;
@@ -364,10 +363,10 @@ Remove comment when functionality exists
 .tablehead {
   color: black;
   font-size: 30px;
-  border: none
+  border: none;
 }
 
-.tableContainer{
+.tableContainer {
   width: 100%;
   height: 350px;
   font-size: 10px;
@@ -401,11 +400,8 @@ Remove comment when functionality exists
 
   color: tomato;
 
-
   margin: auto;
 }
-
-
 
 .create input {
   text-align: center;
@@ -430,7 +426,7 @@ Remove comment when functionality exists
 }
 
 .create button:hover {
-  background-color:rgb(213, 235, 255);
+  background-color: rgb(213, 235, 255);
   border-color: black;
 }
 
@@ -464,7 +460,6 @@ Remove comment when functionality exists
   right: 0;
 
   margin: auto;
-
 }
 
 .swipe button {
@@ -480,7 +475,7 @@ Remove comment when functionality exists
 }
 
 .swipe button:hover {
-  background-color:rgb(213, 235, 255);
+  background-color: rgb(213, 235, 255);
   border-color: black;
 }
 
@@ -496,7 +491,7 @@ Remove comment when functionality exists
   height: 50%;
   border-radius: 10px;
 }
-.like{
+.like {
   width: 75px;
   height: 75px;
   display: flex;
@@ -508,7 +503,7 @@ Remove comment when functionality exists
   transform: scale(1.2);
 }
 
-.dislike{
+.dislike {
   width: 75px;
   height: 75px;
   display: flex;
@@ -518,6 +513,10 @@ Remove comment when functionality exists
 }
 .dislike:hover {
   transform: scale(1.2);
+}
+.img {
+  position: relative;
+  top: 5px;
 }
 
 @media only screen and (max-width: 400px) {

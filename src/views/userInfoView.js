@@ -4,23 +4,24 @@ function userInfoView(props) {
     "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
   const books = props.likedBooks;
 
-
-  
   function bookTableCB(bookarray) {
-    function removeBookACB(){
+    function removeBookACB() {
       props.removeBook(bookarray);
     }
     return (
       <tr>
         <td>
-          <img src={bookIcon} height="30" />
-          {bookarray}
-          <button class="likedBookRemove" onClick={removeBookACB}>x</button>
+          <img src={bookIcon} height="30" class="img" />
+
+          {" " + bookarray}
+          <button class="likedBookRemove" onClick={removeBookACB}>
+            x
+          </button>
         </td>
       </tr>
     );
   }
-  if(!(typeof(books) == "undefined")){
+  if (!(typeof books == "undefined")) {
     return (
       <div class="profileInfo">
         <br></br>
@@ -28,10 +29,10 @@ function userInfoView(props) {
           <img src={userIcon} alt="User image" height="150" />
         </div>
 
-        <div class = "profileInfoHeader">Hi.</div>
-        <div class = "profileInfoHeader">Here's your liked books.</div>
-        
-        <div class = "tableContainer">
+        <div class="profileInfoHeader">Hi.</div>
+        <div class="profileInfoHeader">Here's your liked books.</div>
+
+        <div class="tableContainer">
           <table class="table">
             <tbody>{books.map(bookTableCB)}</tbody>
           </table>
@@ -46,9 +47,7 @@ function userInfoView(props) {
         </button>
       </div>
     );
-  } 
+  }
 }
-
-
 
 export default userInfoView;
