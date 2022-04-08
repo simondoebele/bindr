@@ -47,7 +47,7 @@ export default function App(props) {
         </Show>
 
         <Show hash="#details">
-          <Details />{" "}
+          <Details model={props.model} />{" "}
         </Show>
       </div>
     </div>

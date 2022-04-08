@@ -1,4 +1,4 @@
-import bookDetailsView from "../views/bookDetailsView";
-export default function bookDetails(props) {
-  return <bookDetailsView />;
+import BookDetailsView from "../views/bookDetailsView";
+export default function BookDetails(props) {
+  return <BookDetailsView currentBook={props.model.currentBook} />;
 }
