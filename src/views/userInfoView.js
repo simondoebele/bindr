@@ -8,12 +8,19 @@ function userInfoView(props) {
     function removeBookACB() {
       props.removeBook(bookarray);
     }
+
     return (
       <tr>
         <td>
           <img src={bookIcon} height="30" class="img" />
 
-          <span class="cut-off" title={bookarray}>
+          <span
+            class="cut-off"
+            title={bookarray}
+            onClick={function () {
+              window.location.hash = "#details";
+            }}
+          >
             {bookarray}
           </span>
           <button
