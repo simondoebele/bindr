@@ -7,6 +7,14 @@ function BookDetailsView(props) {
           style="display:inline-block;vertical-align:top; float: left;"
         >
           <img src={props.currentBook.img}></img>
+          <br />
+          <button
+            onClick={function () {
+              window.location.hash = "#userinfo";
+            }}
+          >
+            Cancel
+          </button>
         </div>
         <div style="display:inline-block; float: right; position: relative; top:50px; font-size:30px">
           {props.currentBook.title}
