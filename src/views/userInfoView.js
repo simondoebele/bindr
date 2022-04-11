@@ -9,18 +9,18 @@ function userInfoView(props) {
       props.removeBook(bookarray);
     }
 
+    function selectedBookACB() {
+      //props.changeCurrentBook();
+      //props.selectedBook(isbn);
+      window.location.hash = "#details";
+    }
+
     return (
       <tr>
         <td>
           <img src={bookIcon} height="30" class="img" />
 
-          <span
-            class="cut-off"
-            title={bookarray}
-            onClick={function () {
-              window.location.hash = "#details";
-            }}
-          >
+          <span class="cut-off" title={bookarray} onClick={selectedBookACB}>
             {bookarray}
           </span>
           <button

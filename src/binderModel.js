@@ -1,192 +1,211 @@
+import { setTransitionHooks } from "@vue/runtime-core";
 import { getDishDetails, searchDishes, getBookDetails } from "./dishSource";
 import resolvePromise from "./resolvePromise";
 
-class BinderModel{
-    constructor(nrGuests=2, dishArray=[], currentDish){
-        this.observers = [];
-        this.setNumberOfGuests(nrGuests);
-        this.dishes= dishArray;
-        this.searchResultsPromiseState = {};
-        this.searchParams = {};
-        this.currentDishPromiseState = {};
-        this.currentBookPromiseState = {};
+class BinderModel {
+  constructor(nrGuests = 2, dishArray = [], currentDish) {
+    this.observers = [];
+    this.setNumberOfGuests(nrGuests);
+    this.dishes = dishArray;
+    this.searchResultsPromiseState = {};
+    this.searchParams = {};
+    this.currentDishPromiseState = {};
+    this.currentBookPromiseState = {};
 
-        this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
-    
-        this.likedBooks = [];
-        this.listOfBooks = [{title:"Don Quioxte", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg"}, 
-                            {title:"Frankenstein", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"}
-                            ]
-        //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
-        this.currentBook = this.listOfBooks[0]; 
+    this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
 
-        //this.book = getBookDetails();
-        // this.book.works is an array of 12 works
-        // each work has e.g a title.
-        resolvePromise(getBookDetails(this.userSubjects[0]), this.currentBookPromiseState)
-        
+    this.likedBooks = [];
+    this.listOfBooks = [
+      {
+        title: "Don Quioxte",
+        img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg",
+      },
+      {
+        title: "Frankenstein",
+        img: "https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg",
+      },
+    ];
+    //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
+    this.currentBook = this.listOfBooks[0];
+
+    //this.book = getBookDetails();
+    // this.book.works is an array of 12 works
+    // each work has e.g a title.
+    resolvePromise(
+      getBookDetails(this.userSubjects[0]),
+      this.currentBookPromiseState
+    );
+  }
+
+  addBookLiked(title) {
+    if (
+      !this.likedBooks.find(function isBookinCB(book) {
+        return book === title.id;
+      })
+    ) {
+      this.likedBooks = [...this.likedBooks, title.id];
+      this.notifyObservers({ addBook: title });
+    }
+  }
+
+  removeLikedBook(title) {
+    function hasSameTitleCB(likedTitle) {
+      if (likedTitle != title) {
+        return true;
+      }
+      return false;
+    }
+    if (
+      this.likedBooks.find(function isBookInLikedCB(likedTitle) {
+        return likedTitle === title;
+      })
+    ) {
+      this.likedBooks = this.likedBooks.filter(hasSameTitleCB);
+      this.notifyObservers({ removeLikedBook: title });
+    }
+  }
+
+  fetchNextSub() {
+    const tmp = this.userSubjects[0];
+    resolvePromise(getBookDetails(tmp), this.currentBookPromiseState);
+    this.userSubjects.shift();
+    this.userSubjects = [...this.userSubjects, tmp];
+  }
+  changeCurrentBook() {
+    function titleExtractorCB(elem) {
+      const base_url = "https://covers.openlibrary.org/b/id/";
+      const cover_id = elem.cover_id + "-M.jpg";
+
+      return { title: elem.title, img: base_url + cover_id };
+      //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
     }
 
-    addBookLiked(title){
-        
-        if(!this.likedBooks.find(function isBookinCB(book){return book === title.id})){
-            this.likedBooks = [...this.likedBooks ,title.id] 
-            this.notifyObservers({addBook: title})
-        }
+    if (this.listOfBooks.length < 5) {
+      //Beware!! This might be troublesome in the future, might wanna have an extra promisState.
+      const a = this.currentBookPromiseState.data.works.map(titleExtractorCB);
+      this.fetchNextSub();
+
+      this.listOfBooks = this.listOfBooks.concat(a);
     }
 
-    removeLikedBook(title){
-        function hasSameTitleCB(likedTitle){
+    this.listOfBooks.shift();
+    this.currentBook = this.listOfBooks[0];
+  }
 
-            if(likedTitle != title){
-                return true;
-            }
-            return false;
-            
-        }
-        if(this.likedBooks.find(function isBookInLikedCB(likedTitle){return likedTitle === title})){
-            this.likedBooks = this.likedBooks.filter(hasSameTitleCB);
-            this.notifyObservers({removeLikedBook: title})   
-        }
+  addObserver(callback) {
+    this.observers = [...this.observers, callback];
+  }
+
+  removeObserver(callback) {
+    console.log(this.observers);
+    this.observers = this.observers.filter(function (observer) {
+      return observer !== callback;
+    });
+    console.log(this.observers);
+  }
+
+  notifyObservers(payload) {
+    this.observers.forEach(function invokeObserverCB(obs) {
+      try {
+        obs(payload);
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  }
+
+  setSearchQuery(q) {
+    this.searchParams.query = q;
+  }
+
+  setSearchType(t) {
+    this.searchParams.type = t;
+  }
+
+  doSearch(params) {
+    const theModel = this;
+
+    function notifyACB() {
+      theModel.notifyObservers();
     }
 
-    fetchNextSub(){
-        const tmp = this.userSubjects[0];
-        resolvePromise(getBookDetails(tmp), this.currentBookPromiseState)
-        this.userSubjects.shift();
-        this.userSubjects = [...this.userSubjects, tmp]
-    }
-    changeCurrentBook(){
+    resolvePromise(
+      searchDishes(params),
+      this.searchResultsPromiseState,
+      notifyACB
+    );
+  }
 
-        function titleExtractorCB(elem){
-            const base_url = "https://covers.openlibrary.org/b/id/"
-            const cover_id = elem.cover_id + "-M.jpg"
-            
+  setCurrentDish(id) {
+    var old = this.currentDish;
+    this.currentDish = id; //updated value
 
-            return ({title:elem.title, img:base_url + cover_id})
-            //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
-        }
+    const theModel = this;
 
-        
-
-        if(this.listOfBooks.length < 5){ //Beware!! This might be troublesome in the future, might wanna have an extra promisState.
-            const a = this.currentBookPromiseState.data.works.map(titleExtractorCB)
-            this.fetchNextSub();
-            
-            this.listOfBooks = this.listOfBooks.concat(a);
-        }
-
-        this.listOfBooks.shift()
-        this.currentBook = this.listOfBooks[0]
+    function notifyACB() {
+      theModel.notifyObservers();
     }
 
-    addObserver(callback){
-        this.observers = [...this.observers, callback]
+    if (id !== undefined && old != this.currentDish) {
+      resolvePromise(
+        getDishDetails(id),
+        this.currentDishPromiseState,
+        notifyACB
+      );
+      this.notifyObservers({ setCurrent: id });
     }
+  }
 
-    removeObserver(callback){
-        console.log(this.observers);
-        this.observers = this.observers.filter(function (observer){return observer !== callback})
-        console.log(this.observers);
+  //getbookdetails need to change to isbn, what is currentbook atm? add notify observers
+  setCurrentBook(isbn) {
+    var old = this.currentBook;
+    this.currentBook = isbn;
 
+    if (isbn !== undefined && old != this.currentBook) {
+      resolvePromise(getBookDetails(isbn), this.currentBookPromiseState);
     }
+  }
 
-    notifyObservers(payload){
-        this.observers.forEach(
-                function invokeObserverCB(obs){
-                    try{obs(payload)}
-                    catch(err){console.log(err)}
-                }
-        )
+  setNumberOfGuests(nr) {
+    var temp = this.numberOfGuests;
+
+    if (nr >= 1 && Number.isInteger(nr)) {
+      this.numberOfGuests = nr;
+
+      if (temp !== this.numberOfGuests) {
+        this.notifyObservers({ nrGuests: nr });
+      }
+    } else {
+      throw "number of guests not a positive integer";
     }
-            
-
-    setSearchQuery(q){
-        this.searchParams.query = q
+  }
+  addToMenu(dishToAdd) {
+    if (
+      !this.dishes.find(function isDishInMenuCB(dish) {
+        return dish.id === dishToAdd.id;
+      })
+    ) {
+      this.dishes = [...this.dishes, dishToAdd];
+      this.notifyObservers({ addDish: dishToAdd });
     }
+  }
 
-    setSearchType(t){
-        this.searchParams.type = t
+  removeFromMenu(dishToRemove) {
+    function hasSameIdCB(dish) {
+      if (dish.id != dishToRemove.id) {
+        return true;
+      }
+      return false;
     }
-
-    doSearch(params){
-    
-
-        const theModel = this;
-
-        function notifyACB(){
-            theModel.notifyObservers();
-
-        }
-
-        resolvePromise(searchDishes(params), this.searchResultsPromiseState, notifyACB)
+    if (
+      this.dishes.find(function isDishInMenuCB(dish) {
+        return dish.id === dishToRemove.id;
+      })
+    ) {
+      this.dishes = this.dishes.filter(hasSameIdCB);
+      this.notifyObservers({ removeDish: dishToRemove });
     }
-
-    setCurrentDish(id){
-        var old = this.currentDish 
-        this.currentDish = id; //updated value
-
-        const theModel = this;
-
-        function notifyACB(){
-            theModel.notifyObservers();
-
-        }
-
-        if(id !== undefined && old != this.currentDish){
-            resolvePromise(getDishDetails(id), this.currentDishPromiseState, notifyACB);
-            this.notifyObservers({setCurrent : id})
-        }
-        
-    }
-
-    
-
-    setNumberOfGuests(nr){
-
-        var temp = this.numberOfGuests
-
-        if (nr >= 1 && Number.isInteger(nr)) {
-            this.numberOfGuests = nr;
-            
-
-            if(temp !== this.numberOfGuests){
-                this.notifyObservers({nrGuests: nr})
-    
-            }
-
-        }else{throw 'number of guests not a positive integer';}
-
-        
-       
-
-    }
-    addToMenu(dishToAdd){
-        if(!this.dishes.find(function isDishInMenuCB(dish){return dish.id === dishToAdd.id})){
-            this.dishes= [...this.dishes, dishToAdd];
-            this.notifyObservers({addDish: dishToAdd})
-            
-        }
-    }
-    
-    removeFromMenu(dishToRemove){
-       
-        function hasSameIdCB(dish){
-
-            if(dish.id != dishToRemove.id){
-                return true;
-            }
-            return false;
-
-        }
-        if(this.dishes.find(function isDishInMenuCB(dish){return dish.id === dishToRemove.id})){
-            this.dishes = this.dishes.filter(hasSameIdCB);
-            this.notifyObservers({removeDish: dishToRemove})   
-        }
-        
-
-    }
- 
+  }
 }
 
 export default BinderModel;
