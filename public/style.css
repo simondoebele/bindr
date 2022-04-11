@@ -535,6 +535,27 @@ Remove comment when functionality exists
   position: middle;
 }
 
+.removeButton {
+  position: relative;
+  left: 0px;
+  top: -8px;
+}
+
+.bookCoverDetails {
+  vertical-align: top;
+  float: left;
+}
+.bookTitleDetails {
+  float: right;
+  position: relative;
+  font-size: 30px;
+}
+
+.bookDescriptionDetails {
+  position: relative;
+  right: 45px;
+}
+
 @media only screen and (max-width: 400px) {
   .flexParent {
     flex-direction: column;

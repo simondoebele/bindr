@@ -2,10 +2,7 @@ function BookDetailsView(props) {
   return (
     <div class="detailsView">
       <div class="bookInfo">
-        <div
-          class="bookCover"
-          style="display:inline-block;vertical-align:top; float: left;"
-        >
+        <div class="bookCover, bookCoverDetails">
           <img src={props.currentBook.img}></img>
           <br />
           <button
@@ -16,11 +13,9 @@ function BookDetailsView(props) {
             Cancel
           </button>
         </div>
-        <div style="display:inline-block; float: right; position: relative; top:50px; font-size:30px">
-          {props.currentBook.title}
-        </div>
+        <div class="bookTitleDetails">{props.currentBook.title}</div>
 
-        <div style="position: relative; top:60px; right: 45px">Description</div>
+        <div class="bookDescriptionDetails">Description</div>
       </div>
     </div>
   );

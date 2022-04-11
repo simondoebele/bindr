@@ -23,10 +23,7 @@ function userInfoView(props) {
           <span class="cut-off" title={bookarray} onClick={selectedBookACB}>
             {bookarray}
           </span>
-          <button
-            style="position: relative;  left:0px; top:-8px;"
-            onClick={removeBookACB}
-          >
+          <button class="removeButton" onClick={removeBookACB}>
             x
           </button>
         </td>
