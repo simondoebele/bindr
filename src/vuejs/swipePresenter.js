@@ -1,5 +1,5 @@
 import SwipeView from "/src/views/swipeView.js"
-import PromiseNoData from "/src/views/promiseNoData.js"
+import WaitUndef from "/src/views/waitUndef.js"
 
 
 // TODO: 
@@ -20,7 +20,7 @@ function Swipe(props){
 
 
     return (
-        PromiseNoData(props.model.currentDishPromiseState) || 
+         WaitUndef(props.model.currentBook)|| 
             <SwipeView 
                 currentBook = {props.model.currentBook}
                 onAddToLiked = {onAddToLikedACB}

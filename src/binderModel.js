@@ -9,6 +9,7 @@ class BinderModel{
         this.searchResultsPromiseState = {};
         this.searchParams = {};
         this.currentDishPromiseState = {};
+        this.currentSubjPromiseState = {};
         this.currentBookPromiseState = {};
 
         this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
@@ -24,7 +25,7 @@ class BinderModel{
         // this.book.works is an array of 12 works
         // each work has e.g a title.
 
-        resolvePromise(getSubDetails(this.userSubjects[0]), this.currentBookPromiseState)
+        resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState)
         //resolvePromise(getBookDetails("works/OL8193508W"), this.currentBookPromiseState)
         //resolvePromise(getBookDetailsISBN("9780385533225"), this.currentBookPromiseState)
         
@@ -54,7 +55,7 @@ class BinderModel{
 
     fetchNextSub(){
         const tmp = this.userSubjects[0];
-        resolvePromise(getSubDetails(tmp), this.currentBookPromiseState)
+        resolvePromise(getSubDetails(tmp), this.currentSubjPromiseState)
         this.userSubjects.shift();
         this.userSubjects = [...this.userSubjects, tmp]
     }
@@ -73,7 +74,7 @@ class BinderModel{
         
 
         if(this.listOfBooks.length < 5){ //Beware!! This might be troublesome in the future, might wanna have an extra promisState.
-            const a = this.currentBookPromiseState.data.works.map(titleExtractorCB)
+            const a = this.currentSubjPromiseState.data.works.map(titleExtractorCB)
             this.fetchNextSub();
             
             this.listOfBooks = this.listOfBooks.concat(a);

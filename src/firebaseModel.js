@@ -59,29 +59,6 @@ const REF1 = "binder-e215b"
 }
 
 function updateModelFromFirebase(model) {
- //REMOVE >
-    firebase.database().ref(REF + "/numberGuests").on(
-        "value",
-        function guestsChangedInFirebaseACB(firebaseData) {
-            model.setNumberOfGuests(firebaseData.val());
-        })
-
-    firebase.database().ref(REF + "/currentDish").on(
-        "value",
-        function dishChangedInFirebaseACB(firebaseData) {
-            model.setCurrentDish(firebaseData.val());
-        })
-
-    function fetchDishDataBasedOnID(id) {
-        return getDishDetails(id);
-    }
-    function getIdFromFirebase(data) {
-        // only initiate promise if NOT inside dishes
-        if(!model.dishes.find(function isDishInMenuCB(dish){return dish.id == data.key})){
-            fetchDishDataBasedOnID(data.key).then(function AddDishToMenu(dish) { model.addToMenu(dish)}) 
-        }
-    }
-//REMOVE <
     
     function addLikedBook(data) {
         function getBookFromJson(json) {
