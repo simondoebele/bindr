@@ -1,7 +1,7 @@
 function SwipeView(props){
 
     function addBookACB(){
-        props.onAddToMenu(props.currentBook);
+        props.onAddToLiked(props.currentBook);
         props.changeCurrentBook()
     }
 

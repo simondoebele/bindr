@@ -1,5 +1,5 @@
 import SwipeView from "/src/views/swipeView.js"
-import PromiseNoData from "/src/views/promiseNoData.js"
+import WaitUndef from "/src/views/waitUndef.js"
 
 
 // TODO: 
@@ -10,7 +10,7 @@ function Swipe(props){
         return dish.id === props.model.currentDish;
     }
 
-    function onAddToMenuACB(book){
+    function onAddToLikedACB(book){
         props.model.addBookLiked(book) //Switch to currentBookPromiseState 
     }
     function changeCurrentBookACB(){
@@ -20,13 +20,10 @@ function Swipe(props){
 
 
     return (
-        PromiseNoData(props.model.currentDishPromiseState) || 
+         WaitUndef(props.model.currentBook)|| 
             <SwipeView 
-                guests={props.model.numberOfGuests} 
-                dishData = {props.model.currentDishPromiseState.data} 
                 currentBook = {props.model.currentBook}
-                onAddToMenu = {onAddToMenuACB}
-                isDishInMenu = {props.model.dishes.find(isDishInMenuCB)}
+                onAddToLiked = {onAddToLikedACB}
                 changeCurrentBook = {changeCurrentBookACB} 
             />)
 }
