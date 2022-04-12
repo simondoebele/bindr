@@ -10,8 +10,7 @@ function userInfoView(props) {
     }
 
     function selectedBookACB() {
-      //props.changeCurrentBook();
-      //props.selectedBook(isbn);
+      //props.selectedBook(books); //book object to change current
       window.location.hash = "#details";
     }
 

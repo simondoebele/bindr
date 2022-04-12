@@ -3,7 +3,7 @@ import { getDishDetails, searchDishes, getBookDetails } from "./dishSource";
 import resolvePromise from "./resolvePromise";
 
 class BinderModel {
-  constructor(nrGuests = 2, dishArray = [], currentDish) {
+  constructor(nrGuests = 2, dishArray = [], currentDish, currentBookDetails) {
     this.observers = [];
     this.setNumberOfGuests(nrGuests);
     this.dishes = dishArray;
@@ -156,10 +156,10 @@ class BinderModel {
     }
   }
 
-  //getbookdetails need to change to isbn, what is currentbook atm? add notify observers
+  //getbookdetails need to change to isbn, what is currentbook atm? add notify observers, book object instead of isbn
   setCurrentBook(isbn) {
-    var old = this.currentBook;
-    this.currentBook = isbn;
+    var old = this.currentBookDetails;
+    this.currentBookDetails = isbn;
 
     if (isbn !== undefined && old != this.currentBook) {
       resolvePromise(getBookDetails(isbn), this.currentBookPromiseState);
