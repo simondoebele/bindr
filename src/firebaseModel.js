@@ -23,18 +23,6 @@ const REF1 = "binder-e215b"
     function observerACB(payload) {
         // payload is js object, key value pair (key : value)
         if (payload) {
-            if (payload.nrGuests) {
-                firebase.database().ref(REF + "/numberGuests").set(payload.nrGuests);
-            }
-            if (payload.removeDish) {
-                firebase.database().ref(REF + "/Dishes/" + payload.removeDish.id).set(null);
-            }
-            if (payload.addDish) {
-                firebase.database().ref(REF + "/Dishes/" + payload.addDish.id).set(payload.addDish.id);
-            }
-            if (payload.setCurrent) {
-                firebase.database().ref(REF + "/currentDish").set(payload.setCurrent);
-            }
             //New stuff
             if (payload.addBook) {
                 if(!(typeof(payload.addBook.title) == "undefined")) { 
@@ -71,7 +59,7 @@ const REF1 = "binder-e215b"
 }
 
 function updateModelFromFirebase(model) {
-
+ //REMOVE >
     firebase.database().ref(REF + "/numberGuests").on(
         "value",
         function guestsChangedInFirebaseACB(firebaseData) {
@@ -93,7 +81,7 @@ function updateModelFromFirebase(model) {
             fetchDishDataBasedOnID(data.key).then(function AddDishToMenu(dish) { model.addToMenu(dish)}) 
         }
     }
-    
+//REMOVE <
     
     function addLikedBook(data) {
         function getBookFromJson(json) {
@@ -110,44 +98,39 @@ function updateModelFromFirebase(model) {
         }
         
     }
-    function removeIdFromFirebase(data) {
-        //doesnt need to init promise
-        model.removeFromMenu({id : +data.key}) // dummy literal
-    }
-
-    firebase.database().ref(REF + "/Dishes").on(
-        "child_added",
-        getIdFromFirebase)
-
-    firebase.database().ref(REF + "/Dishes").on(
-        "child_removed",
-        removeIdFromFirebase)
 
     firebase.database().ref(REF1 + "/likedBooks").on("child_added", addLikedBook)
     }
 
 
-    function firebaseModelPromise(){
 
+function firebaseModelPromise(){
+        
 
-        function allDishesRecvPromiseACB(firebaseData){
-            
+    function allBooksRecvPromiseACB(firebaseData){
+        
 
-            function makeDishPromiseCB(dishId){
-                return getDishDetails(dishId)
+        function makeBooksPromiseCB(OLkey){
+            function getBookFromJson(json) {
+                const title = json.title
+                const key = OLkey
+                const img = json.covers[0]
+                const book = {title:title, img:img, key:key}
+                return book;
             }
+            return getBookDetails(OLkey).then(getBookFromJson)
+        }
 
-            function createModelACB(dishArray){
-                return new BinderModel(firebaseData.val().numberGuests, dishArray)
-    
-            }
-
-            const dishPromiseArray= Object.keys(firebaseData.val().Dishes ).map(makeDishPromiseCB);
-
-            return Promise.all(dishPromiseArray).then(createModelACB)
+        function createModelACB(booksArray){
+            return new BinderModel(booksArray)
 
         }
-        return firebase.database().ref(REF).once("value").then(allDishesRecvPromiseACB);
+        const booksPromiseArray= Object.keys(firebaseData.val().likedBooks).map(makeBooksPromiseCB);
+
+        return Promise.all(booksPromiseArray).then(createModelACB)
+
+    }
+    return firebase.database().ref(REF1).get("value").then(allBooksRecvPromiseACB);
 }
 
 

@@ -2,10 +2,10 @@ import { getDishDetails, searchDishes, getBookDetails, getSubDetails} from "./di
 import resolvePromise from "./resolvePromise";
 
 class BinderModel{
-    constructor(nrGuests=2, dishArray=[], currentDish){
+    constructor(likedArray=[]){
         this.observers = [];
-        this.setNumberOfGuests(nrGuests);
-        this.dishes= dishArray;
+        //this.setNumberOfGuests(nrGuests);
+        //this.dishes= dishArray;
         this.searchResultsPromiseState = {};
         this.searchParams = {};
         this.currentDishPromiseState = {};
@@ -13,7 +13,7 @@ class BinderModel{
 
         this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
     
-        this.likedBooks = [];
+        this.likedBooks = likedArray;
         this.listOfBooks = [{title:"Don Quixote", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg", key: "OL14873215W"}, 
                             {title:"Frankenstein; or, The Modern Prometheus", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg", key:"OL450063W"}
                             ]
