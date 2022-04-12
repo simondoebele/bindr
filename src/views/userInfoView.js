@@ -14,7 +14,7 @@ function userInfoView(props) {
           <img src={bookIcon} height="30" class="img" />
 
           <span class="cut-off" title={bookarray}>
-            {bookarray}
+            {bookarray.title}
           </span>
           <button
             style="position: relative;  left:0px; top:-8px;"
