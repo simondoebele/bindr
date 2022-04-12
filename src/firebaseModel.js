@@ -1,7 +1,7 @@
 // do not import firebase, it is done for you by the 3.5 tests!
 // this is needed so that unit tests can inject a mock firebase
 import firebaseConfig from "/src/firebaseConfig.js";
-import {getDishDetails, getBookDetails}  from "./dishSource.js";
+import {getBookDetails}  from "./bookSource.js";
 import BinderModel from "./binderModel";
 firebase.initializeApp({
     apiKey: "AIzaSyBH2BtAtW0SS6jwGDw5dMjVDH_sOB9dZKY",
@@ -13,9 +13,7 @@ firebase.initializeApp({
     appId: "1:684501139736:web:3276001a1e827f698d9e6d"
 });
 
-//  NN is your TW2_TW3 group number
-const REF = "dinnerModel50"; //switch this to binder-e215b when old firebase is done
-const REF1 = "binder-e215b"
+const REF = "binder-e215b"
 
 
 
@@ -26,14 +24,14 @@ const REF1 = "binder-e215b"
             //New stuff
             if (payload.addBook) {
                 if(!(typeof(payload.addBook.title) == "undefined")) { 
-                    firebase.database().ref(REF1 + "/likedBooks/" + payload.addBook.key).set(payload.addBook.title);
+                    firebase.database().ref(REF + "/likedBooks/" + payload.addBook.key).set(payload.addBook.title);
                 }
             }
             if (payload.removeLikedBook) {
-                firebase.database().ref(REF1 + "/likedBooks/" + payload.removeLikedBook.key).set(null);
+                firebase.database().ref(REF + "/likedBooks/" + payload.removeLikedBook.key).set(null);
             }
             if (payload.addGenre) {
-                firebase.database().ref(REF1 + "/Genres/" + payload.addGenre.id).set(payload.addGenre.id);
+                firebase.database().ref(REF + "/Genres/" + payload.addGenre.id).set(payload.addGenre.id);
             }
             if (payload.addAccount) {
                 const auth = getAuth();
@@ -76,7 +74,7 @@ function updateModelFromFirebase(model) {
         
     }
 
-    firebase.database().ref(REF1 + "/likedBooks").on("child_added", addLikedBook)
+    firebase.database().ref(REF + "/likedBooks").on("child_added", addLikedBook)
     }
 
 
@@ -107,7 +105,7 @@ function firebaseModelPromise(){
         return Promise.all(booksPromiseArray).then(createModelACB)
 
     }
-    return firebase.database().ref(REF1).get("value").then(allBooksRecvPromiseACB);
+    return firebase.database().ref(REF).get("value").then(allBooksRecvPromiseACB);
 }
 
 

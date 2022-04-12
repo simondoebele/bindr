@@ -1,4 +1,4 @@
-import { getDishDetails, searchDishes, getBookDetails, getSubDetails} from "./dishSource";
+import {getBookDetails, getSubDetails} from "./bookSource";
 import resolvePromise from "./resolvePromise";
 
 class BinderModel{
