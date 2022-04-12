@@ -8,7 +8,7 @@ function treatHTTPResponseACB(response){
     else{return response.json()}
 }
 
-function getBookDetails(subject) {
+function getSubDetails(subject) {
     console.log("fetching: ", subject);
     const base_url = "https://openlibrary.org/subjects/"
     return fetch(base_url+ subject + ".json") 
@@ -16,7 +16,15 @@ function getBookDetails(subject) {
       .then((res) => res.json())
       .catch((err) => console.log(err));
   }
-  
+
+function getBookDetails(key) {
+    console.log("fetching: ", key);
+    const base_url = "https://openlibrary.org/works/"
+    return fetch(base_url+ key + ".json") 
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+}
+
   //https://openlibrary.org/api/books?bibkeys=ISBN:" +
   // "9780385533225" +
   // "&jscmd=data&format=json"
@@ -47,4 +55,4 @@ function searchDishes(params){
 }
 
 
-export { getDishDetails, searchDishes, getBookDetails };
+export { getDishDetails, searchDishes, getSubDetails, getBookDetails};

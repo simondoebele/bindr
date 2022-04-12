@@ -1,7 +1,7 @@
 // do not import firebase, it is done for you by the 3.5 tests!
 // this is needed so that unit tests can inject a mock firebase
 import firebaseConfig from "/src/firebaseConfig.js";
-import {getDishDetails}  from "./dishSource.js";
+import {getDishDetails, getBookDetails}  from "./dishSource.js";
 import BinderModel from "./binderModel";
 firebase.initializeApp({
     apiKey: "AIzaSyBH2BtAtW0SS6jwGDw5dMjVDH_sOB9dZKY",
@@ -37,10 +37,12 @@ const REF1 = "binder-e215b"
             }
             //New stuff
             if (payload.addBook) {
-                firebase.database().ref(REF1 + "/likedBooks/" + payload.addBook.id).set(payload.addBook.id);
+                if(!(typeof(payload.addBook.title) == "undefined")) { 
+                    firebase.database().ref(REF1 + "/likedBooks/" + payload.addBook.key).set(payload.addBook.title);
+                }
             }
             if (payload.removeLikedBook) {
-                firebase.database().ref(REF1 + "/likedBooks/" + payload.removeLikedBook).set(null);
+                firebase.database().ref(REF1 + "/likedBooks/" + payload.removeLikedBook.key).set(null);
             }
             if (payload.addGenre) {
                 firebase.database().ref(REF1 + "/Genres/" + payload.addGenre.id).set(payload.addGenre.id);
@@ -91,11 +93,22 @@ function updateModelFromFirebase(model) {
             fetchDishDataBasedOnID(data.key).then(function AddDishToMenu(dish) { model.addToMenu(dish)}) 
         }
     }
+    
+    
     function addLikedBook(data) {
-        if(!model.likedBooks.find(function isBookInLikedCB(book){return book.id == data.key})){
-            model.addBookLiked({id:data.key})
+        function getBookFromJson(json) {
+            //here we can add description, or we just fetch it in details
+            const title = json.title
+            const key = data.key
+            const img = json.covers[0]
+            const book = {title:title, img:img, key:key}
+            return book;
         }
-
+        if(!model.likedBooks.find(function isBookInLikedCB(book){return book.key == data.key})){
+            getBookDetails(data.key).then(getBookFromJson).then(function addNewBook(book){ model.addBookLiked(book)})
+            //model.addBookLiked({id:data.key})
+        }
+        
     }
     function removeIdFromFirebase(data) {
         //doesnt need to init promise

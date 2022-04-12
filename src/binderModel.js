@@ -1,4 +1,4 @@
-import { getDishDetails, searchDishes, getBookDetails } from "./dishSource";
+import { getDishDetails, searchDishes, getBookDetails, getSubDetails} from "./dishSource";
 import resolvePromise from "./resolvePromise";
 
 class BinderModel{
@@ -14,8 +14,8 @@ class BinderModel{
         this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
     
         this.likedBooks = [];
-        this.listOfBooks = [{title:"Don Quioxte", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg"}, 
-                            {title:"Frankenstein", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg"}
+        this.listOfBooks = [{title:"Don Quixote", img:"https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg", key: "OL14873215W"}, 
+                            {title:"Frankenstein; or, The Modern Prometheus", img:"https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg", key:"OL450063W"}
                             ]
         //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
         this.currentBook = this.listOfBooks[0]; 
@@ -23,36 +23,38 @@ class BinderModel{
         //this.book = getBookDetails();
         // this.book.works is an array of 12 works
         // each work has e.g a title.
-        resolvePromise(getBookDetails(this.userSubjects[0]), this.currentBookPromiseState)
+
+        resolvePromise(getSubDetails(this.userSubjects[0]), this.currentBookPromiseState)
+        //resolvePromise(getBookDetails("works/OL8193508W"), this.currentBookPromiseState)
+        //resolvePromise(getBookDetailsISBN("9780385533225"), this.currentBookPromiseState)
         
     }
 
-    addBookLiked(title){
-        
-        if(!this.likedBooks.find(function isBookinCB(book){return book === title.id})){
-            this.likedBooks = [...this.likedBooks ,title.id] 
-            this.notifyObservers({addBook: title})
+    addBookLiked(bookToAdd){
+        if(!this.likedBooks.find(function isBookinCB(book){return book === bookToAdd.title}) && !(typeof(bookToAdd.title) == "undefined")){
+            this.likedBooks = [...this.likedBooks ,bookToAdd] 
+            this.notifyObservers({addBook: bookToAdd})
         }
     }
 
-    removeLikedBook(title){
-        function hasSameTitleCB(likedTitle){
+    removeLikedBook(book){
+        function hasSameTitleCB(likedBook){
 
-            if(likedTitle != title){
+            if(likedBook.title != book.title){
                 return true;
             }
             return false;
             
         }
-        if(this.likedBooks.find(function isBookInLikedCB(likedTitle){return likedTitle === title})){
+        if(this.likedBooks.find(function isBookInLikedCB(likedBook){return likedBook.title === book.title})){
             this.likedBooks = this.likedBooks.filter(hasSameTitleCB);
-            this.notifyObservers({removeLikedBook: title})   
+            this.notifyObservers({removeLikedBook: book})   
         }
     }
 
     fetchNextSub(){
         const tmp = this.userSubjects[0];
-        resolvePromise(getBookDetails(tmp), this.currentBookPromiseState)
+        resolvePromise(getSubDetails(tmp), this.currentBookPromiseState)
         this.userSubjects.shift();
         this.userSubjects = [...this.userSubjects, tmp]
     }
@@ -61,9 +63,10 @@ class BinderModel{
         function titleExtractorCB(elem){
             const base_url = "https://covers.openlibrary.org/b/id/"
             const cover_id = elem.cover_id + "-M.jpg"
+            const key = elem.key.replace("/works/","")
             
 
-            return ({title:elem.title, img:base_url + cover_id})
+            return ({title:elem.title, img:base_url + cover_id, key:key})
             //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
         }
 
