@@ -8,7 +8,7 @@ function treatHTTPResponseACB(response) {
   }
 }
 
-function getBookDetails(subject) {
+function getSubDetails(subject) {
   console.log("fetching: ", subject);
   const base_url = "https://openlibrary.org/subjects/";
   return (
@@ -17,6 +17,28 @@ function getBookDetails(subject) {
       .then((res) => res.json())
       .catch((err) => console.log(err))
   );
+}
+
+function getBookDetails(key) {
+  console.log("fetching: ", key);
+  const base_url = "https://openlibrary.org/works/";
+  return fetch(base_url + key + ".json")
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+}
+
+//https://openlibrary.org/api/books?bibkeys=ISBN:" +
+// "9780385533225" +
+// "&jscmd=data&format=json"
+
+function getDishDetails(id) {
+  return fetch(BASE_URL + "recipes/" + id + "/information", {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "X-Mashape-Key": API_KEY,
+    },
+  }).then(treatHTTPResponseACB);
 }
 
 //ISBN version
@@ -60,4 +82,4 @@ function searchDishes(params) {
     });
 }
 
-export { getDishDetails, searchDishes, getBookDetails };
+export { getDishDetails, searchDishes, getSubDetails, getBookDetails };

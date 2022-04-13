@@ -1,28 +1,30 @@
-import { setTransitionHooks } from "@vue/runtime-core";
-import { getDishDetails, searchDishes, getBookDetails } from "./dishSource";
+import { getBookDetails, getSubDetails } from "./bookSource";
 import resolvePromise from "./resolvePromise";
 
 class BinderModel {
-  constructor(nrGuests = 2, dishArray = [], currentDish, currentBookDetails) {
+  constructor(likedArray = []) {
     this.observers = [];
-    this.setNumberOfGuests(nrGuests);
-    this.dishes = dishArray;
+    //this.setNumberOfGuests(nrGuests);
+    //this.dishes= dishArray;
     this.searchResultsPromiseState = {};
     this.searchParams = {};
     this.currentDishPromiseState = {};
+    this.currentSubjPromiseState = {};
     this.currentBookPromiseState = {};
 
     this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
 
-    this.likedBooks = [];
+    this.likedBooks = likedArray;
     this.listOfBooks = [
       {
-        title: "Don Quioxte",
+        title: "Don Quixote",
         img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg",
+        key: "OL14873215W",
       },
       {
-        title: "Frankenstein",
+        title: "Frankenstein; or, The Modern Prometheus",
         img: "https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg",
+        key: "OL450063W",
       },
     ];
     //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
@@ -31,43 +33,47 @@ class BinderModel {
     //this.book = getBookDetails();
     // this.book.works is an array of 12 works
     // each work has e.g a title.
+
     resolvePromise(
-      getBookDetails(this.userSubjects[0]),
-      this.currentBookPromiseState
+      getSubDetails(this.userSubjects[0]),
+      this.currentSubjPromiseState
     );
+    //resolvePromise(getBookDetails("works/OL8193508W"), this.currentBookPromiseState)
+    //resolvePromise(getBookDetailsISBN("9780385533225"), this.currentBookPromiseState)
   }
 
-  addBookLiked(title) {
+  addBookLiked(bookToAdd) {
     if (
       !this.likedBooks.find(function isBookinCB(book) {
-        return book === title.id;
-      })
+        return book === bookToAdd.title;
+      }) &&
+      !(typeof bookToAdd.title == "undefined")
     ) {
-      this.likedBooks = [...this.likedBooks, title.id];
-      this.notifyObservers({ addBook: title });
+      this.likedBooks = [...this.likedBooks, bookToAdd];
+      this.notifyObservers({ addBook: bookToAdd });
     }
   }
 
-  removeLikedBook(title) {
-    function hasSameTitleCB(likedTitle) {
-      if (likedTitle != title) {
+  removeLikedBook(book) {
+    function hasSameTitleCB(likedBook) {
+      if (likedBook.title != book.title) {
         return true;
       }
       return false;
     }
     if (
-      this.likedBooks.find(function isBookInLikedCB(likedTitle) {
-        return likedTitle === title;
+      this.likedBooks.find(function isBookInLikedCB(likedBook) {
+        return likedBook.title === book.title;
       })
     ) {
       this.likedBooks = this.likedBooks.filter(hasSameTitleCB);
-      this.notifyObservers({ removeLikedBook: title });
+      this.notifyObservers({ removeLikedBook: book });
     }
   }
 
   fetchNextSub() {
     const tmp = this.userSubjects[0];
-    resolvePromise(getBookDetails(tmp), this.currentBookPromiseState);
+    resolvePromise(getSubDetails(tmp), this.currentSubjPromiseState);
     this.userSubjects.shift();
     this.userSubjects = [...this.userSubjects, tmp];
   }
@@ -75,14 +81,15 @@ class BinderModel {
     function titleExtractorCB(elem) {
       const base_url = "https://covers.openlibrary.org/b/id/";
       const cover_id = elem.cover_id + "-M.jpg";
+      const key = elem.key.replace("/works/", "");
 
-      return { title: elem.title, img: base_url + cover_id };
+      return { title: elem.title, img: base_url + cover_id, key: key };
       //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
     }
 
     if (this.listOfBooks.length < 5) {
       //Beware!! This might be troublesome in the future, might wanna have an extra promisState.
-      const a = this.currentBookPromiseState.data.works.map(titleExtractorCB);
+      const a = this.currentSubjPromiseState.data.works.map(titleExtractorCB);
       this.fetchNextSub();
 
       this.listOfBooks = this.listOfBooks.concat(a);
@@ -153,16 +160,6 @@ class BinderModel {
         notifyACB
       );
       this.notifyObservers({ setCurrent: id });
-    }
-  }
-
-  //getbookdetails need to change to isbn, what is currentbook atm? add notify observers, book object instead of isbn
-  setCurrentBook(isbn) {
-    var old = this.currentBookDetails;
-    this.currentBookDetails = isbn;
-
-    if (isbn !== undefined && old != this.currentBook) {
-      resolvePromise(getBookDetails(isbn), this.currentBookPromiseState);
     }
   }
 
