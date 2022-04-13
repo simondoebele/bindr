@@ -4,22 +4,18 @@ function userInfoView(props) {
     "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
   const books = props.likedBooks;
 
-  function bookTableCB(bookarray) {
-    console.log(bookarray)
-    function removeBookACB() {
-      props.removeBook(bookarray);
-    }
+  function bookTableCB(elem) {
     return (
       <tr>
         <td>
-          <img src={"https://covers.openlibrary.org/b/id/" + bookarray.img + "-S.jpg"} height="30" class="img" />
+          <img src={"https://covers.openlibrary.org/b/id/" + elem.img + "-S.jpg"} height="30" class="img" />
 
-          <span class="cut-off" title={bookarray.title}>
-            {bookarray.title}
+          <span class="cut-off" title={elem.title}>
+            {elem.title}
           </span>
           <button
             style="position: relative;  left:0px; top:-8px;"
-            onClick={removeBookACB}
+            onClick={function removeBookACB(){props.removeBook(elem);}}
           >
             x
           </button>
