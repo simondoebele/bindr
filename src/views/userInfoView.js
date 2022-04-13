@@ -5,15 +5,16 @@ function userInfoView(props) {
   const books = props.likedBooks;
 
   function bookTableCB(bookarray) {
+    console.log(bookarray)
     function removeBookACB() {
       props.removeBook(bookarray);
     }
     return (
       <tr>
         <td>
-          <img src={bookIcon} height="30" class="img" />
+          <img src={"https://covers.openlibrary.org/b/id/" + bookarray.img + "-S.jpg"} height="30" class="img" />
 
-          <span class="cut-off" title={bookarray}>
+          <span class="cut-off" title={bookarray.title}>
             {bookarray.title}
           </span>
           <button
