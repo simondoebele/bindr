@@ -20,7 +20,7 @@ function userInfoView(props) {
           <img src={bookIcon} height="30" class="img" />
 
           <span class="cut-off" title={bookarray} onClick={selectedBookACB}>
-            {bookarray}
+            {bookarray.title}
           </span>
           <button class="removeButton" onClick={removeBookACB}>
             x
