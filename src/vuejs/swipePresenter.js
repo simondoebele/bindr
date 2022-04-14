@@ -16,6 +16,10 @@ function Swipe(props){
     function changeCurrentBookACB(){
         props.model.changeCurrentBook()
     }
+
+    function setUserACB(){
+        props.model.setUser("test","test")
+    }
     
 
 
@@ -25,6 +29,7 @@ function Swipe(props){
                 currentBook = {props.model.currentBook}
                 onAddToLiked = {onAddToLikedACB}
                 changeCurrentBook = {changeCurrentBookACB} 
+                setUser = {setUserACB}
             />)
 }
 

@@ -13,77 +13,77 @@ firebase.initializeApp({
   messagingSenderId: "684501139736",
   appId: "1:684501139736:web:3276001a1e827f698d9e6d",
 });
-
 const REF = "binder-e215b";
 
 function updateFirebaseFromModel(model) {
-  function observerACB(payload) {
+
+	function observerACB(payload) {
     // payload is js object, key value pair (key : value)
-    if (payload) {
-      //New stuff
-      if (payload.addBook) {
-        if (!(typeof payload.addBook.title == "undefined")) {
-          firebase
-            .database()
-            .ref(REF + "/likedBooks/" + payload.addBook.key)
-            .set(payload.addBook.title);
-        }
-      }
-      if (payload.removeLikedBook) {
-        firebase
-          .database()
-          .ref(REF + "/likedBooks/" + payload.removeLikedBook.key)
-          .set(null);
-      }
-      if (payload.addGenre) {
-        firebase
-          .database()
-          .ref(REF + "/Genres/" + payload.addGenre.id)
-          .set(payload.addGenre.id);
-      }
-      if (payload.addAccount) {
-        const auth = getAuth();
-        firebase
-          .auth()
-          .createUserWithEmailAndPassword(
-            payload.addAccount.email,
-            payload.addAccount.pass
-          )
-          .then(userWasCreatedACB)
-          .catch();
-        // sign-in automatically after first login
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(
-            payload.addAccount.email,
-            payload.addAccount.pass
-          )
-          .then(userLoggedInACB)
-          .catch();
-      }
-      if (payload.deleteAccount) {
-        // TODO
-      }
-      if (payload.signIn) {
-        const auth = getAuth();
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(
-            payload.addAccount.email,
-            payload.addAccount.pass
-          )
-          .then(userLoggedInACB)
-          .catch();
-      }
-      if (payload.signOut) {
-        firebase
-          .auth()
-          .signOut()
-          .then(signoutSuccessACB)
-          .catch(signoutErrorACB);
-      }
-    }
-  }
+		if (payload) {
+			//New stuff
+			if (payload.addBook) {
+				if (!(typeof payload.addBook.title == "undefined")) {
+				firebase
+					.database()
+					.ref(REF + "/User/" + model.currentUser.uid +"/likedBooks/" + payload.addBook.key)
+					.set(payload.addBook.title);
+				}
+			}
+			if (payload.removeLikedBook) {
+				firebase
+				.database()
+				.ref(REF + "/likedBooks/" + payload.removeLikedBook.key)
+				.set(null);
+			}
+			if (payload.addGenre) {
+				firebase
+				.database()
+				.ref(REF + "/Genres/" + payload.addGenre.id)
+				.set(payload.addGenre.id);
+			}
+			if (payload.addAccount) {
+				const auth = getAuth();
+				firebase
+				.auth()
+				.createUserWithEmailAndPassword(
+					payload.addAccount.email,
+					payload.addAccount.pass
+				)
+				.then(userWasCreatedACB)
+				.catch();
+				// sign-in automatically after first login
+				firebase
+				.auth()
+				.signInWithEmailAndPassword(
+					payload.addAccount.email,
+					payload.addAccount.pass
+				)
+				.then(userLoggedInACB)
+				.catch();
+			}
+			if (payload.deleteAccount) {
+				// TODO
+			}
+			if (payload.signIn) {
+				const auth = getAuth();
+				firebase
+				.auth()
+				.signInWithEmailAndPassword(
+					payload.addAccount.email,
+					payload.addAccount.pass
+				)
+				.then(userLoggedInACB)
+				.catch();
+			}
+			if (payload.signOut) {
+				firebase
+				.auth()
+				.signOut()
+				.then(signoutSuccessACB)
+				.catch(signoutErrorACB);
+			}
+		}
+  	}	
   model.addObserver(observerACB);
 }
 
@@ -144,7 +144,4 @@ function firebaseModelPromise() {
 }
 
 export {
-  updateFirebaseFromModel,
-  updateModelFromFirebase,
-  firebaseModelPromise,
-};
+  updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise};

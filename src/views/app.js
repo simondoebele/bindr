@@ -28,14 +28,14 @@ export default function App(props) {
     <div class="flexParent">
       <div class="mainContent">
         <Show hash="#login">
-          <Login />{" "}
+          <Login model = {props.model} />{" "}
         </Show>
         <Show hash="#userinfo">
           <UserInfo model={props.model} />{" "}
         </Show>
 
         <Show hash="#create">
-          <Create />{" "}
+          <Create model = {props.model} />{" "}
         </Show>
 
         <Show hash="#pick">

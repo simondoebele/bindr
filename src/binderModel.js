@@ -1,5 +1,6 @@
 import { getBookDetails, getSubDetails } from "./bookSource";
 import resolvePromise from "./resolvePromise";
+import "firebase/auth";
 
 class BinderModel {
   constructor(likedArray = []) {
@@ -12,6 +13,8 @@ class BinderModel {
     this.currentSubjPromiseState = {};
     this.currentBookPromiseState = {};
     this.currentBookDetailsPromiseState = {};
+    
+    this.currentUser;
 
     this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
 
@@ -43,6 +46,38 @@ class BinderModel {
     //resolvePromise(getBookDetails("works/OL8193508W"), this.currentBookPromiseState)
     //resolvePromise(getBookDetailsISBN("9780385533225"), this.currentBookPromiseState)
   }
+
+    setUser(email, pass) {
+
+        firebase.auth().signInWithEmailAndPassword(email, pass)
+        .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            this.currentUser = user
+            console.log("great success!")
+            // ...
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorMessage)
+        });
+    }
+    createUser(email, pass) {
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+        .then((userCredential) => {
+            // Signed in 
+            var user = userCredential.user;
+            this.currentUser = user;
+            console.log("created user")
+            // ...
+        }).catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorMessage)
+            // ..
+        });
+    }
 
   addBookLiked(bookToAdd) {
     if (
@@ -122,47 +157,6 @@ class BinderModel {
     });
   }
 
-  setSearchQuery(q) {
-    this.searchParams.query = q;
-  }
-
-  setSearchType(t) {
-    this.searchParams.type = t;
-  }
-
-  doSearch(params) {
-    const theModel = this;
-
-    function notifyACB() {
-      theModel.notifyObservers();
-    }
-
-    resolvePromise(
-      searchDishes(params),
-      this.searchResultsPromiseState,
-      notifyACB
-    );
-  }
-
-  setCurrentDish(id) {
-    var old = this.currentDish;
-    this.currentDish = id; //updated value
-
-    const theModel = this;
-
-    function notifyACB() {
-      theModel.notifyObservers();
-    }
-
-    if (id !== undefined && old != this.currentDish) {
-      resolvePromise(
-        getDishDetails(id),
-        this.currentDishPromiseState,
-        notifyACB
-      );
-      this.notifyObservers({ setCurrent: id });
-    }
-  }
 
   setCurrentBook(book) {
     var old = this.currentBookDetails;
@@ -177,46 +171,10 @@ class BinderModel {
     }
   }
 
-  setNumberOfGuests(nr) {
-    var temp = this.numberOfGuests;
+  
+  
 
-    if (nr >= 1 && Number.isInteger(nr)) {
-      this.numberOfGuests = nr;
-
-      if (temp !== this.numberOfGuests) {
-        this.notifyObservers({ nrGuests: nr });
-      }
-    } else {
-      throw "number of guests not a positive integer";
-    }
-  }
-  addToMenu(dishToAdd) {
-    if (
-      !this.dishes.find(function isDishInMenuCB(dish) {
-        return dish.id === dishToAdd.id;
-      })
-    ) {
-      this.dishes = [...this.dishes, dishToAdd];
-      this.notifyObservers({ addDish: dishToAdd });
-    }
-  }
-
-  removeFromMenu(dishToRemove) {
-    function hasSameIdCB(dish) {
-      if (dish.id != dishToRemove.id) {
-        return true;
-      }
-      return false;
-    }
-    if (
-      this.dishes.find(function isDishInMenuCB(dish) {
-        return dish.id === dishToRemove.id;
-      })
-    ) {
-      this.dishes = this.dishes.filter(hasSameIdCB);
-      this.notifyObservers({ removeDish: dishToRemove });
-    }
-  }
+  
 }
 
 export default BinderModel;
