@@ -19,12 +19,12 @@ class BinderModel {
     this.listOfBooks = [
       {
         title: "Don Quixote",
-        img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/CC_No_11_Don_Quixote.jpg",
+        cover_id: "https://covers.openlibrary.org/b/id/9655663",
         key: "OL14873215W",
       },
       {
         title: "Frankenstein; or, The Modern Prometheus",
-        img: "https://upload.wikimedia.org/wikipedia/commons/3/39/Frankenstein.jpg",
+        cover_id: "https://covers.openlibrary.org/b/id/9545602",
         key: "OL450063W",
       },
     ];
@@ -81,12 +81,11 @@ class BinderModel {
   }
   changeCurrentBook() {
     function titleExtractorCB(elem) {
-      const base_url = "https://covers.openlibrary.org/b/id/";
-      const cover_id = elem.cover_id + "-M.jpg";
-      const key = elem.key.replace("/works/", "");
+        const cover_id = "https://covers.openlibrary.org/b/id/" + elem.cover_id;
+        const key = elem.key.replace("/works/", "");
 
-      return { title: elem.title, img: base_url + cover_id, key: key };
-      //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
+        return { title: elem.title, cover_id: cover_id, key: key };
+        //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
     }
 
     if (this.listOfBooks.length < 5) {

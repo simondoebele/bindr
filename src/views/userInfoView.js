@@ -16,7 +16,7 @@ function userInfoView(props) {
     return (
       <tr>
         <td>
-          <img src={"https://covers.openlibrary.org/b/id/" + elem.img + "-S.jpg"} height="30" class="img" />
+          <img src={elem.cover_id + "-S.jpg"} height="30" class="img" />
 
 
           <span class="cut-off" title={elem.title} onClick={selectedBookACB}>
