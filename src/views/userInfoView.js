@@ -4,23 +4,23 @@ function userInfoView(props) {
     "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
   const books = props.likedBooks;
 
-  function bookTableCB(bookarray) {
+  function bookTableCB(elem) {
     function removeBookACB() {
-      props.removeBook(bookarray);
+      props.removeBook(elem);
     }
 
     function selectedBookACB() {
-      props.selectedBook(bookarray); //book object to change current
+      props.selectedBook(elem); //book object to change current
       window.location.hash = "#details";
     }
-
     return (
       <tr>
         <td>
-          <img src={bookIcon} height="30" class="img" />
+          <img src={"https://covers.openlibrary.org/b/id/" + elem.img + "-S.jpg"} height="30" class="img" />
 
-          <span class="cut-off" title={bookarray} onClick={selectedBookACB}>
-            {bookarray.title}
+
+          <span class="cut-off" title={elem.title} onClick={selectedBookACB}>
+            {elem.title}
           </span>
           <button class="removeButton" onClick={removeBookACB}>
             x

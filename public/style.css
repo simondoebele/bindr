@@ -353,12 +353,8 @@ Remove comment when functionality exists
 }
 
 .table tbody img {
-  border-radius: 50%;
-  width: 7.5%;
-  height: 7.5%;
   margin-left: 5px;
 }
-
 .table button {
   border-radius: 50%;
   border-style: none;
