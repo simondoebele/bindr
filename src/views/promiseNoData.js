@@ -1,5 +1,4 @@
 function PromiseNoData(promiseState) {
-  console.log(promiseState);
   if (promiseState === undefined) {
     return <div class="noData">No data1</div>;
   } else if (!promiseState.promise) {

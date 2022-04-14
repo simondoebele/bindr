@@ -5,10 +5,7 @@ function BookDetailsView(props) {
       <div class="bookInfo">
         <div class="bookCover, bookCoverDetails">
           <img
-            src={
-              "https://covers.openlibrary.org/b/id/" +
-              props.currentBookDetails.img +
-              "-M.jpg"
+            src={props.currentBookDetails.cover_id + "-M.jpg"
             }
           ></img>
 

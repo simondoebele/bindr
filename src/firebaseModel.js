@@ -123,8 +123,9 @@ function firebaseModelPromise() {
       function getBookFromJson(json) {
         const title = json.title;
         const key = OLkey;
-        const img = json.covers[0];
-        const book = { title: title, img: img, key: key };
+        const base_url = 'https://covers.openlibrary.org/b/id/'
+        const cover_id = base_url + json.covers[0];
+        const book = { title: title, cover_id: cover_id, key: key };
         return book;
       }
       return getBookDetails(OLkey).then(getBookFromJson);
