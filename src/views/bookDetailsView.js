@@ -1,9 +1,17 @@
 function BookDetailsView(props) {
+  console.log(props.currentBookDetails);
   return (
     <div class="detailsView">
       <div class="bookInfo">
         <div class="bookCover, bookCoverDetails">
-          <img src={props.currentBook.img}></img>
+          <img
+            src={
+              "https://covers.openlibrary.org/b/id/" +
+              props.currentBookDetails.img +
+              "-M.jpg"
+            }
+          ></img>
+
           <br />
           <button
             onClick={function () {
@@ -13,9 +21,11 @@ function BookDetailsView(props) {
             Cancel
           </button>
         </div>
-        <div class="bookTitleDetails">{props.currentBook.title}</div>
+        <div class="bookTitleDetails">{props.currentBookDetails.title}</div>
 
-        <div class="bookDescriptionDetails">Description</div>
+        <div class="bookDescriptionDetails">
+          {props.detailsPromiseState.data.description}
+        </div>
       </div>
     </div>
   );

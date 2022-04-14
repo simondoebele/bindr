@@ -10,7 +10,7 @@ function userInfoView(props) {
     }
 
     function selectedBookACB() {
-      //props.selectedBook(books); //book object to change current
+      props.selectedBook(bookarray); //book object to change current
       window.location.hash = "#details";
     }
 
@@ -19,13 +19,7 @@ function userInfoView(props) {
         <td>
           <img src={bookIcon} height="30" class="img" />
 
-          <span
-            class="cut-off"
-            title={bookarray}
-            onClick={function () {
-              window.location.hash = "#details";
-            }}
-          >
+          <span class="cut-off" title={bookarray} onClick={selectedBookACB}>
             {bookarray.title}
           </span>
           <button class="removeButton" onClick={removeBookACB}>

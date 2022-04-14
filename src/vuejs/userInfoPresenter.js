@@ -1,11 +1,10 @@
 import UserInfoView from "../views/userInfoView";
 export default function userInfo(props) {
-  function removeBookACB(title) {
-    props.model.removeLikedBook(title);
+  function removeBookACB(book) {
+    props.model.removeLikedBook(book);
   }
-  function selectedBookACB(isbn) {
-    props.model.setCurrentBook(isbn);
-    //props.model.changeCurrentBook();
+  function selectedBookACB(book) {
+    props.model.setCurrentBook(book);
   }
 
   return (

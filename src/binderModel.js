@@ -11,6 +11,7 @@ class BinderModel {
     this.currentDishPromiseState = {};
     this.currentSubjPromiseState = {};
     this.currentBookPromiseState = {};
+    this.currentBookDetailsPromiseState = {};
 
     this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
 
@@ -29,6 +30,7 @@ class BinderModel {
     ];
     //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
     this.currentBook = this.listOfBooks[0];
+    this.currentBookDetails = this.likedBooks[0];
 
     //this.book = getBookDetails();
     // this.book.works is an array of 12 works
@@ -160,6 +162,19 @@ class BinderModel {
         notifyACB
       );
       this.notifyObservers({ setCurrent: id });
+    }
+  }
+
+  setCurrentBook(book) {
+    var old = this.currentBookDetails;
+    this.currentBookDetails = book;
+    console.log(book);
+    if (!(typeof book.key == "undefined") && old != this.currentBookDetails) {
+      resolvePromise(
+        getBookDetails(book.key),
+        this.currentBookDetailsPromiseState
+      );
+      console.log(this.currentBookDetailsPromiseState);
     }
   }
 

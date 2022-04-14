@@ -552,8 +552,22 @@ Remove comment when functionality exists
 }
 
 .bookDescriptionDetails {
-  position: relative;
-  right: 45px;
+  width: 400px;
+  height: 700px;
+  font-size: 20px;
+  color: tomato;
+
+  border-radius: 10px;
+  text-align: left;
+
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
 }
 
 @media only screen and (max-width: 400px) {
