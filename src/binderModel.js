@@ -1,35 +1,36 @@
 import { getBookDetails, getSubDetails } from "./bookSource";
 import resolvePromise from "./resolvePromise";
 import "firebase/auth";
+import "firebase/database";
 
 class BinderModel {
-  constructor(likedArray = []) {
+    constructor(likedArray = []) {
     this.observers = [];
     //this.setNumberOfGuests(nrGuests);
     //this.dishes= dishArray;
     this.searchResultsPromiseState = {};
     this.searchParams = {};
-    this.currentDishPromiseState = {};
+    this.likedBooksPromise = {};
     this.currentSubjPromiseState = {};
     this.currentBookPromiseState = {};
     this.currentBookDetailsPromiseState = {};
-    
+
     this.currentUser;
 
     this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
 
     this.likedBooks = likedArray;
     this.listOfBooks = [
-      {
+    {
         title: "Don Quixote",
         cover_id: "https://covers.openlibrary.org/b/id/9655663",
         key: "OL14873215W",
-      },
-      {
+    },
+    {
         title: "Frankenstein; or, The Modern Prometheus",
         cover_id: "https://covers.openlibrary.org/b/id/9545602",
         key: "OL450063W",
-      },
+    },
     ];
     //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
     this.currentBook = this.listOfBooks[0];
@@ -39,14 +40,47 @@ class BinderModel {
     // this.book.works is an array of 12 works
     // each work has e.g a title.
 
-    resolvePromise(
-      getSubDetails(this.userSubjects[0]),
-      this.currentSubjPromiseState
-    );
+    resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);
     //resolvePromise(getBookDetails("works/OL8193508W"), this.currentBookPromiseState)
     //resolvePromise(getBookDetailsISBN("9780385533225"), this.currentBookPromiseState)
-  }
+    }
+    setLikedBooks(likedArray){
+        console.log("oi")
+        this.likedBooks = likedArray
+    }
+    updateModelFromFB() {
+        function allBooksRecvACB(data) {
+            if(data.val() == null) {
+                return [];
+            }
+            function makeBooksCB(OLkey) {
+                
+                function getBookFromJson(json) {
+                    
+                    const title = json.title;
+                    const key = OLkey;
+                    const base_url = 'https://covers.openlibrary.org/b/id/'
+                    const cover_id = base_url + json.covers[0];
+                    const book = { title: title, cover_id: cover_id, key: key };
+                    
+                    return book;
+            
+                }
+                return getBookDetails(OLkey).then(getBookFromJson);
 
+            }
+            function setLikedBooks(likedArray){
+                this.setLikedBooks(likedArray)
+                return likedArray;
+            }
+            
+            const booksPromiseArray = Object.keys(data.val().likedBooks).map(makeBooksCB)
+            return Promise.all(booksPromiseArray).then(setLikedBooks)
+        }
+        //console.log(firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value"))
+        console.log(firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value").then(allBooksRecvACB))
+        return firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value").then(allBooksRecvACB)
+    }
     setUser(email, pass) {
 
         firebase.auth().signInWithEmailAndPassword(email, pass)
@@ -54,7 +88,8 @@ class BinderModel {
             // Signed in
             var user = userCredential.user;
             this.currentUser = user
-            console.log("great success!")
+            console.log(this.currentUser.uid)
+            resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
             // ...
         })
         .catch((error) => {
@@ -79,6 +114,8 @@ class BinderModel {
         });
     }
 
+    
+
   addBookLiked(bookToAdd) {
     if (
       !this.likedBooks.find(function isBookinCB(book) {
@@ -87,7 +124,8 @@ class BinderModel {
       !(typeof bookToAdd.title == "undefined")
     ) {
       this.likedBooks = [...this.likedBooks, bookToAdd];
-      this.notifyObservers({ addBook: bookToAdd });
+      console.log("adding ", bookToAdd)
+      this.notifyObservers({ addBook: {bookToAdd : bookToAdd, uid:this.currentUser.uid} });
     }
   }
 

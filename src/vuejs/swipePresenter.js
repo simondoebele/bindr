@@ -6,9 +6,6 @@ import WaitUndef from "/src/views/waitUndef.js"
 export default
 function Swipe(props){
 
-    function isDishInMenuCB(dish){
-        return dish.id === props.model.currentDish;
-    }
 
     function onAddToLikedACB(book){
         props.model.addBookLiked(book) //Switch to currentBookPromiseState 
@@ -17,19 +14,12 @@ function Swipe(props){
         props.model.changeCurrentBook()
     }
 
-    function setUserACB(){
-        props.model.setUser("test","test")
-    }
-    
-
-
     return (
          WaitUndef(props.model.currentBook)|| 
             <SwipeView 
                 currentBook = {props.model.currentBook}
                 onAddToLiked = {onAddToLikedACB}
                 changeCurrentBook = {changeCurrentBookACB} 
-                setUser = {setUserACB}
             />)
 }
 
