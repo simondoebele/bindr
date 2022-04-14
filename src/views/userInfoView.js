@@ -5,18 +5,24 @@ function userInfoView(props) {
   const books = props.likedBooks;
 
   function bookTableCB(elem) {
+    function removeBookACB() {
+      props.removeBook(elem);
+    }
+
+    function selectedBookACB() {
+      props.selectedBook(elem); //book object to change current
+      window.location.hash = "#details";
+    }
     return (
       <tr>
         <td>
           <img src={"https://covers.openlibrary.org/b/id/" + elem.img + "-S.jpg"} height="30" class="img" />
 
-          <span class="cut-off" title={elem.title}>
+
+          <span class="cut-off" title={elem.title} onClick={selectedBookACB}>
             {elem.title}
           </span>
-          <button
-            style="position: relative;  left:0px; top:-8px;"
-            onClick={function removeBookACB(){props.removeBook(elem);}}
-          >
+          <button class="removeButton" onClick={removeBookACB}>
             x
           </button>
         </td>

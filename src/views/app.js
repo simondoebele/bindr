@@ -13,9 +13,13 @@ const UserInfo = require("../" + PREFIX + "/userInfoPresenter.js").default;
 
 const Create = require("../" + PREFIX + "/userCreationPresenter.js").default;
 
-const PickGenre = require("../" + PREFIX + "/userCreationGenrePresenter.js").default;
+const PickGenre = require("../" +
+  PREFIX +
+  "/userCreationGenrePresenter.js").default;
 
 const Swipe = require("../" + PREFIX + "/swipePresenter.js").default;
+
+const Details = require("../" + PREFIX + "/bookDetailsPresenter.js").default;
 
 import Show from "./../vuejs/show.js";
 
@@ -27,7 +31,7 @@ export default function App(props) {
           <Login />{" "}
         </Show>
         <Show hash="#userinfo">
-          <UserInfo model={props.model}/>{" "}
+          <UserInfo model={props.model} />{" "}
         </Show>
 
         <Show hash="#create">
@@ -39,7 +43,11 @@ export default function App(props) {
         </Show>
 
         <Show hash="#swipe">
-          <Swipe model={props.model}/>{" "}
+          <Swipe model={props.model} />{" "}
+        </Show>
+
+        <Show hash="#details">
+          <Details model={props.model} />{" "}
         </Show>
       </div>
     </div>
