@@ -19,7 +19,7 @@ function BookDetailsView(props) {
         </div>
       </div>
       <button
-        class="loginButton"
+        class="bookDetailsButton"
         onClick={function () {
           window.location.hash = "#userinfo";
         }}

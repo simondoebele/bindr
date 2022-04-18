@@ -571,18 +571,24 @@ Remove comment when functionality exists
 }
 
 .bookDetailsButton {
-  display: block;
   width: 25%;
   font-size: 20px;
   border-radius: 20px;
-  margin-top: 10%;
-  margin-right: 5px;
   background-color: aliceblue;
   border: 2px solid grey;
+
+  margin: auto;
+}
+
+.bookDetailsButton:hover {
+  background-color: rgb(213, 235, 255);
+  border-color: black;
 }
 
 .bookDetailsImage {
-  border: 2px solid tomato;
+  padding-top: 10px;
+  height: 290px;
+  width: 190px;
 }
 
 .bookDescriptionDetails {
