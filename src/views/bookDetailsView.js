@@ -1,29 +1,31 @@
 function BookDetailsView(props) {
   console.log(props.currentBookDetails);
   return (
-    <div class="detailsView">
+    <div class="details">
       <div class="bookInfo">
-        <div class="bookCover, bookCoverDetails">
+        <div class="bookCoverDetails">
           <img
-            src={props.currentBookDetails.cover_id + "-M.jpg"
-            }
+            class="bookDetailsImage"
+            src={props.currentBookDetails.cover_id + "-M.jpg"}
           ></img>
 
           <br />
-          <button
-            onClick={function () {
-              window.location.hash = "#userinfo";
-            }}
-          >
-            Cancel
-          </button>
         </div>
-        <div class="bookTitleDetails">{props.currentBookDetails.title}</div>
-
-        <div class="bookDescriptionDetails">
-          {props.detailsPromiseState.data.description}
+        <div class="bookTitleDetails">
+          {props.currentBookDetails.title}
+          <div class="bookDescriptionDetails">
+            {props.detailsPromiseState.data.description}
+          </div>
         </div>
       </div>
+      <button
+        class="loginButton"
+        onClick={function () {
+          window.location.hash = "#userinfo";
+        }}
+      >
+        Cancel
+      </button>
     </div>
   );
 }
