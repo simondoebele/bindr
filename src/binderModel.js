@@ -69,13 +69,13 @@ class BinderModel {
                 return getBookDetails(OLkey).then(getBookFromJson);
 
             }
-            function setLikedBooks(likedArray){
-                this.setLikedBooks(likedArray)
+            function updateLikedBooks(likedArray){
+                //setLikedBooks(likedArray)
                 return likedArray;
             }
             
             const booksPromiseArray = Object.keys(data.val().likedBooks).map(makeBooksCB)
-            return Promise.all(booksPromiseArray).then(setLikedBooks)
+            return Promise.all(booksPromiseArray).then(updateLikedBooks)
         }
         //console.log(firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value"))
         console.log(firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value").then(allBooksRecvACB))
@@ -116,35 +116,30 @@ class BinderModel {
 
     
 
-  addBookLiked(bookToAdd) {
-    if (
-      !this.likedBooks.find(function isBookinCB(book) {
-        return book === bookToAdd.title;
-      }) &&
-      !(typeof bookToAdd.title == "undefined")
-    ) {
-      this.likedBooks = [...this.likedBooks, bookToAdd];
-      console.log("adding ", bookToAdd)
-      this.notifyObservers({ addBook: {bookToAdd : bookToAdd, uid:this.currentUser.uid} });
-    }
-  }
+	addBookLiked(bookToAdd) {
+		if (
+		!this.likedBooks.find(function isBookinCB(book) {
+			return book === bookToAdd.title;
+		}) &&
+		!(typeof bookToAdd.title == "undefined")
+		) {
+		this.likedBooks = [...this.likedBooks, bookToAdd];
+		console.log("adding ", bookToAdd)
+		this.notifyObservers({ addBook: {bookToAdd : bookToAdd, uid:this.currentUser.uid} });
+		}
+	}
 
-  removeLikedBook(book) {
-    function hasSameTitleCB(likedBook) {
-      if (likedBook.title != book.title) {
-        return true;
-      }
-      return false;
-    }
-    if (
-      this.likedBooks.find(function isBookInLikedCB(likedBook) {
-        return likedBook.title === book.title;
-      })
-    ) {
-      this.likedBooks = this.likedBooks.filter(hasSameTitleCB);
-      this.notifyObservers({ removeLikedBook: book });
-    }
-  }
+	removeLikedBook(book) {
+		function hasSameTitleCB(likedBook) {
+			if (likedBook.title != book.title) { 
+				return true;}
+			return false;
+		}
+		if ( this.likedBooks.find(function isBookInLikedCB(likedBook) {return likedBook.title === book.title;})) {
+			this.likedBooks = this.likedBooks.filter(hasSameTitleCB);
+			this.notifyObservers({ removeLikedBook: book });
+		}
+	}
 
   fetchNextSub() {
     const tmp = this.userSubjects[0];
@@ -173,41 +168,36 @@ class BinderModel {
     this.currentBook = this.listOfBooks[0];
   }
 
-  addObserver(callback) {
-    this.observers = [...this.observers, callback];
+	addObserver(callback) {
+		this.observers = [...this.observers, callback];
+  	}
+
+	removeObserver(callback) {
+		console.log(this.observers);
+    	this.observers = this.observers.filter(function (observer) { return observer !== callback;});
+    	console.log(this.observers);
   }
 
-  removeObserver(callback) {
-    console.log(this.observers);
-    this.observers = this.observers.filter(function (observer) {
-      return observer !== callback;
-    });
-    console.log(this.observers);
-  }
-
-  notifyObservers(payload) {
-    this.observers.forEach(function invokeObserverCB(obs) {
-      try {
-        obs(payload);
-      } catch (err) {
-        console.log(err);
-      }
-    });
-  }
+	notifyObservers(payload) {
+		this.observers.forEach(function invokeObserverCB(obs) {
+		try {
+			obs(payload);
+      	} catch (err) {
+        	console.log(err);
+      	}
+    	});
+  	}
 
 
-  setCurrentBook(book) {
-    var old = this.currentBookDetails;
-    this.currentBookDetails = book;
-    console.log(book);
-    if (!(typeof book.key == "undefined") && old != this.currentBookDetails) {
-      resolvePromise(
-        getBookDetails(book.key),
-        this.currentBookDetailsPromiseState
-      );
-      console.log(this.currentBookDetailsPromiseState);
-    }
-  }
+  	setCurrentBook(book) {
+    	var old = this.currentBookDetails;
+    	this.currentBookDetails = book;
+    	console.log(book);
+    	if (!(typeof book.key == "undefined") && old != this.currentBookDetails) {
+      		resolvePromise(getBookDetails(book.key), this.currentBookDetailsPromiseState);
+      		console.log(this.currentBookDetailsPromiseState);
+    	}
+  	}
 
   
   
