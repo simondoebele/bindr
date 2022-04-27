@@ -475,8 +475,8 @@ Remove comment when functionality exists
   width: 25%;
   font-size: 20px;
   border-style: none;
-  margin-top: 10%;
-  margin-right: 5px;
+  margin-top: 5%;
+  margin-bottom: 5%;
   background-color: aliceblue;
   border: 2px solid grey;
   margin-left: -60%;
@@ -488,11 +488,6 @@ Remove comment when functionality exists
   border-color: black;
 }
 
-.swipeTitle {
-  margin-top: 10%;
-  font-size: 30px;
-  color: tomato;
-}
 
 .details {
   width: 400px;
@@ -515,18 +510,74 @@ Remove comment when functionality exists
   margin: auto;
 }
 
-.bookCover img {
-  margin-top: 20%;
-  width: 50%;
-  height: 50%;
+.bookInfo {
+  width: 90%;
+  height: 75%;
+  margin-left: 5%;
+}
+
+.bookInfo img {
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
+}
+
+.swipeTitle {
+  text-align: left;
+
+  left: 0;
+  margin-top: -150px;
+  margin-left: 25px;
+  font-size: 35px;
+  color: white;
+  text-shadow:
+  0.05em 0 black,
+  0 0.05em black,
+  -0.05em 0 black,
+  0 -0.05em black,
+  -0.05em -0.05em black,
+  -0.05em 0.05em black,
+  0.05em -0.05em black,
+  0.05em 0.05em black;
+}
+
+.author {
+  font-size: 25px;
+  margin-left: 25px;
+  text-align: left;
+  color: white;
+  text-shadow:
+  0.05em 0 black,
+  0 0.05em black,
+  -0.05em 0 black,
+  0 -0.05em black,
+  -0.05em -0.05em black,
+  -0.05em 0.05em black,
+  0.05em -0.05em black,
+  0.05em 0.05em black;
+}
+
+.description {
+  font-size: 15px;
+  margin-left: 25px;
+  text-align: left;
+  color: white;
+  text-shadow:
+  0.05em 0 black,
+  0 0.05em black,
+  -0.05em 0 black,
+  0 -0.05em black,
+  -0.05em -0.05em black,
+  -0.05em 0.05em black,
+  0.05em -0.05em black,
+  0.05em 0.05em black;
 }
 .like {
   width: 75px;
   height: 75px;
   display: flex;
-  bottom: 50px;
-  left: 300px;
+  bottom: 20px;
+  left: 275px;
   position: absolute;
 }
 .like:hover {
@@ -537,8 +588,8 @@ Remove comment when functionality exists
   width: 75px;
   height: 75px;
   display: flex;
-  bottom: 50px;
-  left: 25px;
+  bottom: 20px;
+  left: 50px;
   position: absolute;
 }
 .dislike:hover {
