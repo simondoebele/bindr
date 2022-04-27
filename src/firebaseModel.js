@@ -113,11 +113,11 @@ function firebaseModelPromise() {
     function createModelACB(booksArray) {
       return new BinderModel();
     }
-    const booksPromiseArray = Object.keys(firebaseData.val().likedBooks).map(makeBooksPromiseCB);
+    const booksPromiseArray = [];
 
     return Promise.all(booksPromiseArray).then(createModelACB);
   }
-  return firebase.database().ref(REF + "/User/" + "07IFrLpSHFVM1Pa9p1h3e0TpLHi2").get("value").then(allBooksRecvPromiseACB);
+  return firebase.database().ref(REF + "/User/" + "6rK0QeStCThuf7dHCaiu4AWwJ2C2").get("value").then(allBooksRecvPromiseACB);
 }
 
 export {
