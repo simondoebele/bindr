@@ -146,10 +146,12 @@ class BinderModel {
 
     if (this.listOfBooks.length < 5) {
       //Beware!! This might be troublesome in the future, might wanna have an extra promisState.
-      const a = this.currentSubjPromiseState.data.works.map(titleExtractorCB);
+      const books = this.currentSubjPromiseState.data.works.map(titleExtractorCB);
       this.fetchNextSub();
 
-      this.listOfBooks = this.listOfBooks.concat(a);
+      // filter out already liked books here
+
+      this.listOfBooks = this.listOfBooks.concat(books);
     }
 
     this.listOfBooks.shift();
