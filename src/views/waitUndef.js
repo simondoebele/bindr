@@ -2,7 +2,12 @@ function WaitUndef(obj){
 
 
     if(typeof(obj) == "undefined"){
-        return(<img src="https://miro.medium.com/max/2400/1*CsJ05WEGfunYMLGfsT2sXA.gif" class="waiting" />)
+        return(
+            <div class = "details">
+                <img src="https://miro.medium.com/max/2400/1*CsJ05WEGfunYMLGfsT2sXA.gif" class="waiting" />
+            </div>
+        )
+            
 
     } else return
 
