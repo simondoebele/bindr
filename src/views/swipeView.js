@@ -1,10 +1,12 @@
 function SwipeView(props) {
   function addBookACB() {
     props.onAddToLiked(props.currentBook);
+    props.onAddToSeen(props.currentBook)
     props.changeCurrentBook();
   }
 
   function deleteBookACB() {
+    props.onAddToSeen(props.currentBook);
     props.changeCurrentBook();
   }
 

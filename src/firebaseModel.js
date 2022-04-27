@@ -27,6 +27,22 @@ function updateFirebaseFromModel(model) {
 				firebase.database().ref(REF + "/User/" + payload.addBook.uid + "/likedBooks/" + payload.addBook.bookToAdd.key).set(payload.addBook.bookToAdd.title);
 			}
 		}
+    if (payload.seenBook) {
+			if (!(typeof payload.seenBook.bookToAdd.title == "undefined")) {
+				firebase.database().ref(REF + "/User/" + payload.seenBook.uid + "/seenBooks/" + payload.seenBook.bookToAdd.key).set(payload.seenBook.bookToAdd.title);
+			}
+		}
+
+    if(payload.resetBooks){
+      firebase
+      .database().ref(REF + "/User/" + model.currentUser.uid + "/likedBooks/").set(null)
+    }
+
+    if(payload.resetBooks){
+      firebase
+      .database().ref(REF + "/User/" + model.currentUser.uid + "/seenBooks/").set(null)
+    }
+
 		if (payload.removeLikedBook) {
 			firebase
 			.database()
