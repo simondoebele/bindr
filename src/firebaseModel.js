@@ -22,10 +22,8 @@ function updateFirebaseFromModel(model) {
 		// payload is js object, key value pair (key : value)
 		if (payload) {
 		//New stuff
-		console.log(payload.addBook.bookToAdd)
 		if (payload.addBook) {
 			if (!(typeof payload.addBook.bookToAdd.title == "undefined")) {
-				console.log("get in here")
 				firebase.database().ref(REF + "/User/" + payload.addBook.uid + "/likedBooks/" + payload.addBook.bookToAdd.key).set(payload.addBook.bookToAdd.title);
 			}
 		}

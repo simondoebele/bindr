@@ -37,7 +37,7 @@ function userInfoView(props) {
           <img src={userIcon} alt="User image" height="150" />
         </div>
 
-        <div class="profileInfoHeader">Hi {props.currentUser.uid}</div>
+        <div class="profileInfoHeader">Hi {props.currentUser.email.split('@')[0]}</div>
         <div class="profileInfoHeader">Here's your liked books.</div>
 
         <div class="tableContainer">

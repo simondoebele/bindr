@@ -9,7 +9,7 @@ function treatHTTPResponseACB(response) {
 }
 
 function getSubDetails(subject) {
-  console.log("fetching: ", subject);
+  console.log("fetching: ", subject); // debug statement
   const base_url = "https://openlibrary.org/subjects/";
   return (
     fetch(base_url + subject + ".json")
@@ -20,16 +20,13 @@ function getSubDetails(subject) {
 }
 
 function getBookDetails(key) {
-  console.log("fetching: ", key);
+  console.log("fetching: ", key); // debug statement
   const base_url = "https://openlibrary.org/works/";
   return fetch(base_url + key + ".json")
     .then((res) => res.json())
     .catch((err) => console.log(err));
 }
 
-//https://openlibrary.org/api/books?bibkeys=ISBN:" +
-// "9780385533225" +
-// "&jscmd=data&format=json"
 
 function getDishDetails(id) {
   return fetch(BASE_URL + "recipes/" + id + "/information", {

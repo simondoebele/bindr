@@ -10,7 +10,7 @@ export default function userInfo(props) {
 
   return (
     PromiseNoData(props.model.likedBooksPromise) || <UserInfoView
-                                                      likedBooks={props.model.likedBooksPromise.data}
+                                                      likedBooks={props.model.likedBooks}
                                                       removeBook={removeBookACB}
                                                       selectedBook={selectedBookACB}
                                                       currentUser = {props.model.currentUser}

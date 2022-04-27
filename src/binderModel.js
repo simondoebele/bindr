@@ -6,10 +6,6 @@ import "firebase/database";
 class BinderModel {
     constructor(likedArray = []) {
     this.observers = [];
-    //this.setNumberOfGuests(nrGuests);
-    //this.dishes= dishArray;
-    this.searchResultsPromiseState = {};
-    this.searchParams = {};
     this.likedBooksPromise = {};
     this.currentSubjPromiseState = {};
     this.currentBookPromiseState = {};
@@ -32,23 +28,18 @@ class BinderModel {
         key: "OL450063W",
     },
     ];
-    //this.listOfBooks =  ["Wuthering Heights", "Don Quioxte", "Frankenstein"]
+
     this.currentBook = this.listOfBooks[0];
     this.currentBookDetails = this.likedBooks[0];
 
-    //this.book = getBookDetails();
-    // this.book.works is an array of 12 works
-    // each work has e.g a title.
 
-    resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);
-    //resolvePromise(getBookDetails("works/OL8193508W"), this.currentBookPromiseState)
-    //resolvePromise(getBookDetailsISBN("9780385533225"), this.currentBookPromiseState)
-    }
+    resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);}
+    
     setLikedBooks(likedArray){
-        console.log("oi")
         this.likedBooks = likedArray
     }
     updateModelFromFB() {
+        const component = this;
         function allBooksRecvACB(data) {
             if(data.val() == null) {
                 return [];
@@ -70,15 +61,14 @@ class BinderModel {
 
             }
             function updateLikedBooks(likedArray){
-                //setLikedBooks(likedArray)
+                component.setLikedBooks(likedArray)
                 return likedArray;
             }
             
             const booksPromiseArray = Object.keys(data.val().likedBooks).map(makeBooksCB)
             return Promise.all(booksPromiseArray).then(updateLikedBooks)
         }
-        //console.log(firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value"))
-        console.log(firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value").then(allBooksRecvACB))
+
         return firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value").then(allBooksRecvACB)
     }
     setUser(email, pass) {
@@ -88,9 +78,8 @@ class BinderModel {
             // Signed in
             var user = userCredential.user;
             this.currentUser = user
-            console.log(this.currentUser.uid)
+            console.log(this.currentUser) // debug statement
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
-            // ...
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -124,7 +113,6 @@ class BinderModel {
 		!(typeof bookToAdd.title == "undefined")
 		) {
 		this.likedBooks = [...this.likedBooks, bookToAdd];
-		console.log("adding ", bookToAdd)
 		this.notifyObservers({ addBook: {bookToAdd : bookToAdd, uid:this.currentUser.uid} });
 		}
 	}
