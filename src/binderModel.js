@@ -4,7 +4,7 @@ import "firebase/auth";
 import "firebase/database";
 
 class BinderModel {
-    constructor(likedArray = []) {
+    constructor(likedArray = [], seenArray = []) {
     this.observers = [];
     this.likedBooksPromise = {};
     this.currentSubjPromiseState = {};
@@ -16,6 +16,7 @@ class BinderModel {
     this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
 
     this.likedBooks = likedArray;
+    this.seenBooks = seenArray;
     this.listOfBooks = [
     {
         title: "Don Quixote",
@@ -33,7 +34,9 @@ class BinderModel {
     this.currentBookDetails = this.likedBooks[0];
 
 
-    resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);}
+    resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);
+
+    }
     
     setLikedBooks(likedArray){
         this.likedBooks = likedArray
@@ -64,8 +67,9 @@ class BinderModel {
                 component.setLikedBooks(likedArray)
                 return likedArray;
             }
-            
+            const seenBooksPromiseArray = Object.keys(data.val().seenBooks).map(makeBooksCB)
             const booksPromiseArray = Object.keys(data.val().likedBooks).map(makeBooksCB)
+            Promise.all(seenBooksPromiseArray).then(seenArray => component.seenBooks = seenArray)
             return Promise.all(booksPromiseArray).then(updateLikedBooks)
         }
 
@@ -117,6 +121,20 @@ class BinderModel {
 		}
 	}
 
+
+    addBookSeen(bookToAdd) {
+		if (
+		!this.seenBooks.find(function isBookinCB(book) {
+			return book === bookToAdd.title;
+		}) &&
+		!(typeof bookToAdd.title == "undefined")
+		) {
+		this.seenBooks = [...this.seenBooks, bookToAdd];
+
+		this.notifyObservers({ seenBook: {bookToAdd : bookToAdd, uid:this.currentUser.uid} });
+		}
+	}
+
 	removeLikedBook(book) {
 		function hasSameTitleCB(likedBook) {
 			if (likedBook.title != book.title) { 
@@ -128,6 +146,10 @@ class BinderModel {
 			this.notifyObservers({ removeLikedBook: book });
 		}
 	}
+
+    resetBooks(){
+        this.notifyObservers({resetBooks: true})
+    }
 
   fetchNextSub() {
     const tmp = this.userSubjects[0];
@@ -154,12 +176,15 @@ class BinderModel {
         const filtered = fetchedBooks.filter(ad => //filter out all books already in liked.
             this.likedBooks.every(fd => fd.title !== ad.title));
 
-        this.listOfBooks = this.listOfBooks.concat(filtered);
-}
+        const filtered2 = filtered.filter(ad => // also filter out all books already in seen.
+            this.seenBooks.every(fd => fd.title !== ad.title));
+
+        this.listOfBooks = this.listOfBooks.concat(filtered2);
+        };
 
         this.listOfBooks.shift();
         this.currentBook = this.listOfBooks[0];
-  }
+    }
 
 	addObserver(callback) {
 		this.observers = [...this.observers, callback];

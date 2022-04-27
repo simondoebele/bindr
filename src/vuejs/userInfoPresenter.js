@@ -8,9 +8,15 @@ export default function userInfo(props) {
     props.model.setCurrentBook(book);
   }
 
+  function resetBooksACB(){
+    location.reload()
+    props.model.resetBooks();
+  }
+
   return (
     PromiseNoData(props.model.likedBooksPromise) || <UserInfoView
                                                       likedBooks={props.model.likedBooks}
+                                                      resetBooks = {resetBooksACB}
                                                       removeBook={removeBookACB}
                                                       selectedBook={selectedBookACB}
                                                       currentUser = {props.model.currentUser}

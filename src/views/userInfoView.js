@@ -9,6 +9,10 @@ function userInfoView(props) {
       props.removeBook(elem);
     }
 
+    function resetBooksACB(){
+      props.resetBooks()
+    }
+
     function selectedBookACB() {
       props.selectedBook(elem); //book object to change current
       window.location.hash = "#details";
@@ -52,6 +56,9 @@ function userInfoView(props) {
           }}
         >
           Swipe
+        </button>
+        <button onClick={props.resetBooks}>
+          Reset
         </button>
       </div>
     );

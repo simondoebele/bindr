@@ -10,6 +10,11 @@ function Swipe(props){
     function onAddToLikedACB(book){
         props.model.addBookLiked(book) //Switch to currentBookPromiseState 
     }
+
+    function onAddToSwipedACB(book){
+        props.model.addBookSeen(book) //Switch to currentBookPromiseState 
+    }
+
     function changeCurrentBookACB(){
         props.model.changeCurrentBook()
     }
@@ -19,6 +24,7 @@ function Swipe(props){
             <SwipeView 
                 currentBook = {props.model.currentBook}
                 onAddToLiked = {onAddToLikedACB}
+                onAddToSeen = {onAddToSwipedACB}
                 changeCurrentBook = {changeCurrentBookACB} 
             />)
 }
