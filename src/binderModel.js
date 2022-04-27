@@ -136,26 +136,29 @@ class BinderModel {
     this.userSubjects = [...this.userSubjects, tmp];
   }
   changeCurrentBook() {
-    function titleExtractorCB(elem) {
+      const component = this;
+
+    function createBookObjCB(elem) {
         const cover_id = "https://covers.openlibrary.org/b/id/" + elem.cover_id;
         const key = elem.key.replace("/works/", "");
 
         return { title: elem.title, cover_id: cover_id, key: key };
         //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
     }
-
+    
     if (this.listOfBooks.length < 5) {
-      //Beware!! This might be troublesome in the future, might wanna have an extra promisState.
-      const books = this.currentSubjPromiseState.data.works.map(titleExtractorCB);
-      this.fetchNextSub();
+    //Beware!! This might be troublesome in the future, might wanna have an extra promisState.'
+        const fetchedBooks = this.currentSubjPromiseState.data.works.map(createBookObjCB);
+        this.fetchNextSub();
 
-      // filter out already liked books here
+        const filtered = fetchedBooks.filter(ad => //filter out all books already in liked.
+            this.likedBooks.every(fd => fd.title !== ad.title));
 
-      this.listOfBooks = this.listOfBooks.concat(books);
-    }
+        this.listOfBooks = this.listOfBooks.concat(filtered);
+}
 
-    this.listOfBooks.shift();
-    this.currentBook = this.listOfBooks[0];
+        this.listOfBooks.shift();
+        this.currentBook = this.listOfBooks[0];
   }
 
 	addObserver(callback) {
