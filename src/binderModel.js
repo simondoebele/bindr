@@ -145,10 +145,6 @@ class BinderModel {
         return { title: elem.title, cover_id: cover_id, key: key };
         //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
     }
-
-    function objectFilterCB(elem){
-
-    }
     
     if (this.listOfBooks.length < 5) {
     //Beware!! This might be troublesome in the future, might wanna have an extra promisState.'
