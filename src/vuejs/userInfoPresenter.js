@@ -1,4 +1,5 @@
 import UserInfoView from "../views/userInfoView";
+import PromiseNoData from "../views/promiseNoData";
 export default function userInfo(props) {
   function removeBookACB(book) {
     props.model.removeLikedBook(book);
@@ -8,10 +9,11 @@ export default function userInfo(props) {
   }
 
   return (
-    <UserInfoView
-      likedBooks={props.model.likedBooks}
-      removeBook={removeBookACB}
-      selectedBook={selectedBookACB}
-    />
+    PromiseNoData(props.model.likedBooksPromise) || <UserInfoView
+                                                      likedBooks={props.model.likedBooks}
+                                                      removeBook={removeBookACB}
+                                                      selectedBook={selectedBookACB}
+                                                      currentUser = {props.model.currentUser}
+                                                    />
   );
 }

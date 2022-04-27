@@ -6,9 +6,6 @@ import WaitUndef from "/src/views/waitUndef.js"
 export default
 function Swipe(props){
 
-    function isDishInMenuCB(dish){
-        return dish.id === props.model.currentDish;
-    }
 
     function onAddToLikedACB(book){
         props.model.addBookLiked(book) //Switch to currentBookPromiseState 
@@ -16,8 +13,6 @@ function Swipe(props){
     function changeCurrentBookACB(){
         props.model.changeCurrentBook()
     }
-    
-
 
     return (
          WaitUndef(props.model.currentBook)|| 

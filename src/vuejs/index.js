@@ -23,6 +23,7 @@ import "../views/navigation.js"
 import PromiseNoData from "../views/promiseNoData.js";
 // resolvePromise may be useful as well!
 import resolvePromise from "../resolvePromise.js";
+import BinderModel from "../binderModel.js";
 
 // render a VueRoot that resolves firebaseModelPromise, then displays the App (see tw/tw3.5.js)
 
@@ -42,24 +43,27 @@ const VueRoot = {
         }
     },
     render() {
+        //const component = this;
+        //component.state.data = new BinderModel()
         return (PromiseNoData(this.state) ||  <App model = {this.state.data}/> )
+        //return (<App model = { component.state.data }/> )
     },
 
     created(){
         const component = this
-
         function saveDataACB(result){ 
             component.state.data = result
             updateFirebaseFromModel(component.state.data)
-            updateModelFromFirebase(component.state.data)
+            //updateModelFromFirebase(component.state.data)
         }
 
         function catchErrorACB(error){
+            console.log(error)
             component.state.error = error
         }
 
         this.state.promise.then(result => saveDataACB(result)).catch(err => catchErrorACB(err))
-
+        
         window.myModel= component.state.data
         
     },

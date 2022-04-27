@@ -13,82 +13,42 @@ firebase.initializeApp({
   messagingSenderId: "684501139736",
   appId: "1:684501139736:web:3276001a1e827f698d9e6d",
 });
-
 const REF = "binder-e215b";
 
 function updateFirebaseFromModel(model) {
-  function observerACB(payload) {
-    // payload is js object, key value pair (key : value)
-    if (payload) {
-      //New stuff
-      if (payload.addBook) {
-        if (!(typeof payload.addBook.title == "undefined")) {
-          firebase
-            .database()
-            .ref(REF + "/likedBooks/" + payload.addBook.key)
-            .set(payload.addBook.title);
-        }
-      }
-      if (payload.removeLikedBook) {
-        firebase
-          .database()
-          .ref(REF + "/likedBooks/" + payload.removeLikedBook.key)
-          .set(null);
-      }
-      if (payload.addGenre) {
-        firebase
-          .database()
-          .ref(REF + "/Genres/" + payload.addGenre.id)
-          .set(payload.addGenre.id);
-      }
-      if (payload.addAccount) {
-        const auth = getAuth();
-        firebase
-          .auth()
-          .createUserWithEmailAndPassword(
-            payload.addAccount.email,
-            payload.addAccount.pass
-          )
-          .then(userWasCreatedACB)
-          .catch();
-        // sign-in automatically after first login
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(
-            payload.addAccount.email,
-            payload.addAccount.pass
-          )
-          .then(userLoggedInACB)
-          .catch();
-      }
-      if (payload.deleteAccount) {
-        // TODO
-      }
-      if (payload.signIn) {
-        const auth = getAuth();
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(
-            payload.addAccount.email,
-            payload.addAccount.pass
-          )
-          .then(userLoggedInACB)
-          .catch();
-      }
-      if (payload.signOut) {
-        firebase
-          .auth()
-          .signOut()
-          .then(signoutSuccessACB)
-          .catch(signoutErrorACB);
-      }
-    }
-  }
-  model.addObserver(observerACB);
-}
 
+	function observerACB(payload) {
+		
+		// payload is js object, key value pair (key : value)
+		if (payload) {
+		//New stuff
+		if (payload.addBook) {
+			if (!(typeof payload.addBook.bookToAdd.title == "undefined")) {
+				firebase.database().ref(REF + "/User/" + payload.addBook.uid + "/likedBooks/" + payload.addBook.bookToAdd.key).set(payload.addBook.bookToAdd.title);
+			}
+		}
+		if (payload.removeLikedBook) {
+			firebase
+			.database()
+			.ref(REF + "/User/" + model.currentUser.uid + "/likedBooks/" + payload.removeLikedBook.key)
+			.set(null);
+		}
+		if (payload.addGenre) {
+			firebase
+			.database()
+			.ref(REF + "/Genres/" + payload.addGenre.id)
+			.set(payload.addGenre.id);
+		}
+		}
+	}
+
+	model.addObserver(observerACB);
+}
+/*
 function updateModelFromFirebase(model) {
-  function addLikedBook(data) {
+  
+  function addLikedBook(data) { //Make this func check uid
+    
     function getBookFromJson(json) {
       //here we can add description, or we just fetch it in details
       const title = json.title;
@@ -111,40 +71,38 @@ function updateModelFromFirebase(model) {
     }
   }
 
-  firebase
-    .database()
-    .ref(REF + "/likedBooks")
-    .on("child_added", addLikedBook);
+  firebase.database().ref(REF + "/User/" + "07IFrLpSHFVM1Pa9p1h3e0TpLHi2" + "/likedBooks").on("child_added", addLikedBook);
 }
-
+*/
 function firebaseModelPromise() {
+
   function allBooksRecvPromiseACB(firebaseData) {
+
     function makeBooksPromiseCB(OLkey) {
+
       function getBookFromJson(json) {
+
         const title = json.title;
         const key = OLkey;
         const base_url = 'https://covers.openlibrary.org/b/id/'
         const cover_id = base_url + json.covers[0];
         const book = { title: title, cover_id: cover_id, key: key };
         return book;
+
       }
+
       return getBookDetails(OLkey).then(getBookFromJson);
     }
 
     function createModelACB(booksArray) {
-      return new BinderModel(booksArray);
+      return new BinderModel();
     }
-    const booksPromiseArray = Object.keys(firebaseData.val().likedBooks).map(
-      makeBooksPromiseCB
-    );
+    const booksPromiseArray = Object.keys(firebaseData.val().likedBooks).map(makeBooksPromiseCB);
 
     return Promise.all(booksPromiseArray).then(createModelACB);
   }
-  return firebase.database().ref(REF).get("value").then(allBooksRecvPromiseACB);
+  return firebase.database().ref(REF + "/User/" + "07IFrLpSHFVM1Pa9p1h3e0TpLHi2").get("value").then(allBooksRecvPromiseACB);
 }
 
 export {
-  updateFirebaseFromModel,
-  updateModelFromFirebase,
-  firebaseModelPromise,
-};
+  updateFirebaseFromModel,/* updateModelFromFirebase, */firebaseModelPromise};
