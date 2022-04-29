@@ -346,6 +346,11 @@ Remove comment when functionality exists
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: left;
+  cursor: pointer;
+}
+.cut-off:hover {
+  color: tomato;
+  cursor: pointer;
 }
 
 .table tbody {
@@ -488,7 +493,6 @@ Remove comment when functionality exists
   border-color: black;
 }
 
-
 .details {
   width: 400px;
   height: 700px;
@@ -530,15 +534,9 @@ Remove comment when functionality exists
   margin-left: 25px;
   font-size: 35px;
   color: white;
-  text-shadow:
-  0.05em 0 black,
-  0 0.05em black,
-  -0.05em 0 black,
-  0 -0.05em black,
-  -0.05em -0.05em black,
-  -0.05em 0.05em black,
-  0.05em -0.05em black,
-  0.05em 0.05em black;
+  text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black,
+    -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black,
+    0.05em 0.05em black;
 }
 
 .author {
@@ -546,15 +544,9 @@ Remove comment when functionality exists
   margin-left: 25px;
   text-align: left;
   color: white;
-  text-shadow:
-  0.05em 0 black,
-  0 0.05em black,
-  -0.05em 0 black,
-  0 -0.05em black,
-  -0.05em -0.05em black,
-  -0.05em 0.05em black,
-  0.05em -0.05em black,
-  0.05em 0.05em black;
+  text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black,
+    -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black,
+    0.05em 0.05em black;
 }
 
 .description {
@@ -562,15 +554,9 @@ Remove comment when functionality exists
   margin-left: 25px;
   text-align: left;
   color: white;
-  text-shadow:
-  0.05em 0 black,
-  0 0.05em black,
-  -0.05em 0 black,
-  0 -0.05em black,
-  -0.05em -0.05em black,
-  -0.05em 0.05em black,
-  0.05em -0.05em black,
-  0.05em 0.05em black;
+  text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black,
+    -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black,
+    0.05em 0.05em black;
 }
 .like {
   width: 75px;
