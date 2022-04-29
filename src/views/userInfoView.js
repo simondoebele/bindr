@@ -9,8 +9,8 @@ function userInfoView(props) {
       props.removeBook(elem);
     }
 
-    function resetBooksACB(){
-      props.resetBooks()
+    function resetBooksACB() {
+      props.resetBooks();
     }
 
     function selectedBookACB() {
@@ -21,7 +21,6 @@ function userInfoView(props) {
       <tr>
         <td>
           <img src={elem.cover_id + "-S.jpg"} height="30" class="img" />
-
 
           <span class="cut-off" title={elem.title} onClick={selectedBookACB}>
             {elem.title}
@@ -41,7 +40,9 @@ function userInfoView(props) {
           <img src={userIcon} alt="User image" height="150" />
         </div>
 
-        <div class="profileInfoHeader">Hi {props.currentUser.email.split('@')[0]}</div>
+        <div class="profileInfoHeader">
+          Hi {props.currentUser.email.split("@")[0]}!
+        </div>
         <div class="profileInfoHeader">Here's your liked books.</div>
 
         <div class="tableContainer">
@@ -57,9 +58,7 @@ function userInfoView(props) {
         >
           Swipe
         </button>
-        <button onClick={props.resetBooks}>
-          Reset
-        </button>
+        <button onClick={props.resetBooks}>Reset</button>
       </div>
     );
   }

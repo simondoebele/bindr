@@ -310,6 +310,7 @@ Remove comment when functionality exists
 
 .profileInfoHeader {
   color: tomato;
+  text-transform: capitalize;
 }
 
 .profileInfo button {
