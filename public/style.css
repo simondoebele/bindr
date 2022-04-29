@@ -614,7 +614,8 @@ Remove comment when functionality exists
   background-color: aliceblue;
   border: 2px solid grey;
 
-  margin: auto;
+  position: relative;
+  top: 130px;
 }
 
 .bookDetailsButton:hover {
