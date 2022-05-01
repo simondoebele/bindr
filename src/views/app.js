@@ -28,17 +28,13 @@ import Show from "./../vuejs/show.js";
 export default function App(props) {
   return (
     <div class="flexParent">
-      <div class="">
-        <Show hash={"#userinfo" || "#swipe"}>
-          <NavBar model = {props.model} /> {" "}
-        </Show>
-      </div>
       <div class="mainContent">
         <Show hash="#login">
           <Login model = {props.model} />{" "}
         </Show>
         <Show hash="#userinfo">
           <UserInfo model={props.model} />{" "}
+          <NavBar model = {props.model} /> {" "}
         </Show>
 
         <Show hash="#create">
@@ -51,6 +47,7 @@ export default function App(props) {
 
         <Show hash="#swipe">
           <Swipe model={props.model} />{" "}
+          <NavBar model = {props.model} /> {" "}
         </Show>
 
         <Show hash="#details">
