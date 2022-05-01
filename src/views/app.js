@@ -21,6 +21,8 @@ const Swipe = require("../" + PREFIX + "/swipePresenter.js").default;
 
 const Details = require("../" + PREFIX + "/bookDetailsPresenter.js").default;
 
+const NavBar = require("../" + PREFIX + "/navBarPresenter.js").default;
+
 import Show from "./../vuejs/show.js";
 
 export default function App(props) {
@@ -31,6 +33,7 @@ export default function App(props) {
           <Login model = {props.model} />{" "}
         </Show>
         <Show hash="#userinfo">
+          <NavBar model = {props.model} /> {" "}
           <UserInfo model={props.model} />{" "}
         </Show>
 
@@ -43,6 +46,7 @@ export default function App(props) {
         </Show>
 
         <Show hash="#swipe">
+          <NavBar model = {props.model} /> {" "}
           <Swipe model={props.model} />{" "}
         </Show>
 
