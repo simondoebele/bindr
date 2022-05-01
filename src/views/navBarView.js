@@ -1,6 +1,6 @@
 function NavBarView(props) {
   return (
-    <div class="topnav">
+    <div class="navbar">
       <button class="navbutton"
           onClick={function () {
             window.location.hash = "#userinfo";
