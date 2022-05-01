@@ -30,15 +30,14 @@ export default function App(props) {
     <div class="flexParent">
       <div class="mainContent">
         <Show hash="#login">
-          <Login model = {props.model} />{" "}
+          <Login model={props.model} />{" "}
         </Show>
         <Show hash="#userinfo">
-          <UserInfo model={props.model} />{" "}
-          <NavBar model = {props.model} /> {" "}
+          <UserInfo model={props.model} /> <NavBar model={props.model} />{" "}
         </Show>
 
         <Show hash="#create">
-          <Create model = {props.model} />{" "}
+          <Create model={props.model} />{" "}
         </Show>
 
         <Show hash="#pick">
@@ -46,12 +45,11 @@ export default function App(props) {
         </Show>
 
         <Show hash="#swipe">
-          <Swipe model={props.model} />{" "}
-          <NavBar model = {props.model} /> {" "}
+          <Swipe model={props.model} /> <NavBar model={props.model} />{" "}
         </Show>
 
         <Show hash="#details">
-          <Details model={props.model} />{" "}
+          <Details model={props.model} /> <NavBar model={props.model} />{" "}
         </Show>
       </div>
     </div>
