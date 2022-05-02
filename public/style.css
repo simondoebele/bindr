@@ -84,7 +84,7 @@ a:visited {
 .mainContent {
   font-size: 10px;
   height: 100%;
-  width: 75%;
+  width: 100%;
 }
 
 .entry {
@@ -323,8 +323,7 @@ Remove comment when functionality exists
   border: 2px solid grey;
 }
 .profileInfo button:hover {
-  background-color: rgb(213, 235, 255);
-  border-color: black;
+  color: white
 }
 
 .table {
@@ -490,8 +489,7 @@ Remove comment when functionality exists
 }
 
 .swipe button:hover {
-  background-color: rgb(213, 235, 255);
-  border-color: black;
+  color:white
 }
 
 .details {
@@ -519,6 +517,7 @@ Remove comment when functionality exists
   width: 90%;
   height: 75%;
   margin-left: 5%;
+  margin-top: 20px;
 }
 
 .bookInfo img {
@@ -563,7 +562,7 @@ Remove comment when functionality exists
   width: 75px;
   height: 75px;
   display: flex;
-  bottom: 20px;
+  bottom: 75px;
   left: 275px;
   position: absolute;
 }
@@ -575,7 +574,7 @@ Remove comment when functionality exists
   width: 75px;
   height: 75px;
   display: flex;
-  bottom: 20px;
+  bottom: 75px;
   left: 50px;
   position: absolute;
 }
@@ -594,6 +593,7 @@ Remove comment when functionality exists
   position: relative;
   left: 0px;
   top: -8px;
+  cursor: pointer;
 }
 
 .bookCoverDetails {
@@ -632,7 +632,7 @@ Remove comment when functionality exists
 
 .bookDescriptionDetails {
   width: 350px;
-  height: 250px;
+  height: 230px;
   font-size: 20px;
   color: black;
 
@@ -656,6 +656,105 @@ Remove comment when functionality exists
   width: 100%;
 }
 
+.topnav {
+  background-color: #333;
+  height: 70px;
+  width: 100%;
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 85px;
+  opacity: 0.9;
+
+}
+
+
+.topnav button{
+  background-color: #333;
+  color: grey;
+  font-size: 23px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0px;
+  margin: 0;
+  height: 100%;
+  opacity: 1;
+}
+
+.topnav button:hover{
+  color:white
+}
+
+#swipebutton {
+  color:white;
+}
+
+#profilebutton{
+  color:white
+}
+
+
+
+.topnavProfile {
+  background-color: #333;
+  height: 70px;
+  width: 100%;
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 20px;
+  opacity: 0.9;
+
+}
+
+
+.topnavProfile button{
+  background-color: #333;
+  color: grey;
+  font-size: 23px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0px;
+  margin: 0;
+  height: 100%;
+  opacity: 1;
+}
+
+
+.topnavDetails {
+  background-color: #333;
+  height: 70px;
+  width: 100%;
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 85px;
+  opacity: 0.9;
+
+}
+
+#detailsbutton {
+  color: white
+}
+
+
+.topnavDetails button{
+  background-color: #333;
+  color: grey;
+  font-size: 23px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0px;
+  margin: 0;
+  height: 100%;
+  opacity: 1;
+}
+
+
+
 @media only screen and (max-width: 400px) {
   .flexParent {
     flex-direction: column;
@@ -677,5 +776,6 @@ Remove comment when functionality exists
     font-size: 24px;
     border: 2px solid black;
     text-align: center;
+    
   }
 }
