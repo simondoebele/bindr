@@ -528,6 +528,8 @@ Remove comment when functionality exists
 
 .swipeTitle {
   text-align: left;
+  height: 40px;
+  overflow: hidden;
 
   left: 0;
   margin-top: -150px;
