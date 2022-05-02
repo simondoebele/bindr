@@ -45,17 +45,20 @@ function SwipeView(props) {
 
 
       <div class="topnav">
-      <button class="navbutton"
-          onClick={function () {
+        <div class="iconcontain" onClick={function () {
             window.location.hash = "#userinfo";
-          }}
-        >Profile</button>
+          }}>
+        <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg">Hello</img>
+          Profile
 
-      <button id="swipebutton"
-          onClick={function () {
+        </div>
+        <div class="iconcontainSwipe" onClick={function () {
             window.location.hash = "#swipe";
-          }}
-        >Swipe</button>
+          }}>
+        <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg">Hello</img>
+          Swipe
+
+        </div>
     </div>
 
 

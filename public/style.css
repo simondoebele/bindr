@@ -507,6 +507,44 @@ Remove comment when functionality exists
 
 }
 
+.iconcontain {
+  height: 75px;
+  width: 75px;
+  margin: 0;
+  display: inline-block;
+  color: grey;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.iconcontain:hover{
+  color:white
+}
+
+.iconcontain:hover img{
+  filter: brightness(0) invert(1);
+  
+}
+
+.iconcontainSwipe {
+  
+  height: 75px;
+  width: 75px;
+  margin: 0;
+  display: inline-block;
+  color: white;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.iconcontainSwipe img{
+  filter: brightness(0) invert(1);
+
+  
+}
+
+
 
 .topnav button{
   background-color: #333;
