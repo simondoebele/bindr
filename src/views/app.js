@@ -33,7 +33,7 @@ export default function App(props) {
           <Login model={props.model} />{" "}
         </Show>
         <Show hash="#userinfo">
-          <UserInfo model={props.model} /> <NavBar model={props.model} />{" "}
+          <UserInfo model={props.model} />
         </Show>
 
         <Show hash="#create">
@@ -45,11 +45,11 @@ export default function App(props) {
         </Show>
 
         <Show hash="#swipe">
-          <Swipe model={props.model} /> <NavBar model={props.model} />{" "}
+          <Swipe model={props.model} /> 
         </Show>
 
         <Show hash="#details">
-          <Details model={props.model} /> <NavBar model={props.model} />{" "}
+          <Details model={props.model} />
         </Show>
       </div>
     </div>

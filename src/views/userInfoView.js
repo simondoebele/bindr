@@ -50,15 +50,25 @@ function userInfoView(props) {
             <tbody>{books.map(bookTableCB)}</tbody>
           </table>
         </div>
+        
 
-        <button
+        <div class="topnavProfile">
+          <button id="profilebutton"
+          onClick={function () {
+            window.location.hash = "#userinfo";
+          }}
+        >Profile</button>
+
+      <button class="swipebutton"
           onClick={function () {
             window.location.hash = "#swipe";
           }}
-        >
-          Swipe
-        </button>
-        <button onClick={props.resetBooks}>Reset</button>
+        >Swipe</button>
+         <button onClick={props.resetBooks}>Reset</button>
+         <button onClick={function () {
+            window.location.hash = "#login";
+          }}>Logout</button>
+    </div>
       </div>
     );
   }

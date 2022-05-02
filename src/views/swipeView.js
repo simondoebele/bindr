@@ -18,13 +18,6 @@ function SwipeView(props) {
   // ... in order to do:  <button onClick = {function(){window.location.hash = "#search"}}>Cancel</button>
   return (
     <div class="swipe">
-      <button
-        onClick={function () {
-          window.location.hash = "#userinfo";
-        }}
-      >
-        Profile
-      </button>
       <div class="bookInfo">
           <img src={props.currentBook.cover_id + "-M.jpg"}></img>
           <div class="swipeTitle">{props.currentBook.title}</div>
@@ -49,6 +42,25 @@ function SwipeView(props) {
           onClick={deleteBookACB}
         ></img>
       </div>
+
+
+      <div class="topnav">
+      <button class="navbutton"
+          onClick={function () {
+            window.location.hash = "#userinfo";
+          }}
+        >Profile</button>
+
+      <button id="swipebutton"
+          onClick={function () {
+            window.location.hash = "#swipe";
+          }}
+        >Swipe</button>
+    </div>
+
+
+
+
     </div>
   );
 }

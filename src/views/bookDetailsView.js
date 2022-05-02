@@ -18,14 +18,24 @@ function BookDetailsView(props) {
           </div>
         </div>
       </div>
-      <button
-        class="bookDetailsButton"
-        onClick={function () {
-          window.location.hash = "#userinfo";
-        }}
-      >
-        Cancel
-      </button>
+      <div class="topnavDetails">
+          <button id="detailsbutton"
+          onClick={function () {
+            window.location.hash = "#details";
+          }}
+        >Details</button>
+
+<button onClick={function () {
+            window.location.hash = "#userinfo";
+          }}>Profile</button>
+
+      <button class="swipebutton"
+          onClick={function () {
+            window.location.hash = "#swipe";
+          }}
+        >Swipe</button>
+         
+    </div>
     </div>
   );
 }
