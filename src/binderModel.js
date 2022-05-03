@@ -33,9 +33,6 @@ class BinderModel {
     this.currentBook = this.listOfBooks[0];
     this.currentBookDetails = this.likedBooks[0];
 
-
-    resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);
-
     }
     
     setLikedBooks(likedArray){
@@ -76,7 +73,7 @@ class BinderModel {
             const booksPromiseArray = Object.keys(data.val().likedBooks).map(makeBooksCB)
             const subs = Object.keys(data.val().userSubjects);
             component.userSubjects = subs;
-            console.log(component.userSubjects)
+            console.log(subs)
             Promise.all(seenBooksPromiseArray).then(seenArray => component.seenBooks = seenArray)
             return Promise.all(booksPromiseArray).then(updateLikedBooks)
         }
@@ -92,6 +89,7 @@ class BinderModel {
             this.currentUser = user
             console.log(this.currentUser) // debug statement
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
+            console.log(this.userSubjects)
         })
         .catch((error) => {
             var errorCode = error.code;

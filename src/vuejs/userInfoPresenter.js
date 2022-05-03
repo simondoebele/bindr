@@ -12,6 +12,9 @@ export default function userInfo(props) {
     location.reload()
     props.model.resetBooks();
   }
+  function fetchSubACB() {
+    props.model.fetchNextSub()
+  }
 
   return (
     PromiseNoData(props.model.likedBooksPromise) || <UserInfoView
@@ -20,6 +23,7 @@ export default function userInfo(props) {
                                                       removeBook={removeBookACB}
                                                       selectedBook={selectedBookACB}
                                                       currentUser = {props.model.currentUser}
+                                                      fetchSub = {fetchSubACB}
                                                     />
   );
 }

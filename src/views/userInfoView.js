@@ -1,22 +1,21 @@
 function userInfoView(props) {
-  const userIcon = "https://cdn-icons-png.flaticon.com/512/219/219986.png";
-  const bookIcon =
-    "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
-  const books = props.likedBooks;
+	const userIcon = "https://cdn-icons-png.flaticon.com/512/219/219986.png";
+	const bookIcon = "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
+	const books = props.likedBooks;
 
-  function bookTableCB(elem) {
-    function removeBookACB() {
-      props.removeBook(elem);
-    }
+	function bookTableCB(elem) {
+	function removeBookACB() {
+		props.removeBook(elem);
+	}
 
-    function resetBooksACB() {
-      props.resetBooks();
-    }
+	function resetBooksACB() {
+		props.resetBooks();
+	}
 
-    function selectedBookACB() {
-      props.selectedBook(elem); //book object to change current
-      window.location.hash = "#details";
-    }
+	function selectedBookACB() {
+		props.selectedBook(elem); //book object to change current
+		window.location.hash = "#details";
+	}
     return (
       <tr>
         <td>
@@ -62,6 +61,7 @@ function userInfoView(props) {
       <button class="swipebutton"
           onClick={function () {
             window.location.hash = "#swipe";
+			props.fetchSub();
           }}
         >Swipe</button>
          <button onClick={props.resetBooks}>Reset</button>
