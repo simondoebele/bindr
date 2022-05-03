@@ -13,7 +13,7 @@ class BinderModel {
 
     this.currentUser;
 
-    this.userSubjects = ["fantasy", "love", "literature", "young_adult"];
+    this.userSubjects = [];
 
     this.likedBooks = likedArray;
     this.seenBooks = seenArray;
@@ -33,9 +33,6 @@ class BinderModel {
     this.currentBook = this.listOfBooks[0];
     this.currentBookDetails = this.likedBooks[0];
 
-
-    resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);
-
     }
     
     setLikedBooks(likedArray){
@@ -50,13 +47,18 @@ class BinderModel {
             function makeBooksCB(OLkey) {
                 
                 function getBookFromJson(json) {
-                    
+
+                    //protection against coverless books
+                    if (!json.covers) {
+                        json.covers = [" "];
+                    }
+                   
+
+                    const base_url = 'https://covers.openlibrary.org/b/id/'
+                    const cover_id = base_url + json.covers[0];                                                                 
                     const title = json.title;
                     const key = OLkey;
-                    const base_url = 'https://covers.openlibrary.org/b/id/'
-                    const cover_id = base_url + json.covers[0];
                     const book = { title: title, cover_id: cover_id, key: key };
-                    
                     return book;
             
                 }
@@ -69,6 +71,9 @@ class BinderModel {
             }
             const seenBooksPromiseArray = Object.keys(data.val().seenBooks).map(makeBooksCB)
             const booksPromiseArray = Object.keys(data.val().likedBooks).map(makeBooksCB)
+            const subs = Object.keys(data.val().userSubjects);
+            component.userSubjects = subs;
+            console.log(subs)
             Promise.all(seenBooksPromiseArray).then(seenArray => component.seenBooks = seenArray)
             return Promise.all(booksPromiseArray).then(updateLikedBooks)
         }
@@ -84,6 +89,7 @@ class BinderModel {
             this.currentUser = user
             console.log(this.currentUser) // debug statement
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
+            console.log(this.userSubjects)
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -151,14 +157,24 @@ class BinderModel {
         this.notifyObservers({resetBooks: true})
     }
 
-  fetchNextSub() {
-    const tmp = this.userSubjects[0];
-    resolvePromise(getSubDetails(tmp), this.currentSubjPromiseState);
-    this.userSubjects.shift();
-    this.userSubjects = [...this.userSubjects, tmp];
-  }
+    fetchNextSub() {
+        const tmp = this.userSubjects[0];
+        resolvePromise(getSubDetails(tmp), this.currentSubjPromiseState);
+        this.userSubjects.shift();
+        this.userSubjects = [...this.userSubjects, tmp];
+    }
+
+    addSub(subToAdd) {
+        if (!this.userSubjects.find(function isSubInCB(sub) { return sub === subToAdd})) {
+                this.userSubjects = [...this.userSubjects, subToAdd];
+                this.notifyObservers({ addSub: {subToAdd : subToAdd, uid:this.currentUser.uid} });
+            }
+        
+    }
+
+
   changeCurrentBook() {
-      const component = this;
+    const component = this;
 
     function createBookObjCB(elem) {
         const cover_id = "https://covers.openlibrary.org/b/id/" + elem.cover_id;
