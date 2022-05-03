@@ -13,7 +13,7 @@ const UserInfo = require("../" + PREFIX + "/userInfoPresenter.js").default;
 
 const Create = require("../" + PREFIX + "/userCreationPresenter.js").default;
 
-const PickGenre = require("../" +
+const CreationGenre = require("../" +
   PREFIX +
   "/userCreationGenrePresenter.js").default;
 
@@ -41,7 +41,7 @@ export default function App(props) {
         </Show>
 
         <Show hash="#pick">
-          <PickGenre />{" "}
+          <CreationGenre model={props.model} />{" "}
         </Show>
 
         <Show hash="#swipe">

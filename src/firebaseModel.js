@@ -21,40 +21,32 @@ function updateFirebaseFromModel(model) {
 		
 		// payload is js object, key value pair (key : value)
 		if (payload) {
-		//New stuff
-		if (payload.addBook) {
-			if (!(typeof payload.addBook.bookToAdd.title == "undefined")) {
-				firebase.database().ref(REF + "/User/" + payload.addBook.uid + "/likedBooks/" + payload.addBook.bookToAdd.key).set(payload.addBook.bookToAdd.title);
+			//New stuff
+			if (payload.addBook) {
+				if (!(typeof payload.addBook.bookToAdd.title == "undefined")) {
+					firebase.database().ref(REF + "/User/" + payload.addBook.uid + "/likedBooks/" + payload.addBook.bookToAdd.key).set(payload.addBook.bookToAdd.title);
+				}
 			}
-		}
-    if (payload.seenBook) {
-			if (!(typeof payload.seenBook.bookToAdd.title == "undefined")) {
-				firebase.database().ref(REF + "/User/" + payload.seenBook.uid + "/seenBooks/" + payload.seenBook.bookToAdd.key).set(payload.seenBook.bookToAdd.title);
+			if (payload.seenBook) {
+				if (!(typeof payload.seenBook.bookToAdd.title == "undefined")) {
+					firebase.database().ref(REF + "/User/" + payload.seenBook.uid + "/seenBooks/" + payload.seenBook.bookToAdd.key).set(payload.seenBook.bookToAdd.title);
+				}
 			}
-		}
 
-    if(payload.resetBooks){
-      firebase
-      .database().ref(REF + "/User/" + model.currentUser.uid + "/likedBooks/").set(null)
-    }
+			if (payload.resetBooks){
+				firebase.database().ref(REF + "/User/" + model.currentUser.uid + "/likedBooks/").set(null)
+			}
 
-    if(payload.resetBooks){
-      firebase
-      .database().ref(REF + "/User/" + model.currentUser.uid + "/seenBooks/").set(null)
-    }
+			if (payload.resetBooks){
+				firebase.database().ref(REF + "/User/" + model.currentUser.uid + "/seenBooks/").set(null)
+			}
 
-		if (payload.removeLikedBook) {
-			firebase
-			.database()
-			.ref(REF + "/User/" + model.currentUser.uid + "/likedBooks/" + payload.removeLikedBook.key)
-			.set(null);
-		}
-		if (payload.addGenre) {
-			firebase
-			.database()
-			.ref(REF + "/Genres/" + payload.addGenre.id)
-			.set(payload.addGenre.id);
-		}
+			if (payload.removeLikedBook) {
+				firebase.database().ref(REF + "/User/" + model.currentUser.uid + "/likedBooks/" + payload.removeLikedBook.key).set(null);
+			}
+			if (payload.addSub) {
+				firebase.database().ref(REF + "/User/" + payload.addSub.uid + "/userSubjects/" + payload.addSub.subToAdd).set(payload.addSub.subToAdd);
+			}
 		}
 	}
 
