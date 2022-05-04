@@ -12,7 +12,7 @@ function AboutUsView(props) {
         Bindr is an app for book-lovers who are looking for more books to
         explore. Bindr gives you suggestions based on your topics of interest,
         you swipe left or right on the books in order to add them to your list
-        of books to read.
+        of books to read or discard them.
         <br />
         <br />
         Happy book-swiping!
@@ -25,6 +25,57 @@ function AboutUsView(props) {
       >
         Cancel
       </button>
+
+      <div class="topnavDetailsAboutUs">
+        <div
+          class="iconcontain"
+          onClick={function () {
+            window.location.hash = "#userinfo";
+          }}
+        >
+          <img
+            height="35"
+            width="35"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg"
+          >
+            Hello
+          </img>
+          Profile
+        </div>
+
+        <div
+          class="iconcontain"
+          onClick={function () {
+            window.location.hash = "#swipe";
+            props.fetchSub();
+          }}
+        >
+          <img
+            height="35"
+            width="35"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg"
+          >
+            Hello
+          </img>
+          Swipe
+        </div>
+
+        <div
+          class="iconcontainCurr"
+          onClick={function () {
+            window.location.hash = "#aboutus";
+          }}
+        >
+          <img
+            height="35"
+            width="35"
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Eo_circle_grey_letter-a.svg"
+          >
+            Hello
+          </img>
+          About
+        </div>
+      </div>
     </div>
   );
 }
