@@ -311,6 +311,7 @@ Remove comment when functionality exists
   right: 0;
 
   margin: auto;
+  
 }
 
 .swipe button {
@@ -361,6 +362,8 @@ Remove comment when functionality exists
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  cursor: pointer;
+
 }
 
 .swipeTitle {
