@@ -52,22 +52,31 @@ function userInfoView(props) {
         
 
         <div class="topnavProfile">
-          <button id="profilebutton"
-          onClick={function () {
-            window.location.hash = "#userinfo";
-          }}
-        >Profile</button>
+          <div class="iconcontainCurr" onClick={function () {
+              window.location.hash = "#userinfo";
+            }}>
+          <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg">Hello</img>
+            Profile
 
-      <button class="swipebutton"
-          onClick={function () {
+          </div>
+
+        <div class="iconcontain" onClick={function () {
             window.location.hash = "#swipe";
-			props.fetchSub();
-          }}
-        >Swipe</button>
-         <button onClick={props.resetBooks}>Reset</button>
-         <button onClick={function () {
+            props.fetchSub();
+          }}>
+        <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg">Hello</img>
+          Swipe
+        </div>
+
+
+        <div class="iconcontain" onClick={function () {
             window.location.hash = "#login";
-          }}>Logout</button>
+            props.fetchSub();
+          }}>
+        <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/4/42/Eo_circle_grey_no-entry.svg">Hello</img>
+          Logout
+
+        </div>
     </div>
       </div>
     );

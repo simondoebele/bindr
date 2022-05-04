@@ -19,21 +19,29 @@ function BookDetailsView(props) {
         </div>
       </div>
       <div class="topnavDetails">
-          <button id="detailsbutton"
-          onClick={function () {
-            window.location.hash = "#details";
-          }}
-        >Details</button>
+      <div class="iconcontainCurr" onClick={function () {
+              window.location.hash = "#details";
+            }}>
+          <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Eo_circle_grey_hash.svg">Hello</img>
+            Details
 
-<button onClick={function () {
-            window.location.hash = "#userinfo";
-          }}>Profile</button>
+          </div>
 
-      <button class="swipebutton"
-          onClick={function () {
+          <div class="iconcontain" onClick={function () {
+              window.location.hash = "#userinfo";
+            }}>
+          <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg">Hello</img>
+            Profile
+
+          </div>
+
+        <div class="iconcontain" onClick={function () {
             window.location.hash = "#swipe";
-          }}
-        >Swipe</button>
+            props.fetchSub();
+          }}>
+        <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg">Hello</img>
+          Swipe
+        </div>
          
     </div>
     </div>
