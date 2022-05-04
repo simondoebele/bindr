@@ -53,22 +53,6 @@ function userInfoView(props) {
 
         <div class="topnavDetailsUser">
           <div
-            class="iconcontain"
-            onClick={function () {
-              window.location.hash = "#details";
-            }}
-          >
-            <img
-              height="35"
-              width="35"
-              src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Eo_circle_grey_hash.svg"
-            >
-              Hello
-            </img>
-            Details
-          </div>
-
-          <div
             class="iconcontainCurr"
             onClick={function () {
               window.location.hash = "#userinfo";
@@ -110,7 +94,7 @@ function userInfoView(props) {
             <img
               height="35"
               width="35"
-              src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg"
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Eo_circle_grey_letter-a.svg"
             >
               Hello
             </img>
