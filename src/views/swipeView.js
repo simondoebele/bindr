@@ -23,6 +23,7 @@ function SwipeView(props) {
         }}
         class="bookInfo"
       >
+
         <img src={props.currentBook.cover_id + "-M.jpg"}></img>
         <div class="swipeTitle">{props.currentBook.title}</div>
         <div class="author">By Jane Doe</div>
@@ -46,6 +47,7 @@ function SwipeView(props) {
           onClick={deleteBookACB}
         ></img>
       </div>
+
 
       <div class="topnavDetails">
         <div
@@ -80,6 +82,7 @@ function SwipeView(props) {
           </img>
           Swipe
         </div>
+
 
         <div
           class="iconcontain"

@@ -493,6 +493,22 @@ Remove comment when functionality exists
   margin: auto;
 }
 
+.aboutUsDescription {
+  width: 350px;
+  height: 230px;
+  font-size: 20px;
+  color: black;
+
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .waiting {
   margin-top: 50%;
   width: 100%;
