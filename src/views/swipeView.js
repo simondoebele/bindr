@@ -1,7 +1,7 @@
 function SwipeView(props) {
   function addBookACB() {
     props.onAddToLiked(props.currentBook);
-    props.onAddToSeen(props.currentBook)
+    props.onAddToSeen(props.currentBook);
     props.changeCurrentBook();
   }
 
@@ -19,10 +19,10 @@ function SwipeView(props) {
   return (
     <div class="swipe">
       <div class="bookInfo">
-          <img src={props.currentBook.cover_id + "-M.jpg"}></img>
-          <div class="swipeTitle">{props.currentBook.title}</div>
-          <div class = "author">By Jane Doe</div>
-          <div class = "description">A fantastic book about...</div>
+        <img src={props.currentBook.cover_id + "-M.jpg"}></img>
+        <div class="swipeTitle">{props.currentBook.title}</div>
+        <div class="author">By Jane Doe</div>
+        <div class="description">A fantastic book about...</div>
       </div>
 
       <div class="like">
@@ -43,27 +43,38 @@ function SwipeView(props) {
         ></img>
       </div>
 
-
       <div class="topnav">
-        <div class="iconcontain" onClick={function () {
+        <div
+          class="iconcontain"
+          onClick={function () {
             window.location.hash = "#userinfo";
-          }}>
-        <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg">Hello</img>
+          }}
+        >
+          <img
+            height="35"
+            width="35"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg"
+          >
+            Hello
+          </img>
           Profile
-
         </div>
-        <div class="iconcontainSwipe" onClick={function () {
+        <div
+          class="bookDetailsButton"
+          onClick={function () {
             window.location.hash = "#swipe";
-          }}>
-        <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg">Hello</img>
+          }}
+        >
+          <img
+            height="35"
+            width="35"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg"
+          >
+            Hello
+          </img>
           Swipe
-
         </div>
-    </div>
-
-
-
-
+      </div>
     </div>
   );
 }
