@@ -3,8 +3,7 @@ export default
 
 function Create(props){
 
-    function createUserACB(username, password){
-        console.log("here")
+    function createUserACB(username, password) {
         console.log(username)
         console.log(password)
         props.model.createUser(username,password)

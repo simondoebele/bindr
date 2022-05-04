@@ -15,7 +15,7 @@ class BinderModel {
 
     this.userSubjects = [];
 
-    this.likedBooks = likedArray;
+    this.likedBooks = [];
     this.seenBooks = seenArray;
     this.listOfBooks = [
     {
@@ -103,6 +103,10 @@ class BinderModel {
             // Signed in 
             var user = userCredential.user;
             this.currentUser = user;
+
+            // Since we have no data and UserInfo checks the likedBooksPromise we just give it some dummy values
+            this.likedBooksPromise.promise = 1
+            this.likedBooksPromise.data = []
             console.log("created user")
             // ...
         }).catch((error) => {
