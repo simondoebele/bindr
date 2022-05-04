@@ -508,6 +508,7 @@ Remove comment when functionality exists
 }
 
 .iconcontain {
+  font-size: 20px;
   height: 75px;
   width: 75px;
   margin: 0;
@@ -527,7 +528,8 @@ Remove comment when functionality exists
   
 }
 
-.iconcontainSwipe {
+.iconcontainCurr {
+  font-size: 20px;
   
   height: 75px;
   width: 75px;
@@ -538,12 +540,11 @@ Remove comment when functionality exists
   margin-left: 10px;
   margin-right: 10px;
 }
-.iconcontainSwipe img{
+.iconcontainCurr img{
   filter: brightness(0) invert(1);
 
   
 }
-
 
 
 .topnav button{

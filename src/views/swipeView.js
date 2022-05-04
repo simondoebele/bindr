@@ -10,15 +10,13 @@ function SwipeView(props) {
     props.changeCurrentBook();
   }
 
-  // TODO: integrate new API so to change dish data to book data + the book Description
-  // TODO: functionality needed to decide which book is shown (e.g. based on user's favorite genres;...
-  //...later possibly more sophisticated)!! -> in the model!
-  // TODO: change all CSS to match our style
-  // TODO: add Menu bar (or burger menu) to change between different views...
-  // ... in order to do:  <button onClick = {function(){window.location.hash = "#search"}}>Cancel</button>
+  function selectedBookACB() {
+		props.selectedBook(props.currentBook); //book object to change current
+	}
+
   return (
     <div class="swipe">
-      <div class="bookInfo">
+      <div onClick={function(){window.location.hash = "#details"; props.selectedBook(props.currentBook)}} class="bookInfo">
           <img src={props.currentBook.cover_id + "-M.jpg"}></img>
           <div class="swipeTitle">{props.currentBook.title}</div>
           <div class = "author">By Jane Doe</div>
@@ -52,7 +50,7 @@ function SwipeView(props) {
           Profile
 
         </div>
-        <div class="iconcontainSwipe" onClick={function () {
+        <div class="iconcontainCurr" onClick={function () {
             window.location.hash = "#swipe";
           }}>
         <img height="35" width="35" src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg">Hello</img>
