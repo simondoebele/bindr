@@ -25,6 +25,8 @@ function AboutUsView(props) {
       >
         Cancel
       </button>
+
+      <button onClick={props.resetBooks}>Reset</button>
     </div>
   );
 }
