@@ -17,18 +17,7 @@ class BinderModel {
 
     this.likedBooks = [];
     this.seenBooks = seenArray;
-    this.listOfBooks = [
-    {
-        title: "Don Quixote",
-        cover_id: "https://covers.openlibrary.org/b/id/9655663",
-        key: "OL14873215W",
-    },
-    {
-        title: "Frankenstein; or, The Modern Prometheus",
-        cover_id: "https://covers.openlibrary.org/b/id/9545602",
-        key: "OL450063W",
-    },
-    ];
+    this.listOfBooks = [];
 
     this.currentBook = this.listOfBooks[0];
     this.currentBookDetails = this.likedBooks[0];
@@ -73,7 +62,7 @@ class BinderModel {
             const booksPromiseArray = Object.keys(data.val().likedBooks).map(makeBooksCB)
             const subs = Object.keys(data.val().userSubjects);
             component.userSubjects = subs;
-            console.log(subs)
+            component.intitialFetch(subs[0])
             Promise.all(seenBooksPromiseArray).then(seenArray => component.seenBooks = seenArray)
             return Promise.all(booksPromiseArray).then(updateLikedBooks)
         }
@@ -89,7 +78,6 @@ class BinderModel {
             this.currentUser = user
             console.log(this.currentUser) // debug statement
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
-            console.log(this.userSubjects)
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -175,9 +163,23 @@ class BinderModel {
             }
         
     }
+    createBookObjCB(elem) {
+        const cover_id = "https://covers.openlibrary.org/b/id/" + elem.cover_id;
+        const key = elem.key.replace("/works/", "");
 
-
-  changeCurrentBook() {
+        return { title: elem.title, cover_id: cover_id, key: key };
+        //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
+    }
+    
+    async intitialFetch(sub) {
+        
+        const component = this;
+        const test = await getSubDetails(sub)        
+        const books = test.works.map(component.createBookObjCB)
+        this.currentBook = books[0]
+        console.log(this.currentBook)
+    }
+    changeCurrentBook() {
     const component = this;
 
     function createBookObjCB(elem) {
@@ -187,10 +189,10 @@ class BinderModel {
         return { title: elem.title, cover_id: cover_id, key: key };
         //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
     }
-    
+
     if (this.listOfBooks.length < 5) {
     //Beware!! This might be troublesome in the future, might wanna have an extra promisState.'
-        const fetchedBooks = this.currentSubjPromiseState.data.works.map(createBookObjCB);
+        const fetchedBooks = this.currentSubjPromiseState.data.works.map(component.createBookObjCB);
         this.fetchNextSub();
 
         const filtered = fetchedBooks.filter(ad => //filter out all books already in liked.
