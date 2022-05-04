@@ -19,23 +19,55 @@ function BookDetailsView(props) {
         </div>
       </div>
       <div class="topnavDetails">
-          <button id="detailsbutton"
+        <div
+          class="iconcontain"
           onClick={function () {
-            window.location.hash = "#details";
-          }}
-        >Details</button>
-
-<button onClick={function () {
             window.location.hash = "#userinfo";
-          }}>Profile</button>
+          }}
+        >
+          <img
+            height="35"
+            width="35"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg"
+          >
+            Hello
+          </img>
+          Profile
+        </div>
 
-      <button class="swipebutton"
+        <div
+          class="iconcontain"
           onClick={function () {
             window.location.hash = "#swipe";
+            props.fetchSub();
           }}
-        >Swipe</button>
-         
-    </div>
+        >
+          <img
+            height="35"
+            width="35"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg"
+          >
+            Hello
+          </img>
+          Swipe
+        </div>
+
+        <div
+          class="iconcontain"
+          onClick={function () {
+            window.location.hash = "#aboutus";
+          }}
+        >
+          <img
+            height="35"
+            width="35"
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Eo_circle_grey_letter-a.svg"
+          >
+            Hello
+          </img>
+          About
+        </div>
+      </div>
     </div>
   );
 }

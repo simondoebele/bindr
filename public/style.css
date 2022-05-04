@@ -20,7 +20,7 @@
 }
 
 
-
+topnavDetails
 .noData {
   margin: 20px;
 }
@@ -311,6 +311,7 @@ Remove comment when functionality exists
   right: 0;
 
   margin: auto;
+  
 }
 
 .swipe button {
@@ -361,6 +362,8 @@ Remove comment when functionality exists
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  cursor: pointer;
+
 }
 
 .swipeTitle {
@@ -524,6 +527,7 @@ Remove comment when functionality exists
 }
 
 .iconcontain {
+  font-size: 20px;
   height: 75px;
   width: 75px;
   margin: 0;
@@ -543,7 +547,8 @@ Remove comment when functionality exists
   
 }
 
-.iconcontainSwipe {
+.iconcontainCurr {
+  font-size: 20px;
   
   height: 75px;
   width: 75px;
@@ -554,12 +559,11 @@ Remove comment when functionality exists
   margin-left: 10px;
   margin-right: 10px;
 }
-.iconcontainSwipe img{
+.iconcontainCurr img{
   filter: brightness(0) invert(1);
 
   
 }
-
 
 
 .topnav button{
@@ -624,6 +628,18 @@ Remove comment when functionality exists
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-top: 85px;
+  opacity: 0.9;
+
+}
+
+.topnavDetailsUser {
+  background-color: #333;
+  height: 70px;
+  width: 100%;
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 20px;
   opacity: 0.9;
 
 }

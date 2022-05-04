@@ -19,6 +19,10 @@ function Swipe(props){
         props.model.changeCurrentBook()
     }
 
+    function selectedBookACB(book) {
+        props.model.setCurrentBook(book);
+      }
+
     return (
          WaitUndef(props.model.currentBook)|| 
             <SwipeView 
@@ -26,6 +30,8 @@ function Swipe(props){
                 onAddToLiked = {onAddToLikedACB}
                 onAddToSeen = {onAddToSwipedACB}
                 changeCurrentBook = {changeCurrentBookACB} 
+                selectedBook={selectedBookACB}
+                
             />)
 }
 

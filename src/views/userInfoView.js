@@ -1,21 +1,22 @@
 function userInfoView(props) {
-	const userIcon = "https://cdn-icons-png.flaticon.com/512/219/219986.png";
-	const bookIcon = "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
-	const books = props.likedBooks;
+  const userIcon = "https://cdn-icons-png.flaticon.com/512/219/219986.png";
+  const bookIcon =
+    "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
+  const books = props.likedBooks;
 
-	function bookTableCB(elem) {
-	function removeBookACB() {
-		props.removeBook(elem);
-	}
+  function bookTableCB(elem) {
+    function removeBookACB() {
+      props.removeBook(elem);
+    }
 
-	function resetBooksACB() {
-		props.resetBooks();
-	}
+    function resetBooksACB() {
+      props.resetBooks();
+    }
 
-	function selectedBookACB() {
-		props.selectedBook(elem); //book object to change current
-		window.location.hash = "#details";
-	}
+    function selectedBookACB() {
+      props.selectedBook(elem); //book object to change current
+      window.location.hash = "#details";
+    }
     return (
       <tr>
         <td>
@@ -49,26 +50,57 @@ function userInfoView(props) {
             <tbody>{books.map(bookTableCB)}</tbody>
           </table>
         </div>
-        
 
-        <div class="topnavProfile">
-          <button id="profilebutton"
-          onClick={function () {
-            window.location.hash = "#userinfo";
-          }}
-        >Profile</button>
+        <div class="topnavDetailsUser">
+          <div
+            class="iconcontainCurr"
+            onClick={function () {
+              window.location.hash = "#userinfo";
+            }}
+          >
+            <img
+              height="35"
+              width="35"
+              src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Eo_circle_grey_info.svg"
+            >
+              Hello
+            </img>
+            Profile
+          </div>
 
-      <button class="swipebutton"
-          onClick={function () {
-            window.location.hash = "#swipe";
-			props.fetchSub();
-          }}
-        >Swipe</button>
-         <button onClick={props.resetBooks}>Reset</button>
-         <button onClick={function () {
-            window.location.hash = "#login";
-          }}>Logout</button>
-    </div>
+          <div
+            class="iconcontain"
+            onClick={function () {
+              window.location.hash = "#swipe";
+              props.fetchSub();
+            }}
+          >
+            <img
+              height="35"
+              width="35"
+              src="https://upload.wikimedia.org/wikipedia/commons/d/df/Eo_circle_grey_repeat.svg"
+            >
+              Hello
+            </img>
+            Swipe
+          </div>
+
+          <div
+            class="iconcontain"
+            onClick={function () {
+              window.location.hash = "#aboutus";
+            }}
+          >
+            <img
+              height="35"
+              width="35"
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Eo_circle_grey_letter-a.svg"
+            >
+              Hello
+            </img>
+            About
+          </div>
+        </div>
       </div>
     );
   }
