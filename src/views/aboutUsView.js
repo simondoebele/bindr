@@ -47,7 +47,7 @@ function AboutUsView(props) {
           class="iconcontain"
           onClick={function () {
             window.location.hash = "#swipe";
-            props.fetchSub();
+            props.fetchSub;
           }}
         >
           <img
