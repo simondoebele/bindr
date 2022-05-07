@@ -18,7 +18,7 @@ function BookDetailsView(props) {
           </div>
         </div>
       </div>
-      <div class="topnavDetailsAboutUs">
+      <div class="topnavDetails">
         <div
           class="iconcontain"
           onClick={function () {
