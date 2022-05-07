@@ -18,9 +18,10 @@ function AboutUsView(props) {
         Happy book-swiping!
         <br />
         <br />
+        <br />
       </div>
 
-      <div class="topnavDetailsAboutUs">
+      <div class="topnavDetails">
         <div
           class="iconcontain"
           onClick={function () {
