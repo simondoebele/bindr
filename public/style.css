@@ -81,6 +81,8 @@ topnavDetails
   margin-right: 5px;
   background-color: aliceblue;
   border: 2px solid grey;
+  cursor: pointer;
+
 }
 .login button:hover {
   background-color: rgb(213, 235, 255);
@@ -536,6 +538,8 @@ Remove comment when functionality exists
   margin-top: 5px;
   margin-left: 10px;
   margin-right: 10px;
+  cursor: pointer;
+
 }
 
 .iconcontain:hover{
@@ -602,6 +606,7 @@ Remove comment when functionality exists
   border-top-right-radius: 0;
   margin-top: 20px;
   opacity: 0.9;
+  
 
 }
 
@@ -629,6 +634,7 @@ Remove comment when functionality exists
   border-top-right-radius: 0;
   margin-top: 85px;
   opacity: 0.9;
+  
 
 }
 
@@ -651,7 +657,7 @@ Remove comment when functionality exists
   border-radius: inherit;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  margin-top: 64px;
+  margin-top: 109px;
   opacity: 0.9;
 
 }
