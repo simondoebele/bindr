@@ -254,6 +254,7 @@ Remove comment when functionality exists
   color: tomato;
 
   margin: auto;
+
 }
 
 .create input {
@@ -513,7 +514,7 @@ Remove comment when functionality exists
 
 .waiting {
   margin-top: 50%;
-  width: 100%;
+  width: 70px;
 }
 
 .topnav {
@@ -684,6 +685,7 @@ Remove comment when functionality exists
   width: 100%;
   height: 375px;
   overflow: scroll;
+  
 }
 
 .userSubjects button{
