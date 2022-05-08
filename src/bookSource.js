@@ -13,7 +13,6 @@ function getSubDetails(subject) {
   const base_url = "https://openlibrary.org/subjects/";
   return (
     fetch(base_url + subject + ".json")
-      // change to isbn + base_url later, or not
       .then((res) => res.json())
       .catch((err) => console.log(err))
   );
@@ -27,29 +26,4 @@ function getBookDetails(key) {
     .catch((err) => console.log(err));
 }
 
-
-function getDishDetails(id) {
-  return fetch(BASE_URL + "recipes/" + id + "/information", {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "X-Mashape-Key": API_KEY,
-    },
-  }).then(treatHTTPResponseACB);
-}
-
-function searchDishes(params) {
-  return fetch(BASE_URL + "recipes/search?" + new URLSearchParams(params), {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      "X-Mashape-Key": API_KEY,
-    },
-  })
-    .then(treatHTTPResponseACB)
-    .then(function transformResultACB(result) {
-      return result.results;
-    });
-}
-
-export { getDishDetails, searchDishes, getSubDetails, getBookDetails };
+export {getSubDetails, getBookDetails };
