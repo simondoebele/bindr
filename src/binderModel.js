@@ -188,6 +188,7 @@ class BinderModel {
         const books = test.works.map(component.createBookObjCB)
         this.listOfBooks = books.slice(1, books.length - 1)
         this.currentBook = books[0]
+        this.fetchNextSub(); //hate myself for this
     }
     changeCurrentBook(initial=false) {
         const component = this;
