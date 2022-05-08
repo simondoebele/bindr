@@ -12,8 +12,8 @@ export default function userInfo(props) {
     location.reload()
     props.model.resetBooks();
   }
-  function fetchSubACB() {
-    props.model.fetchNextSub()
+  function checkCurrentBookACB() {
+    props.model.changeCurrentBook(true)
   }
 
   return (
@@ -23,7 +23,7 @@ export default function userInfo(props) {
                                                       removeBook={removeBookACB}
                                                       selectedBook={selectedBookACB}
                                                       currentUser = {props.model.currentUser}
-                                                      fetchSub = {fetchSubACB}
+                                                      checkCurrent = {checkCurrentBookACB}
                                                     />
   );
 }

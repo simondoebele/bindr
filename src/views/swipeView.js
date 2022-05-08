@@ -25,8 +25,7 @@ function SwipeView(props) {
       >
         <img src={props.currentBook.cover_id + "-M.jpg"}></img>
         <div class="swipeTitle">{props.currentBook.title}</div>
-        <div class="author">By Jane Doe</div>
-        <div class="description">A fantastic book about...</div>
+        <div class="description">A fantastic {props.currentBook.sub} book</div>
       </div>
 
       <div class="like">

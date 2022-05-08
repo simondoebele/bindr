@@ -41,13 +41,17 @@ class BinderModel {
                     if (!json.covers) {
                         json.covers = [" "];
                     }
+                    if (!json.subjects) {
+                        json.subjects = ["no info"]
+                    }
                    
 
                     const base_url = 'https://covers.openlibrary.org/b/id/'
                     const cover_id = base_url + json.covers[0];                                                                 
                     const title = json.title;
                     const key = OLkey;
-                    const book = { title: title, cover_id: cover_id, key: key };
+                    const sub = json.subjects[0]
+                    const book = { title: title, cover_id: cover_id, key: key, sub:sub };
                     return book;
             
                 }
@@ -161,51 +165,52 @@ class BinderModel {
                 this.userSubjects = [...this.userSubjects, subToAdd];
                 this.notifyObservers({ addSub: {subToAdd : subToAdd, uid:this.currentUser.uid} });
             }
+        if (this.userSubjects.length == 1) {
+            resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);
+        }
         
     }
     createBookObjCB(elem) {
         const cover_id = "https://covers.openlibrary.org/b/id/" + elem.cover_id;
         const key = elem.key.replace("/works/", "");
+        //console.log(elem.subject[0])
 
-        return { title: elem.title, cover_id: cover_id, key: key };
+    return { title: elem.title, cover_id: cover_id, key: key, sub:elem.subject[0]};
         //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
     }
     
     async intitialFetch(sub) {
         
         const component = this;
-        const test = await getSubDetails(sub)        
+        const test = await getSubDetails(sub)   
+        this.userSubjects.shift();
+        this.userSubjects = [...this.userSubjects, sub];     
         const books = test.works.map(component.createBookObjCB)
+        this.listOfBooks = books.slice(1, books.length - 1)
         this.currentBook = books[0]
-        console.log(this.currentBook)
     }
-    changeCurrentBook() {
-    const component = this;
+    changeCurrentBook(initial=false) {
+        const component = this;
 
-    function createBookObjCB(elem) {
-        const cover_id = "https://covers.openlibrary.org/b/id/" + elem.cover_id;
-        const key = elem.key.replace("/works/", "");
 
-        return { title: elem.title, cover_id: cover_id, key: key };
-        //this.listOfBooks = [...this.listOfBooks,{title: elem.title, img: "https://upload.wikimedia.org/wikipedia/commons/6/64/Houghton_Lowell_1238.5_%28A%29_-_Wuthering_Heights%2C_1847.jpg"}]
-    }
+        if (this.listOfBooks.length < 5) {
+        //Beware!! This might be troublesome in the future, might wanna have an extra promisState.'
+            const fetchedBooks = this.currentSubjPromiseState.data.works.map(component.createBookObjCB);
+            this.fetchNextSub();
 
-    if (this.listOfBooks.length < 5) {
-    //Beware!! This might be troublesome in the future, might wanna have an extra promisState.'
-        const fetchedBooks = this.currentSubjPromiseState.data.works.map(component.createBookObjCB);
-        this.fetchNextSub();
+            const filtered = fetchedBooks.filter(ad => //filter out all books already in liked.
+                this.likedBooks.every(fd => fd.title !== ad.title));
 
-        const filtered = fetchedBooks.filter(ad => //filter out all books already in liked.
-            this.likedBooks.every(fd => fd.title !== ad.title));
+            const filtered2 = filtered.filter(ad => // also filter out all books already in seen.
+                this.seenBooks.every(fd => fd.title !== ad.title));
 
-        const filtered2 = filtered.filter(ad => // also filter out all books already in seen.
-            this.seenBooks.every(fd => fd.title !== ad.title));
+            this.listOfBooks = this.listOfBooks.concat(filtered2);
+            };
 
-        this.listOfBooks = this.listOfBooks.concat(filtered2);
-        };
-
-        this.listOfBooks.shift();
-        this.currentBook = this.listOfBooks[0];
+            if(!initial) {
+                this.listOfBooks.shift();
+            }
+            this.currentBook = this.listOfBooks[0];
     }
 
 	addObserver(callback) {
