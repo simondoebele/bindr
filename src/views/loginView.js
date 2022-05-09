@@ -1,4 +1,18 @@
 function LoginView(props) {
+
+  function navigateToUserInfoACB(){
+    window.location.hash = "#userinfo";
+  }
+
+function navigateToUserCreationACB(){
+    window.location.hash = "#create";
+  }
+
+function handleLoginACB(){
+    props.setUser(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value)
+    navigateToUserInfoACB
+}
+
   return (
     <div class="login">
       <div class="binder">Bindr</div>
@@ -17,13 +31,7 @@ function LoginView(props) {
         ></input>
         <div>
           <button
-            onClick={function () {
-              window.location.hash = "#userinfo";
-              props.signIn(
-                document.getElementById("loginUsername").value,
-                document.getElementById("loginPassword").value
-              );
-            }}
+            onClick={handleLoginACB}
           >
             Login
           </button>
@@ -34,9 +42,7 @@ function LoginView(props) {
 
       <div
         class="notRegistered"
-        onClick={function () {
-          window.location.hash = "#create";
-        }}
+        onClick={navigateToUserCreationACB}
       >
         Not yet registered? Create an account here!
       </div>
