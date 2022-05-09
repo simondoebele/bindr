@@ -11,58 +11,61 @@ import "firebase/database";
 window.firebase = firebase;
 
 // uncomment when you implemented firebaseModel in TW3.5. require() is needed, to use window.firebase above
-const { firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase } = require("/src/firebaseModel.js");
+const {
+  firebaseModelPromise,
+  updateFirebaseFromModel,
+  updateModelFromFirebase,
+} = require("/src/firebaseModel.js");
 
 // require() because the lab App loads React/Vue presenters
-const App=require("/src/views/app.js").default;
+const App = require("/src/views/app.js").default;
 
 // import promiseNoData, you will need it during resolve of firebaseModelPromise
 import PromiseNoData from "../views/promiseNoData.js";
+import "../views/navigation.js";
 // resolvePromise may be useful as well!
 import resolvePromise from "../resolvePromise.js";
 import BinderModel from "../binderModel.js";
 
 // render a VueRoot that resolves firebaseModelPromise, then displays the App (see tw/tw3.5.js)
 
-const bigPromise= firebaseModelPromise();
+const bigPromise = firebaseModelPromise();
 
 const VueRoot = {
-    data() {
-        return {
-            state: {
-                promise: bigPromise,
-                data: {},
-                error: {}
-            }
-        }
-    },
-    render() {
-        //const component = this;
-        //component.state.data = new BinderModel()
-        return (PromiseNoData(this.state) ||  <App model = {this.state.data}/> )
-        //return (<App model = { component.state.data }/> )
-    },
+  data() {
+    return {
+      state: {
+        promise: bigPromise,
+        data: {},
+        error: {},
+      },
+    };
+  },
+  render() {
+    //const component = this;
+    //component.state.data = new BinderModel()
+    return PromiseNoData(this.state) || <App model={this.state.data} />;
+    //return (<App model = { component.state.data }/> )
+  },
 
-    created(){
-        const component = this
-        function saveDataACB(result){ 
-            component.state.data = result
-            updateFirebaseFromModel(component.state.data)
-            //updateModelFromFirebase(component.state.data)
-        }
+  created() {
+    const component = this;
+    function saveDataACB(result) {
+      component.state.data = result;
+      updateFirebaseFromModel(component.state.data);
+      //updateModelFromFirebase(component.state.data)
+    }
 
-        function catchErrorACB(error){
-            console.log(error)
-            component.state.error = error
-        }
+    function catchErrorACB(error) {
+      console.log(error);
+      component.state.error = error;
+    }
 
-        this.state.promise.then(result => saveDataACB(result)).catch(err => catchErrorACB(err))
-        
-        window.myModel= component.state.data
-        
-    },
+    this.state.promise
+      .then((result) => saveDataACB(result))
+      .catch((err) => catchErrorACB(err));
+
+    window.myModel = component.state.data;
+  },
 };
-    render(
-        <VueRoot/>
-        , document.getElementById('root')
-    );
+render(<VueRoot />, document.getElementById("root"));
