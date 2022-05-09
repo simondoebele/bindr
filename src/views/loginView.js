@@ -19,7 +19,7 @@ function LoginView(props) {
           <button
             onClick={function () {
               window.location.hash = "#userinfo";
-              props.setUser(
+              props.signIn(
                 document.getElementById("loginUsername").value,
                 document.getElementById("loginPassword").value
               );

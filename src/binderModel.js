@@ -200,7 +200,7 @@ class BinderModel {
         return firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value").then(allBooksRecvACB)
     }
     
-    setUser(email, pass) {
+    signIn(email, pass) {
 
         firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((userCredential) => {
@@ -217,7 +217,7 @@ class BinderModel {
         });
     }
 
-    createUser(email, pass) {
+    signUp(email, pass) {
         firebase.auth().createUserWithEmailAndPassword(email, pass)
         .then((userCredential) => {
             // Signed in 

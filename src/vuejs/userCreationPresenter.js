@@ -3,11 +3,11 @@ export default
 
 function Create(props){
 
-    function createUserACB(username, password) {
+    function signUpACB(username, password) {
         console.log(username)
         console.log(password)
-        props.model.createUser(username,password)
+        props.model.signUp(username,password)
     }
 
-    return <UserCreationView createUser = {createUserACB}/>
+    return <UserCreationView signUp = {signUpACB}/>
 }
