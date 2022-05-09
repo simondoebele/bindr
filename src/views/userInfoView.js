@@ -1,7 +1,5 @@
 function userInfoView(props) {
   const userIcon = "https://cdn-icons-png.flaticon.com/512/219/219986.png";
-  const bookIcon =
-    "https://upload.wikimedia.org/wikipedia/commons/5/50/Closed_Book_Icon.svg";
   const books = props.likedBooks;
 
   function bookTableCB(elem) {

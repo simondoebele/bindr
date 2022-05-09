@@ -26,7 +26,7 @@ var subjects = [
                     "cookbooks",
                     "mental_health",
                     "exercise",
-                    "utrition",
+                    "nutrition",
                     "self-help",
                     "anthropology",
                     "religion",

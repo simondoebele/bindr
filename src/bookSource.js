@@ -1,28 +1,21 @@
-import { BASE_URL, API_KEY } from "./apiConfig.js";
 
-function treatHTTPResponseACB(response) {
-  if (!response.ok) {
-    throw "API problem";
-  } else {
-    return response.json();
-  }
-}
+const base_url = "https://openlibrary.org/"
 
+// fetches the subjects from the API
 function getSubDetails(subject) {
   console.log("fetching: ", subject); // debug statement
-  const base_url = "https://openlibrary.org/subjects/";
   return (
-    fetch(base_url + subject + ".json")
-      .then((res) => res.json())
+    fetch(base_url + "subjects/" + subject + ".json")
+      .then((response) => response.json())
       .catch((err) => console.log(err))
   );
 }
 
+// fetches the book description (aka "details") from the API
 function getBookDetails(key) {
   console.log("fetching: ", key); // debug statement
-  const base_url = "https://openlibrary.org/works/";
-  return fetch(base_url + key + ".json")
-    .then((res) => res.json())
+  return fetch(base_url + "works/" + key + ".json")
+    .then((response) => response.json())
     .catch((err) => console.log(err));
 }
 

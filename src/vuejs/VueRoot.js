@@ -1,4 +1,3 @@
-import DinnerModel from "../DinnerModel.js";
 import BinderModel from "../binderModel.js";
 import App from "../views/app.js";
 
