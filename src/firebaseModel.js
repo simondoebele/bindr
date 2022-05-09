@@ -2,6 +2,7 @@
 import firebaseConfig from "/src/firebaseConfig.js";
 import { getBookDetails } from "./bookSource.js";
 import BinderModel from "./binderModel";
+import { BASE_URL } from "./apiConfig";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -84,8 +85,7 @@ function firebaseModelPromise() {
 
         const title = json.title;
         const key = OLkey;
-        const base_url = 'https://covers.openlibrary.org/b/id/'
-        const cover_id = base_url + json.covers[0];
+        const cover_id = BASE_URL + json.covers[0];
         const book = { title: title, cover_id: cover_id, key: key };
         return book;
 

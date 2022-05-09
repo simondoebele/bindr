@@ -1,6 +1,7 @@
 
 const base_url = "https://openlibrary.org/"
 
+// fetches the subjects from the API
 function getSubDetails(subject) {
   console.log("fetching: ", subject); // debug statement
   return (
@@ -10,6 +11,7 @@ function getSubDetails(subject) {
   );
 }
 
+// fetches the book description (aka "details") from the API
 function getBookDetails(key) {
   console.log("fetching: ", key); // debug statement
   return fetch(base_url + "works/" + key + ".json")
