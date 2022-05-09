@@ -24,6 +24,16 @@ class BinderModel {
     this.currentBookDetails = this.likedBooks[0];
 
     }
+
+    setCurrentBook(book) {
+    	var old = this.currentBookDetails;
+    	this.currentBookDetails = book;
+    	console.log(book);
+    	if (!(typeof book.key == "undefined") && old != this.currentBookDetails) {
+      		resolvePromise(getBookDetails(book.key), this.currentBookDetailsPromiseState);
+      		console.log(this.currentBookDetailsPromiseState);
+    	}
+  	}
     
     setLikedBooks(likedArray){
         this.likedBooks = likedArray
@@ -214,15 +224,15 @@ class BinderModel {
             this.currentBook = this.listOfBooks[0];
     }
 
+    /// Observer 
+
 	addObserver(callback) {
 		this.observers = [...this.observers, callback];
   	}
 
 	removeObserver(callback) {
-		console.log(this.observers);
     	this.observers = this.observers.filter(function (observer) { return observer !== callback;});
-    	console.log(this.observers);
-  }
+    }
 
 	notifyObservers(payload) {
 		this.observers.forEach(function invokeObserverCB(obs) {
@@ -233,21 +243,6 @@ class BinderModel {
       	}
     	});
   	}
-
-
-  	setCurrentBook(book) {
-    	var old = this.currentBookDetails;
-    	this.currentBookDetails = book;
-    	console.log(book);
-    	if (!(typeof book.key == "undefined") && old != this.currentBookDetails) {
-      		resolvePromise(getBookDetails(book.key), this.currentBookDetailsPromiseState);
-      		console.log(this.currentBookDetailsPromiseState);
-    	}
-  	}
-
-  
-  
-
   
 }
 
