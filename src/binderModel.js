@@ -77,6 +77,7 @@ class BinderModel {
         const tmp = this.userSubjects[0];
         resolvePromise(getSubDetails(tmp), this.currentSubjPromiseState);
         this.userSubjects.shift();
+        this.removeSub(tmp)
     //this.userSubjects = [...this.userSubjects, tmp];
     }
 
@@ -89,6 +90,10 @@ class BinderModel {
         if (this.userSubjects.length == 1) {
             resolvePromise(getSubDetails(this.userSubjects[0]), this.currentSubjPromiseState);
         }
+    }
+    removeSub(subToRem) {
+        console.log("removed ", subToRem)
+        this.notifyObservers({ removeSub: { subToRem : subToRem, uid: this.currentUser.uid }});
     }
 
   // creates a book object from the API calls
@@ -142,7 +147,7 @@ class BinderModel {
         }
 
         if (!initial) {
-        this.listOfBooks.shift();
+            this.listOfBooks.shift();
         }
         this.currentBook = this.listOfBooks[0];
     }
