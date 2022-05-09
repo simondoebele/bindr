@@ -264,10 +264,18 @@ Remove comment when functionality exists
   border: 2px solid grey;
 }
 
+
 .create button:hover {
   background-color: rgb(213, 235, 255);
   border-color: black;
 }
+
+.create button:disabled {
+  background-color: aliceblue;
+  border: 2px solid grey;
+
+}
+
 
 
 
