@@ -4,21 +4,6 @@
   flex-direction: row;
 }
 
-.sideBar {
-  font-family: "Trebuchet MS", sans-serif;
-  font-size: 14px;
-  margin: 20px;
-  height: 100%;
-  width: 20%;
-}
-
-.sideBar button {
-  height: 25px;
-  width: 25px;
-  font-size: 16px;
-  border-radius: 5px;
-}
-
 
 topnavDetails
 .noData {
@@ -284,16 +269,7 @@ Remove comment when functionality exists
   border-color: black;
 }
 
-.createName {
-  height: 50px;
-  width: 150px;
-  background-color: rgba(2, 2, 2, 0.331);
-  color: black;
-  margin-left: 1px;
-  border-radius: 25px;
-  font-size: 20px;
-  font-weight: bold;
-}
+
 
 .swipe {
   width: 400px;
@@ -651,17 +627,7 @@ Remove comment when functionality exists
 
 }
 
-.topnavDetailsAboutUs {
-  background-color: #333;
-  height: 70px;
-  width: 100%;
-  border-radius: inherit;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  margin-top: 109px;
-  opacity: 0.9;
 
-}
 
 #detailsbutton {
   color: white
