@@ -2,6 +2,7 @@ import { getBookDetails, getSubDetails } from "./bookSource";
 import resolvePromise from "./resolvePromise";
 import "firebase/auth";
 import "firebase/database";
+import { BASE_URL } from "./apiConfig";
 
 class BinderModel {
     constructor(likedArray = [], seenArray = []) {
@@ -46,8 +47,7 @@ class BinderModel {
                     }
                    
 
-                    const base_url = 'https://covers.openlibrary.org/b/id/'
-                    const cover_id = base_url + json.covers[0];                                                                 
+                    const cover_id = BASE_URL + json.covers[0];                                                                 
                     const title = json.title;
                     const key = OLkey;
                     const sub = json.subjects[0]
@@ -171,7 +171,7 @@ class BinderModel {
         
     }
     createBookObjCB(elem) {
-        const cover_id = "https://covers.openlibrary.org/b/id/" + elem.cover_id;
+        const cover_id = BASE_URL + elem.cover_id;
         const key = elem.key.replace("/works/", "");
         //console.log(elem.subject[0])
 
