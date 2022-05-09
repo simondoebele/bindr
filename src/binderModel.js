@@ -78,7 +78,6 @@ class BinderModel {
         resolvePromise(getSubDetails(tmp), this.currentSubjPromiseState);
         this.userSubjects.shift();
         this.removeSub(tmp)
-    //this.userSubjects = [...this.userSubjects, tmp];
     }
 
     // this function adds the subject ("genre") to the liked subjects ("usersubjects")
@@ -114,7 +113,6 @@ class BinderModel {
         const component = this;
         const test = await getSubDetails(sub);
         this.userSubjects.shift();
-        //this.userSubjects = [...this.userSubjects, sub];
         const books = test.works.map(component.createBookObjCB);
         this.listOfBooks = books.slice(1, books.length - 1);
         this.currentBook = books[0];
