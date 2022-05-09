@@ -16,9 +16,6 @@ const { firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase }
 // require() because the lab App loads React/Vue presenters
 const App=require("/src/views/app.js").default;
 
-// import DinnerModel, navigation,
-
-import "../views/navigation.js"
 // import promiseNoData, you will need it during resolve of firebaseModelPromise
 import PromiseNoData from "../views/promiseNoData.js";
 // resolvePromise may be useful as well!
@@ -26,9 +23,6 @@ import resolvePromise from "../resolvePromise.js";
 import BinderModel from "../binderModel.js";
 
 // render a VueRoot that resolves firebaseModelPromise, then displays the App (see tw/tw3.5.js)
-
-
-
 
 const bigPromise= firebaseModelPromise();
 
