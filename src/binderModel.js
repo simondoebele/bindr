@@ -201,14 +201,15 @@ class BinderModel {
         return firebase.database().ref("binder-e215b" + "/User/" + this.currentUser.uid).get("value").then(allBooksRecvACB)
     }
     
-    handleErrorACB(error){
-        let err = document.getElementById("error")
-        //var errorCode = error.code;
-        var errorMessage = error.message;            
-        console.log(errorMessage)
+    handleErrorCB(error){
+        let err = document.getElementById("error");
+        console.log(err);
+        var errorMessage = error.code;
+        console.log("message: " + errorMessage);
         let errorMsg = firebaseErrorMsgs(error);
+        alert(errorMsg);
         // https://github.com/firebase/firebase-functions/blob/d9fc8a6bb6e6a34e478bb6de98c64514e16ff1fa/src/providers/https.ts#L72-L110
-        throw new functions.https.HttpsError('unknown', 'ERROR0', { message: errorMsg } )
+        // throw new functions.https.HttpsError('unknown', 'ERROR0', { message: errorMsg } )
     }
 
     signIn(email, pass) {
@@ -221,7 +222,7 @@ class BinderModel {
             console.log(this.currentUser) // debug statement
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
         })
-        .catch((error) => this.handleErrorACB(error));
+        .catch((error) => this.handleErrorCB(error));
     }
 
     signUp(email, pass) {

@@ -4,14 +4,18 @@ function LoginView(props) {
     window.location.hash = "#userinfo";
   }
 
-function navigateToUserCreationACB(){
-    window.location.hash = "#create";
-  }
+  function navigateToUserCreationACB(){
+      window.location.hash = "#create";
+    }
 
-function handleLoginACB(){
-    props.setUser(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value)
-    navigateToUserInfoACB
-}
+  function handleLoginACB(){
+      var msg = props.signIn(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value);
+      console.log(msg)
+      // if there is no error :-) navigate
+      if (msg === undefined) {
+        navigateToUserInfoACB();
+      }
+  }
 
   return (
     <div class="login">
