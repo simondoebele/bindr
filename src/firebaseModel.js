@@ -1,18 +1,10 @@
-// do not import firebase, it is done for you by the 3.5 tests!
-// this is needed so that unit tests can inject a mock firebase
+
 import firebaseConfig from "/src/firebaseConfig.js";
 import { getBookDetails } from "./bookSource.js";
 import BinderModel from "./binderModel";
-firebase.initializeApp({
-  apiKey: "AIzaSyBH2BtAtW0SS6jwGDw5dMjVDH_sOB9dZKY",
-  authDomain: "binder-e215b.firebaseapp.com",
-  databaseURL:
-    "https://binder-e215b-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "binder-e215b",
-  storageBucket: "binder-e215b.appspot.com",
-  messagingSenderId: "684501139736",
-  appId: "1:684501139736:web:3276001a1e827f698d9e6d",
-});
+
+firebase.initializeApp(firebaseConfig);
+
 const REF = "binder-e215b";
 
 function updateFirebaseFromModel(model) {

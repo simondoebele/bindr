@@ -1,4 +1,4 @@
-const firebaseConfig = {
+export default {
   apiKey: "AIzaSyBH2BtAtW0SS6jwGDw5dMjVDH_sOB9dZKY",
   authDomain: "binder-e215b.firebaseapp.com",
   databaseURL: "https://binder-e215b-default-rtdb.europe-west1.firebasedatabase.app",
