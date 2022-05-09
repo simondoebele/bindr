@@ -13,7 +13,7 @@ function CreationGenre(props){
         
     }
 
-    return WaitUndef(props.model.userSubjects)||<UserCreationGenreView
+    return PromiseNoData(props.model.userSubjects)||<UserCreationGenreView
     subs = {subjects}
     onClickSub = {onClickSubACB}
     currentSubs = {props.model.userSubjects}
