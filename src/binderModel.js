@@ -156,9 +156,7 @@ class BinderModel {
 
     if (this.listOfBooks.length < 5) {
         //Beware!! This might be troublesome in the future, might wanna have an extra promisState.'
-        const fetchedBooks = this.currentSubjPromiseState.data.works.map(
-            component.createBookObjCB
-        );
+        const fetchedBooks = this.currentSubjPromiseState.data.works.map(component.createBookObjCB);
         this.fetchNextSub();
         //filter out all books already in liked.
         const filtered = fetchedBooks.filter(
@@ -171,8 +169,9 @@ class BinderModel {
 
         this.listOfBooks = this.listOfBooks.concat(filtered2);
 
-            if(this.listOfBooks.length == 0 || this.userSubjects.length() == 0) {
-                window.location.hash = "#userinfo"
+            if(filtered2.length == 0 || this.userSubjects.length == 0) {
+                alert("Seems we couldn't find any new books given your current subjects. Please pick some more :)")
+                window.location.hash = "#pick"
             }
     }
 
