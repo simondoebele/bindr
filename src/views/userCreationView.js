@@ -1,4 +1,23 @@
 function UserCreationView(props){
+
+    function navigateToLoginCB(){
+        window.location.hash = "#login";
+    }
+
+    function navigateToPickGenresCB(){
+        window.location.hash = "#pick";
+    }
+    
+    function handleSignUpACB(){
+        var msg = props.signUp(document.getElementById("createUsername").value, document.getElementById("createPassword").value);
+        console.log("created " + msg);
+        // if there is no error :-) navigate
+        // if (msg === undefined && msg != null) {
+        //     navigateToPickGenresCB();
+        // }
+    }
+     
+
     return(
     <div class ="create">
         <div class = "binder">Binder</div>
@@ -9,8 +28,8 @@ function UserCreationView(props){
             <input id = "createUsername" type = "email" placeholder="Email">Enter Email</input>
             <input id = "createPassword" type = "password" placeholder="Password" minlength = "6"></input>
             <div>
-                <button onClick = {function(){ window.location.hash = "#pick"; props.createUser(document.getElementById("createUsername").value, document.getElementById("createPassword").value) }}>Create</button>
-                <button onClick = {function(){window.location.hash = "#login"}}>Cancel</button>
+                <button onClick = {handleSignUpACB}>Create</button>
+                <button onClick = {navigateToLoginCB}>Cancel</button>
             </div>
         </div>
     </div>

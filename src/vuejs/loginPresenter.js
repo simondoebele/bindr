@@ -3,9 +3,9 @@ export default
 
 function Login(props){
 
-    function setUserACB(username, password){
-        props.model.setUser(username,password)
+    function signInACB(username, password){
+        props.model.signIn(username,password)
     }
 
-    return <LoginView setUser = {setUserACB}/>
+    return <LoginView signIn = {signInACB}/>
 }
