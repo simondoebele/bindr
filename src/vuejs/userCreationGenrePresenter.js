@@ -12,11 +12,20 @@ function CreationGenre(props){
         console.log(props.model.userSubjects)
         
     }
+    function subLeft() {
+        var subLeft = 5 - props.model.userSubjects.length;
+        if(subLeft <= 0) {
+            subLeft = ""
+            document.getElementById("nextbtn").disabled = false;
+        }
+        return subLeft
+    }
 
     return WaitUndef(props.model.userSubjects)||<UserCreationGenreView
     subs = {subjects}
     onClickSub = {onClickSubACB}
     currentSubs = {props.model.userSubjects}
+    subLeft = {subLeft}
     
     />
 }

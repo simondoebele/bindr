@@ -40,6 +40,10 @@ function updateFirebaseFromModel(model) {
 			if (payload.addSub) {
 				firebase.database().ref(REF + "/User/" + payload.addSub.uid + "/userSubjects/" + payload.addSub.subToAdd).set(payload.addSub.subToAdd);
 			}
+      if (payload.removeSub) {
+        console.log(REF + "/User/" + payload.removeSub.uid + "/userSubjects/" + payload.removeSub.subToRem)
+				firebase.database().ref(REF + "/User/" + payload.removeSub.uid + "/userSubjects/" + payload.removeSub.subToRem).set(null);
+			}
 		}
 	}
 
