@@ -29,8 +29,8 @@ topnavDetails
   width: 400px;
   height: 700px;
   font-size: 35px;
-  color: tomato;
-  background-color: aliceblue;
+  color: #49A078;
+  background-color: #e2e9e3;
 
   border: 2px solid black;
   border-radius: 10px;
@@ -53,9 +53,9 @@ topnavDetails
   width: 70%;
   font-size: 80%;
   border: none;
-  border-bottom: 3px solid rgba(255, 99, 71, 0.434);
-  background-color: inherit;
-  color: tomato;
+  border-bottom: 3px solid #49A078;
+  background-color: #e2e9e3;
+  color: #49A078;
 }
 
 .login button {
@@ -64,13 +64,13 @@ topnavDetails
   border-radius: 20px;
   margin-top: 10%;
   margin-right: 5px;
-  background-color: aliceblue;
+  background-color: #DCE1DE;
   border: 2px solid grey;
   cursor: pointer;
 
 }
 .login button:hover {
-  background-color: rgb(213, 235, 255);
+  background-color: #9CC5A1;
   border-color: black;
 }
 
@@ -82,7 +82,7 @@ topnavDetails
 .binder {
   margin-top: 10%;
   font-size: 100px;
-  color: tomato;
+  color: #358471;
   text-shadow: 3px 3px grey;
 }
 
@@ -116,8 +116,8 @@ Remove comment when functionality exists
   width: 400px;
   height: 700px;
   font-size: 30px;
-  color: rgba(0, 0, 0, 0.715);
-  background-color: aliceblue;
+  color: #1F2421;
+  background-color: #e2e9e3;
 
   border: 2px solid black;
   border-radius: 10px;
@@ -134,7 +134,7 @@ Remove comment when functionality exists
 }
 
 .profileInfoHeader {
-  color: tomato;
+  color: #49A078;
   text-transform: capitalize;
 }
 
@@ -144,7 +144,7 @@ Remove comment when functionality exists
   border-radius: 20px;
   margin-top: 10%;
   margin-right: 5px;
-  background-color: aliceblue;
+  background-color: #DCE1DE;
   border: 2px solid grey;
 }
 .profileInfo button:hover {
@@ -174,7 +174,7 @@ Remove comment when functionality exists
   cursor: pointer;
 }
 .cut-off:hover {
-  color: tomato;
+  color: #49A078;
   cursor: pointer;
 }
 
@@ -187,7 +187,8 @@ Remove comment when functionality exists
 }
 .table button {
   border-radius: 50%;
-  border-style: none;
+  border-style: solid;
+  border-color: #1F2421;
   width: 7.5%;
   height: 7.5%;
   margin-left: 5px;
@@ -195,7 +196,7 @@ Remove comment when functionality exists
   transition: background-color 100ms ease-out 100ms;
 }
 .table button:hover {
-  background-color: tomato;
+  background-color: #49A078;
   color: white;
 }
 
@@ -233,11 +234,11 @@ Remove comment when functionality exists
   left: 0;
   right: 0;
 
-  background-color: aliceblue;
+  background-color: #e2e9e3;
   border: 2px solid black;
   border-radius: 10px;
 
-  color: tomato;
+  color: #49A078;
 
   margin: auto;
 
@@ -250,9 +251,9 @@ Remove comment when functionality exists
   width: 70%;
   font-size: 80%;
   border: none;
-  border-bottom: 3px solid rgba(255, 99, 71, 0.434);
+  border-bottom: 3px solid #49A078;
   background-color: inherit;
-  color: tomato;
+  color: #1F2421;
 }
 
 .create button {
@@ -261,19 +262,19 @@ Remove comment when functionality exists
   border-radius: 20px;
   margin-top: 10%;
   margin-right: 5px;
-  background-color: aliceblue;
+  background-color: #DCE1DE;
   border: 2px solid grey;
   cursor: pointer;
 }
 
 
 .create button:hover {
-  background-color: rgb(213, 235, 255);
+  background-color: #9CC5A1;
   border-color: black;
 }
 
 .create button:disabled {
-  background-color: aliceblue;
+  background-color: #DCE1DE;
   border: 2px solid grey;
 
 }
@@ -286,7 +287,7 @@ Remove comment when functionality exists
   height: 700px;
   font-size: 20px;
   color: tomato;
-  background-color: aliceblue;
+  background-color: #e2e9e3;
 
   border: 2px solid black;
   border-radius: 10px;
@@ -309,7 +310,7 @@ Remove comment when functionality exists
   border-style: none;
   margin-top: 5%;
   margin-bottom: 5%;
-  background-color: aliceblue;
+  background-color: #DCE1DE;
   border: 2px solid grey;
   margin-left: -60%;
   border-radius: 20px;
@@ -324,8 +325,8 @@ Remove comment when functionality exists
   width: 400px;
   height: 700px;
   font-size: 20px;
-  color: tomato;
-  background-color: aliceblue;
+  color: #49A078;
+  background-color: #e2e9e3;
 
   border: 2px solid black;
   border-radius: 10px;
@@ -452,7 +453,7 @@ Remove comment when functionality exists
   width: 25%;
   font-size: 20px;
   border-radius: 20px;
-  background-color: aliceblue;
+  background-color: #DCE1DE;
   border: 2px solid grey;
 
   position: relative;
@@ -707,7 +708,7 @@ Remove comment when functionality exists
     left: 0;
     right: 0;
 
-    color: tomato;
+    color: #49A078;
 
     margin: auto;
     width: 90vw;
