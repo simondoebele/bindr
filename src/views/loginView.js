@@ -12,7 +12,7 @@ function LoginView(props) {
       var msg = props.signIn(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value);
       console.log(msg)
       // if there is no error :-) navigate
-      if (msg === undefined) {
+      if (msg === undefined && msg != null) {
         navigateToUserInfoACB();
       }
   }
