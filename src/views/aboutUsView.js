@@ -1,4 +1,9 @@
 function AboutUsView(props) {
+
+  function handleLogoutCB() {
+    window.location.hash = "#login";
+  }
+
   return (
     <div class="profileInfo">
       <div class="binder">Bindr</div>
@@ -88,9 +93,7 @@ function AboutUsView(props) {
 
         <div
           class="iconcontain"
-          onClick={function () {
-            window.location.hash = "#login";
-          }}
+          onClick={handleLogoutCB}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
