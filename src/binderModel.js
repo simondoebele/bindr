@@ -202,12 +202,11 @@ class BinderModel {
     }
     
     handleErrorCB(error){
-        let err = document.getElementById("error");
-        console.log(err);
         var errorMessage = error.code;
         console.log("message: " + errorMessage);
-        let errorMsg = firebaseErrorMsgs(error);
+        let errorMsg = firebaseErrorMsgs(error); // mapping errors to user understandble ones
         alert(errorMsg);
+        return errorMsg;
         // https://github.com/firebase/firebase-functions/blob/d9fc8a6bb6e6a34e478bb6de98c64514e16ff1fa/src/providers/https.ts#L72-L110
         // throw new functions.https.HttpsError('unknown', 'ERROR0', { message: errorMsg } )
     }
@@ -221,8 +220,9 @@ class BinderModel {
             this.currentUser = user
             console.log(this.currentUser) // debug statement
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
+            window.location.hash = "#userinfo";
         })
-        .catch((error) => this.handleErrorCB(error));
+        .catch((error) => {return this.handleErrorCB(error)});
     }
 
     signUp(email, pass) {
@@ -236,8 +236,9 @@ class BinderModel {
             this.likedBooksPromise.promise = 1
             this.likedBooksPromise.data = []
             console.log("created user")
+            window.location.hash = "#pick";
             // ...
-        }).catch((error) => this.handleErrorACB(error));
+        }).catch((error) => this.handleErrorCB(error));
     }
 
     /// Observers
