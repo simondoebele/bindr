@@ -84,13 +84,18 @@ class BinderModel {
         this.notifyObservers({resetBooks: true})
     }
 
+    removeSub(subToRem) {
+        console.log("removed ", subToRem)
+        this.notifyObservers({ removeSub: { subToRem : subToRem, uid: this.currentUser.uid }});
+    }
+
     // a book genre in our API is called a book "subject"
     // this function gets the subject of the book
     fetchNextSub() {
         const tmp = this.userSubjects[0];
         resolvePromise(getSubDetails(tmp), this.currentSubjPromiseState);
         this.userSubjects.shift();
-        this.userSubjects = [...this.userSubjects, tmp];
+        this.removeSub(tmp)
     }
 
     // this function adds the subject ("genre") to the liked subjects ("usersubjects")
@@ -117,34 +122,40 @@ class BinderModel {
     // getting books for the first time
     async intitialFetch(sub) {
         const component = this;
-        const test = await getSubDetails(sub)   
+        const test = await getSubDetails(sub);
         this.userSubjects.shift();
-        this.userSubjects = [...this.userSubjects, sub];     
-        const books = test.works.map(component.createBookObjCB)
-        this.listOfBooks = books.slice(1, books.length - 1)
-        this.currentBook = books[0]
-        this.fetchNextSub();
+        const books = test.works.map(component.createBookObjCB);
+        this.listOfBooks = books.slice(1, books.length - 1);
+        this.currentBook = books[0];
+        this.fetchNextSub(); //Prep next sub fetch
     }
 
     // fetches books if we do not have enough books
-    changeCurrentBook(initial=false) {
+    changeCurrentBook(initial = false) {
         const component = this;
 
         if (this.listOfBooks.length < 5) {
-        //Beware!! This might be troublesome in the future, might wanna have an extra promisState.'
+            //Beware!! This might be troublesome in the future, might wanna have an extra promisState.'
             const fetchedBooks = this.currentSubjPromiseState.data.works.map(component.createBookObjCB);
             this.fetchNextSub();
-
-            const filtered = fetchedBooks.filter(ad => //filter out all books already in liked.
-                this.likedBooks.every(fd => fd.title !== ad.title));
-
-            const filtered2 = filtered.filter(ad => // also filter out all books already in seen.
-                this.seenBooks.every(fd => fd.title !== ad.title));
+            //filter out all books already in liked.
+            const filtered = fetchedBooks.filter(
+                (ad) => this.likedBooks.every((fd) => fd.title !== ad.title)
+            );
+            // also filter out all books already in seen.
+            const filtered2 = filtered.filter(
+                (ad) => this.seenBooks.every((fd) => fd.title !== ad.title)
+            );
 
             this.listOfBooks = this.listOfBooks.concat(filtered2);
-        };
 
-        if(!initial) {
+            if(filtered2.length == 0 || this.userSubjects.length == 0) {
+                alert("Seems we couldn't find any new books given your current subjects. Please pick some more :)")
+                window.location.hash = "#pick"
+            }
+        }
+
+        if (!initial) {
             this.listOfBooks.shift();
         }
         this.currentBook = this.listOfBooks[0];
