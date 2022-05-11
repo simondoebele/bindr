@@ -23,9 +23,9 @@ function SwipeView(props) {
         }}
         class="bookInfo"
       >
-        <img src={props.currentBook.cover_id + "-M.jpg"}></img>
+        <img src={props.currentBook.cover_id + "-L.jpg"}></img>
         <div class="swipeTitle">{props.currentBook.title}</div>
-        <div class="description">{props.currentBook.sub}</div>
+        <div class="description">Genre: {props.currentBook.sub}</div>
       </div>
 
       <div class="like">
