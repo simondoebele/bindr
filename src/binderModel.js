@@ -231,7 +231,7 @@ class BinderModel {
             this.currentUser = user
             console.log(this.currentUser) // debug statement
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
-            window.location.hash = "#userinfo";
+            window.location.hash = "#swipe";
         })
         .catch((error) => {return this.handleErrorCB(error)});
     }

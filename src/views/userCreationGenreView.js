@@ -21,7 +21,7 @@ function UserCreationGenreView(props){
             {props.subs.subjects.filter( ( el ) => !props.currentSubs.includes( el ) ).map(SubButton)}
         </div>
 
-        <button disabled id = "nextbtn" onClick={function(){window.location.hash = "#userinfo"}}>Next</button>
+        <button disabled id = "nextbtn" onClick={function(){window.location.hash = "#aboutus"}}>Next</button>
     </div>
     )
 
