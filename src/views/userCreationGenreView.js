@@ -15,7 +15,9 @@ function UserCreationGenreView(props){
     
     return(
     <div class ="create">
-        <div class = "binder">Bindr</div>
+        <div class="binder">
+        <img src="https://i.ibb.co/jMvDC4d/bindr-logo.png" alt="bindr-logo"/>
+      </div>
         <div>Pick {props.subLeft()} genres that interest you.</div>
         <div class = "userSubjects">
             {props.subs.subjects.filter( ( el ) => !props.currentSubs.includes( el ) ).map(SubButton)}

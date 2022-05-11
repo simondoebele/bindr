@@ -19,9 +19,12 @@ function LoginView(props) {
 
   return (
     <div class="login">
-      <div class="binder">Bindr</div>
+      <div class="binder">
+        <img src="https://i.ibb.co/jMvDC4d/bindr-logo.png" alt="bindr-logo"/>
+      </div>
+      
       <div>
-        Never judge a <br></br> book by its cover.
+        Judge a <br></br> book by its cover.
       </div>
 
       <div class="loginProperties">
@@ -40,8 +43,6 @@ function LoginView(props) {
             Login
           </button>
         </div>
-
-        <div class="forgotPassword">Forgot your password?</div>
       </div>
 
       <div
