@@ -14,7 +14,7 @@ function BookDetailsView(props) {
   
   return (
     <div class="details">
-      <div class="bookInfo">
+      <div class="bookInfoDetails">
         <div class="bookCoverDetails">
           <img
             class="bookDetailsImage" style="cursor:auto"
