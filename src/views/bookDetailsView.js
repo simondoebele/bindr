@@ -17,7 +17,7 @@ function BookDetailsView(props) {
       <div class="bookInfo">
         <div class="bookCoverDetails">
           <img
-            class="bookDetailsImage"
+            class="bookDetailsImage" style="cursor:auto"
             src={props.currentBookDetails.cover_id + "-M.jpg"}
           ></img>
 
