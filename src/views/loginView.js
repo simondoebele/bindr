@@ -24,7 +24,7 @@ function LoginView(props) {
       </div>
       
       <div>
-        Judge a <br></br> book by its cover.
+        Judge a book<br></br> by its cover.
       </div>
 
       <div class="loginProperties">
