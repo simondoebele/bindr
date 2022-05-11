@@ -152,6 +152,7 @@ Remove comment when functionality exists
   margin-right: 5px;
   background-color: #DCE1DE;
   border: 2px solid grey;
+  cursor: pointer;
 }
 .profileInfo button:hover {
   background-color: #9CC5A1;
