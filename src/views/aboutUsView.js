@@ -4,29 +4,38 @@ function AboutUsView(props) {
     window.location.hash = "#login";
   }
 
+  function helpMessageCB(){
+    alert("We all need help sometimes.\n" + 
+    "\nPress the heart icon to like a book.\n" +
+    "\nPress the X button to dislike a book.\n" +
+    "\nUse the navbar to navigate .\n"+
+    "\nHappy Swiping!"
+    )
+  }
+
   return (
     <div class="profileInfo">
-      <div class="binder">Bindr</div>
+      <div class="binder">
+        <img src="https://i.ibb.co/jMvDC4d/bindr-logo.png" alt="bindr-logo"/>
+      </div>
       <div>About us</div>
       <div class="aboutUsDescription">
         Do you love reading but find it hard to find the right book to read?{" "}
         <br />
-        - Bindr is the solution for you!
+        Then Bindr is the solution for you!
         <br />
         <br />
         Bindr is an app for book-lovers who are looking for more books to
         explore. Bindr gives you suggestions based on your topics of interest,
         you swipe left or right on the books in order to add them to your list
         of books to read or discard them.
-        <br />
-        <br />
         Happy book-swiping!
-        <br />
-        <br />
-        <br />
+
+        <button onClick={helpMessageCB}>Help</button>
+       
       </div>
 
-      <div class="topnavDetails">
+      <div class="topnavDetails" style = "margin-top:80px">
         <div
           class="iconcontain"
           onClick={function () {

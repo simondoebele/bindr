@@ -82,8 +82,14 @@ topnavDetails
 .binder {
   margin-top: 10%;
   font-size: 100px;
+  width: 100%;
   color: #358471;
   text-shadow: 3px 3px grey;
+}
+
+.binder img{
+  max-height:100%; max-width:90%;
+
 }
 
 .forgotPassword {
@@ -101,7 +107,7 @@ Remove comment when functionality exists
 */
 
 .notRegistered {
-  margin-top: 30%;
+  margin-top: 25%;
   font-size: 15px;
   font-weight: bold;
   width: auto;
@@ -405,7 +411,7 @@ Remove comment when functionality exists
 
 }
 .like:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   
 }
 
@@ -420,7 +426,7 @@ Remove comment when functionality exists
 
 }
 .dislike:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .img {
   position: relative;

@@ -21,7 +21,9 @@ function UserCreationView(props) {
 
   return (
     <div class="create">
-      <div class="binder">Bindr</div>
+      <div class="binder">
+        <img src="https://i.ibb.co/jMvDC4d/bindr-logo.png" alt="bindr-logo"/>
+      </div>
       <div>Create your account</div>
 
       <div class="loginProperties">
