@@ -154,7 +154,8 @@ Remove comment when functionality exists
   border: 2px solid grey;
 }
 .profileInfo button:hover {
-  color: white
+  background-color: #9CC5A1;
+  border-color: black;
 }
 
 .table {
