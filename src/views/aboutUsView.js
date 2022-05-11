@@ -1,22 +1,22 @@
 function AboutUsView(props) {
-
   function handleLogoutCB() {
     window.location.hash = "#login";
   }
 
-  function helpMessageCB(){
-    alert("We all need help sometimes.\n" + 
-    "\nPress the heart icon to like a book.\n" +
-    "\nPress the X button to dislike a book.\n" +
-    "\nUse the navbar to navigate .\n"+
-    "\nHappy Swiping!"
-    )
+  function helpMessageCB() {
+    alert(
+      "We all need help sometimes.\n" +
+        "\nPress the heart icon to like a book.\n" +
+        "\nPress the X button to dislike a book.\n" +
+        "\nUse the navbar to navigate .\n" +
+        "\nHappy Swiping!"
+    );
   }
 
   return (
     <div class="profileInfo">
       <div class="binder">
-        <img src="https://i.ibb.co/jMvDC4d/bindr-logo.png" alt="bindr-logo"/>
+        <img src="https://i.ibb.co/jMvDC4d/bindr-logo.png" alt="bindr-logo" />
       </div>
       <div>About us</div>
       <div class="aboutUsDescription">
@@ -28,14 +28,11 @@ function AboutUsView(props) {
         Bindr is an app for book-lovers who are looking for more books to
         explore. Bindr gives you suggestions based on your topics of interest,
         you swipe left or right on the books in order to add them to your list
-        of books to read or discard them.
-        Happy book-swiping!
-
+        of books to read or discard them. Happy book-swiping!
         <button onClick={helpMessageCB}>Help</button>
-       
       </div>
 
-      <div class="topnavDetails" style = "margin-top:80px">
+      <div class="topnavDetails" style="margin-top:82px">
         <div
           class="iconcontain"
           onClick={function () {
@@ -100,10 +97,7 @@ function AboutUsView(props) {
           About
         </div>
 
-        <div
-          class="iconcontain"
-          onClick={handleLogoutCB}
-        >
+        <div class="iconcontain" onClick={handleLogoutCB}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="35"
