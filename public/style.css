@@ -745,3 +745,10 @@ Remove comment when functionality exists
   height: 460px;
   cursor: pointer;
 }
+
+.bookInfoDetails {
+  width: 90%;
+  height: 75%;
+  margin-left: 5%;
+  margin-top: 20px;
+}

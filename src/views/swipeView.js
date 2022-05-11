@@ -14,7 +14,24 @@ function SwipeView(props) {
     props.selectedBook(props.currentBook); //book object to change current
   }
 
-    // Make the DIV element draggable:
+  // Make the DIV element draggable & Droppable:
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+  
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+  
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+
+    
+  
   //dragElement(document.getElementById("mydiv"));
 
   function dragElement(elmnt) {
