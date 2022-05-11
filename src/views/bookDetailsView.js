@@ -1,5 +1,17 @@
 function BookDetailsView(props) {
   console.log(props.currentBookDetails);
+  
+  function displayDescription(){
+    //console.log("in function");
+    if(props.detailsPromiseState.data.description === undefined) {
+      //console.log("hello");
+      return "No Description";
+    }
+    else {
+      return props.detailsPromiseState.data.description;
+    }
+  }
+  
   return (
     <div class="details">
       <div class="bookInfo">
@@ -14,7 +26,7 @@ function BookDetailsView(props) {
         <div class="bookTitleDetails">
           {props.currentBookDetails.title}
           <div class="bookDescriptionDetails">
-            {props.detailsPromiseState.data.description}
+            {displayDescription()}
           </div>
         </div>
       </div>
