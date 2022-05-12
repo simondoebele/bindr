@@ -35,8 +35,7 @@ Most features from the MVP have been refined and we have also implemented almost
 - Design overhaul. We changed the colors from earlier blue and orange to a deep dark green color and desgined a new logo.
 - Interactive popups. In all views we have implemented so that user gets immeadiate feedback on different actions. Swiped right? We will now tell you that you did in fact do that.
 
-## Version 0.500 (mid project)
-Currently, we have built the (Binder)Model, connection from the model to firebase through an observer, implemented an API call for showing a first array of books, are able to save that API data to firebase. Plus, we built the following views (and associated presenters):
+## Version 0.500 (NOT CURRENT, mid project)
 
 - The user can sign in with username and password credentials (which takes the user to his list of liked books).
 - The user can choose to sign up, if the user has no account (which takes the user to the User Creation view).
@@ -51,7 +50,7 @@ Currently, we have built the (Binder)Model, connection from the model to firebas
 - The data currently includes: book title, book cover. 
 
 
-### Plans for 1.000
+### Plans for 0.500 ---> 1.000
 
 - Enable user sign up through firebase.
 - Enable user authentication through firebase.
