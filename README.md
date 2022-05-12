@@ -15,7 +15,7 @@ Tinder for books. You get suggestions of books and you swipe left or right in or
 2. Make sure you have Node.js installed. https://nodejs.org/en/
 3. Cd into project folder.
 4. Run ```npm install```to initiate.
-5. Run ```npm run dev```to run the app locally.
+5. Run ```npm run dev```to serve the app locally.
 
 
 
