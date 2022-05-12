@@ -1,3 +1,5 @@
+![alt text](img/bindr-logo.svg)
+
 # What is Binder?
 
 Binder is basically Tinder for books. You get suggestions of books based on what genres you like. You swipe left or right in order to add the suggested book to your list in order to save them for future use!
