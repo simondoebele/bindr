@@ -33,7 +33,7 @@ topnavDetails
   background-color: #e2e9e3;
 
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 13px;
   text-align: center;
 
   display: inline-block;
@@ -126,7 +126,7 @@ Remove comment when functionality exists
   background-color: #e2e9e3;
 
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 13px;
   text-align: center;
 
   display: inline-block;
@@ -236,7 +236,7 @@ Remove comment when functionality exists
 
   background-color: #e2e9e3;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 13px;
 
   color: #49A078;
 
@@ -280,8 +280,6 @@ Remove comment when functionality exists
 }
 
 
-
-
 .swipe {
   width: 400px;
   height: 700px;
@@ -290,7 +288,7 @@ Remove comment when functionality exists
   background-color: #e2e9e3;
 
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 13px;
   text-align: center;
 
   display: inline-block;
@@ -329,7 +327,7 @@ Remove comment when functionality exists
   background-color: #e2e9e3;
 
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 13px;
   text-align: center;
 
   display: inline-block;
@@ -478,7 +476,7 @@ Remove comment when functionality exists
   font-size: 20px;
   color: black;
 
-  border-radius: 10px;
+  border-radius: 13px;
   text-align: center;
 
   display: inline-block;
@@ -499,7 +497,7 @@ Remove comment when functionality exists
   font-size: 20px;
   color: black;
 
-  border-radius: 10px;
+  border-radius: 13px;
   text-align: center;
   display: inline-block;
   position: relative;
@@ -518,7 +516,7 @@ Remove comment when functionality exists
   background-color: #333;
   height: 70px;
   width: 100%;
-  border-radius: inherit;
+  border-radius: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-top: 85px;
@@ -575,7 +573,7 @@ Remove comment when functionality exists
   border: none;
   text-align: center;
   cursor: pointer;
-  border-radius: 0px;
+  border-radius: 10px;
   margin: 0;
   height: 100%;
   opacity: 1;
@@ -599,7 +597,7 @@ Remove comment when functionality exists
   background-color: #333;
   height: 70px;
   width: 100%;
-  border-radius: inherit;
+  border-radius: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-top: 20px;
@@ -616,7 +614,7 @@ Remove comment when functionality exists
   border: none;
   text-align: center;
   cursor: pointer;
-  border-radius: 0px;
+  border-radius: 10px;
   margin: 0;
   height: 100%;
   opacity: 1;
@@ -627,7 +625,7 @@ Remove comment when functionality exists
   background-color: #333;
   height: 70px;
   width: 100%;
-  border-radius: inherit;
+  border-radius: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-top: 7px;
@@ -640,7 +638,7 @@ Remove comment when functionality exists
   background-color: #333;
   height: 70px;
   width: 100%;
-  border-radius: inherit;
+  border-radius: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-top: 20px;
@@ -662,7 +660,7 @@ Remove comment when functionality exists
   border: none;
   text-align: center;
   cursor: pointer;
-  border-radius: 0px;
+  border-radius: 10px;
   margin: 0;
   height: 100%;
   opacity: 1;
@@ -720,8 +718,6 @@ Remove comment when functionality exists
   }
 }
 
-
-
 /* SWIPING via Drag and Drop */
 
 .column {
@@ -757,4 +753,5 @@ Remove comment when functionality exists
   bottom: 100px;
   right: -200px;
   border: 1px solid #aaaaaa;
+
 }

@@ -114,6 +114,7 @@ function SwipeView(props) {
           </div>
         </div>
         <div class="right" id="div2" ondrop={dropBookCB} ondragover={allowDrop}></div>
+
       </div>
 
       <div class="like">
