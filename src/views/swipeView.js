@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 function SwipeView(props) {
   function addBookACB() {
     props.onAddToLiked(props.currentBook);
@@ -18,6 +20,15 @@ function SwipeView(props) {
 
   function allowDrop(ev) {
     ev.preventDefault();
+    // changing the color if hovered over:
+    // if (ev.target.id == "div1"){
+    //   console.log("dragoverdislike");
+    //   ev.target.style.backgroundColor = '#tomato';
+    // }
+    // if (ev.target.id == "div2"){
+    //   console.log("dragoverlike");
+    //   ev.target.style.backgroundColor = '#49A078';
+    // }
   }
   
   function dragBookCB(ev) {
@@ -33,11 +44,23 @@ function SwipeView(props) {
     console.log(ev.target.id);
     if (ev.target.id == "div1"){
       deleteBookACB();
+      swal("Nope", "You didn't like this book.", "error");
     }
     if (ev.target.id == "div2"){
       addBookACB();
+      swal("It's a match.", "Your book was added to your likes books.", "success");
+      // ev.target.style.backgroundColor = '#49A078';
+      // setTimeout(() => {
+      //   console.log("Delayed for 2 seconds.");
+      // }, 2000)
+      // ev.target.style.backgroundColor = '#white';
     }
   }
+
+  function removeStyleCB(ev) {
+    console.log("removedragcolor");
+    ev.target.style.backgroundColor = '#white';
+}
 
     
   //dragElement(document.getElementById("mydiv"));
@@ -95,7 +118,7 @@ function SwipeView(props) {
     <div class="swipe">
 
       <div class="row">
-        <div class="left" id="div1" ondrop={dropBookCB} ondragover={allowDrop}></div>
+        <div class="left" id="div1" ondrop={dropBookCB} ondragover={allowDrop} /*ondragleave={removeStyleCB}*/></div>
         <div class="middle">
           <div
             onClick={function () {
@@ -108,12 +131,13 @@ function SwipeView(props) {
                   id="drag1" 
                   draggable="true" 
                   ondragstart={dragBookCB}
+                  style="right: {{howFarWeHaveMoved}}px"
               ></img>
               <div class="swipeTitle">{props.currentBook.title}</div>
               <div class="description">Genre: {props.currentBook.sub}</div>
           </div>
         </div>
-        <div class="right" id="div2" ondrop={dropBookCB} ondragover={allowDrop}></div>
+        <div class="right" id="div2" ondrop={dropBookCB} ondragover={allowDrop} /*ondragleave={removeStyleCB}*/></div>
 
       </div>
 
