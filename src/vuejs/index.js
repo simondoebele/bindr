@@ -17,6 +17,9 @@ const {
   updateModelFromFirebase,
 } = require("/src/firebaseModel.js");
 
+//Supress warnings
+console.warn = () => {};
+
 // require() because the lab App loads React/Vue presenters
 const App = require("/src/views/app.js").default;
 
@@ -27,7 +30,6 @@ import "../views/navigation.js";
 import resolvePromise from "../resolvePromise.js";
 import BinderModel from "../binderModel.js";
 
-// render a VueRoot that resolves firebaseModelPromise, then displays the App (see tw/tw3.5.js)
 
 const bigPromise = firebaseModelPromise();
 
@@ -42,10 +44,7 @@ const VueRoot = {
     };
   },
   render() {
-    //const component = this;
-    //component.state.data = new BinderModel()
     return PromiseNoData(this.state) || <App model={this.state.data} />;
-    //return (<App model = { component.state.data }/> )
   },
 
   created() {
@@ -53,7 +52,6 @@ const VueRoot = {
     function saveDataACB(result) {
       component.state.data = result;
       updateFirebaseFromModel(component.state.data);
-      //updateModelFromFirebase(component.state.data)
     }
 
     function catchErrorACB(error) {
