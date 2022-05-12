@@ -52,16 +52,16 @@ Most features from the MVP have been refined and we have also implemented almost
 
 ### Planned changelog for 0.500 ---> 1.000
 
-- Enable user sign up through firebase.
-- Enable user authentication through firebase.
+- Enable user sign up through firebase. (implemented as of 1.000)
+- Enable user authentication through firebase. (implemented as of 1.000)
 - Enable user to login even when password was forgotten.
-- The user is able to sign up (with e-mail and password, through firebase).
+- The user is able to sign up (with e-mail and password, through firebase). (implemented as of 1.000)
 - The user can add a profile picture.
-- The user can pick out of the genres presented to him in order to get suitable book suggestions in binder.
-- The user can delete books from the liked books list.
-- (Possibly: The user can look at specific book details, i.e. a kind of details view will be needed).
-- The interaction is fun for the user (actual swiping will be enabled for smartphone users and something similarly fun for PC users.)
-- The data might in the future include: book description, author(s), book genre / subject.
+- The user can pick out of the genres presented to him in order to get suitable book suggestions in binder. (implemented as of 1.000)
+- The user can delete books from the liked books list. (implemented as of 1.000)
+- The user can look at specific book details, i.e. a kind of details view will be needed. (implemented as of 1.000)
+- The interaction is fun for the user (actual swiping will be enabled for smartphone users and something similarly fun for PC users.) (implemented as of 1.000)
+- The data might in the future include: book description, author(s), book genre / subject. (implemented as of 1.000)
 - If there is time, a second, machine-learning-based translation API could be included to enable non-English users to use the app.
 
 ## Project file structure
