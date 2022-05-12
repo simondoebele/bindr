@@ -30,12 +30,14 @@ There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 ├── src                     
 │   ├── apiConfig.js           # API configuration file (currently not used)       
 │   ├── binderModel.js         # Our Model for the MVP architecture
-│   ├── dishSource.js          # Functions for API calls
+│   ├── bookSource.js          # Functions for API calls
 │   ├── firebaseConfig.js      # Firebase configuration file
+│   ├── firebaseErrorMsgs.js   # Firebase errors file
 │   ├── firebaseModel.js       # Observer functionality (updates from firebase to model & vice versa)
 │   ├── index.html             # (Notifies, if you have Javascript disabled.)
 │   ├── resolvePromise.js      # Resolves promises (just like in TW3)
 │   ├── utilities.js           # will contain utility functions for the model (currently not used)
+|   |   
 │   ├── views                  # THE VIEWS
 │   │   ├── aboutUsView.js             # (see description of the views above - "What we have done")
 │   │   ├── app.js                     # Displays the different components
@@ -47,9 +49,10 @@ There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 │   │   ├── swipeView.js               # (see description of the views above - "What we have done")
 │   │   ├── userCreationGenreView.js   # (see description of the views above - "What we have done")
 │   │   ├── userCreationView.js        # (see description of the views above - "What we have done")
-│   │   └── userInfoView.js            # (see description of the views above - "What we have done")
+│   │   ├── userInfoView.js            # (see description of the views above - "What we have done")
 │   │   ├── waitUndef.js               # (see description of the views above - "What we have done")
-│   └── vuejs                  # THE PRESENTERS
+│   |
+|   └── vuejs                  # THE PRESENTERS
 │       ├── aboutUsPresenter.js             # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── bookDetailsPresenter.js         # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── index.js                        # Renders the root & Resolves the initial persistence promise
