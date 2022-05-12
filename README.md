@@ -23,7 +23,7 @@ There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 
 # Project Status
 
-## Version 1.000
+## Version 1.000 (current)
 
 Most features from the MVP have been refined and we have also implemented almost all of the features we wanted to implement. Down below we will list key features that have been implemented.
 
@@ -35,6 +35,35 @@ Most features from the MVP have been refined and we have also implemented almost
 - Design overhaul. We changed the colors from earlier blue and orange to a deep dark green color and desgined a new logo.
 - Interactive popups. In all views we have implemented so that user gets immeadiate feedback on different actions. Swiped right? We will now tell you that you did in fact do that.
 
+## Version 0.500 (mid project)
+Currently, we have built the (Binder)Model, connection from the model to firebase through an observer, implemented an API call for showing a first array of books, are able to save that API data to firebase. Plus, we built the following views (and associated presenters):
+
+- The user can sign in with username and password credentials (which takes the user to his list of liked books).
+- The user can choose to sign up, if the user has no account (which takes the user to the User Creation view).
+- The user can enter their username, e-mail and password (not connected to firebase, yet).
+- After a first sign-up, the user is taken to the User Creation Genre View.
+- The user is presented with different book genres (or subjects) that he is interested in.
+- This view takes the user to the user (profile) info(rmation) view.
+- Information about the user (picture, liked books) is presented to the user.
+- The user gets presented with books and gets the options to “like it” or “dislike it”.
+- The liked books get added to the liked books list (that can be seen in user info view).
+- We are using the following API to get our data: https://openlibrary.org/dev/docs/api/books
+- The data currently includes: book title, book cover. 
+
+
+### Plans for 1.000
+
+- Enable user sign up through firebase.
+- Enable user authentication through firebase.
+- Enable user to login even when password was forgotten.
+- The user is able to sign up (with e-mail and password, through firebase).
+- The user can add a profile picture.
+- The user can pick out of the genres presented to him in order to get suitable book suggestions in binder.
+- The user can delete books from the liked books list.
+- (Possibly: The user can look at specific book details, i.e. a kind of details view will be needed).
+- The interaction is fun for the user (actual swiping will be enabled for smartphone users and something similarly fun for PC users.)
+- The data might in the future include: book description, author(s), book genre / subject.
+- If there is time, a second, machine-learning-based translation API could be included to enable non-English users to use the app.
 
 ## Project file structure
 
