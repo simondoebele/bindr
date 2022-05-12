@@ -247,6 +247,7 @@ class BinderModel {
             this.likedBooksPromise.promise = 1
             this.likedBooksPromise.data = []
             console.log("created user")
+            swal("Welcome!", "User creation successful", "success");
             window.location.hash = "#pick";
             // ...
         }).catch((error) => this.handleErrorCB(error));
