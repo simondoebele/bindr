@@ -221,14 +221,6 @@ Remove comment when functionality exists
   overflow: scroll;
 }
 
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  display: none;
-}
-
 .create {
   width: 400px;
   height: 700px;
