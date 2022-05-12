@@ -57,9 +57,9 @@ There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 │       ├── bookDetailsPresenter.js         # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── index.js                        # Renders the root & Resolves the initial persistence promise
 │       ├── loginPresenter.js               # (Presenter corresponding to the View with same name (MVP architecture))
-│       ├── navBarPresenter.js               # (Presenter corresponding to the View with same name (MVP architecture))
+│       ├── navBarPresenter.js              # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── show.js                         # utility for deciding the change to a different view
-│       ├── swipePresenter.js                    # (Presenter corresponding to the View with same name (MVP architecture))
+│       ├── swipePresenter.js               # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── userCreationGenrePresenter.js   # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── userCreationPresenter.js        # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── userInfoPresenter.js            # (Presenter corresponding to the View with same name (MVP architecture))
