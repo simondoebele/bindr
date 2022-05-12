@@ -1,13 +1,22 @@
-# Binder: Short description of our project
+# What is Binder?
 
 Tinder for books. You get suggestions of books and you swipe left or right in order to add the suggested book to your list.
 
-Names and Canvas IDs
+## Authors
 
 - Emil Lantz, 77314
 - Mattias Arvidsson, 77973
 - Elvira Dzidic, 77673 
 - Simon Döbele, 121732
+
+# How to setup?
+
+1. Clone the project.
+2. Make sure you have Node.js installed. https://nodejs.org/en/
+3. Cd into project folder.
+4. Run ```npm install```to initiate.
+5. Run ```npm run dev```to run the app locally.
+
 
 
 ## Mockup
