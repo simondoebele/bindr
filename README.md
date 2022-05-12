@@ -25,7 +25,9 @@ There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 
 ## Version 1.000 [CURRENT]
 
-Most features from the MVP have been refined and we have also implemented almost all of the features we wanted to implement. Down below we will list key features that have been implemented.
+Most features from the MVP have been refined and we have also implemented almost all of the features we wanted to implement. We have used GitHub issues very frequently and hence, if you're interested in a more detailed changelog which commits etc. please consult closed issues.
+
+Down below we will list key features that have been implemented.
 
 - Navigation bar which can be found in navBarView.js. This is rendered at the bottom to allow the user to keep track of their position.
 - Details about a book which can be found in bookDetailsView.js. By clicking a book in the list of books, or clicking a cover when swiping, the user can view more details.
