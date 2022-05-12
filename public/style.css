@@ -355,6 +355,11 @@ Remove comment when functionality exists
 
 }
 
+.bookInfo img:hover {
+  transform: scale(1.1);
+  
+}
+
 .swipeTitle {
   text-align: left;
   height: 40px;
