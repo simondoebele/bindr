@@ -22,7 +22,8 @@ Binder is basically Tinder for books. You get suggestions of books based on what
 There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 
 
-## Our project file structure (with short description/purpose of each file)
+# Project file structure
+
 ```
 .
 ├── public
