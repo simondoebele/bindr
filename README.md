@@ -23,7 +23,7 @@ There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 
 # Project Status
 
-## v 1.000
+## Version 1.000
 
 Most features from the MVP have been refined and we have also implemented almost all of the features we wanted to implement. Down below we will list key features that have been implemented.
 
