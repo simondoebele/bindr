@@ -11,7 +11,6 @@ var subjects = [
                     "science_fiction",
                     "short_stories",
                     "thriller",
-                    "young adult",
                     "biology",
                     "chemistry",
                     "mathematics",

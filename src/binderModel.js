@@ -213,11 +213,12 @@ class BinderModel {
     }
     
     handleErrorCB(error){
+        console.log(error.code);
         var errorMessage = error.code;
         console.log("message: " + errorMessage);
         let errorMsg = firebaseErrorMsgs(error); // mapping errors to user understandble ones
         swal ( "Oops" ,  errorMsg,  "warning" )
-        return errorMsg;
+        // return errorMsg;
         // https://github.com/firebase/firebase-functions/blob/d9fc8a6bb6e6a34e478bb6de98c64514e16ff1fa/src/providers/https.ts#L72-L110
         // throw new functions.https.HttpsError('unknown', 'ERROR0', { message: errorMsg } )
     }
@@ -233,7 +234,7 @@ class BinderModel {
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
             window.location.hash = "#aboutus";
         })
-        .catch((error) => {return this.handleErrorCB(error)});
+        .catch((error) => {this.handleErrorCB(error)});
     }
 
     signUp(email, pass) {
