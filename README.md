@@ -36,24 +36,30 @@ There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 │   ├── index.html             # (Notifies, if you have Javascript disabled.)
 │   ├── resolvePromise.js      # Resolves promises (just like in TW3)
 │   ├── utilities.js           # will contain utility functions for the model (currently not used)
-│   ├── views                  # THE VIEWS (mostly)
+│   ├── views                  # THE VIEWS
+│   │   ├── aboutUsView.js             # (see description of the views above - "What we have done")
 │   │   ├── app.js                     # Displays the different components
+│   │   ├── bookDetailsView.js               # (see description of the views above - "What we have done")
 │   │   ├── loginView.js               # (see description of the views above - "What we have done")
+│   │   ├── navBarView.js               # (see description of the views above - "What we have done")
 │   │   ├── navigation.js              # helps navigate at startup (to login view)
 │   │   ├── promiseNoData.js           # For user experience (when waiting for promise to be resolved)
 │   │   ├── swipeView.js               # (see description of the views above - "What we have done")
 │   │   ├── userCreationGenreView.js   # (see description of the views above - "What we have done")
 │   │   ├── userCreationView.js        # (see description of the views above - "What we have done")
 │   │   └── userInfoView.js            # (see description of the views above - "What we have done")
-│   └── vuejs                  # THE PRESENTERS (mostly) 
+│   │   ├── waitUndef.js               # (see description of the views above - "What we have done")
+│   └── vuejs                  # THE PRESENTERS
+│       ├── aboutUsPresenter.js             # (Presenter corresponding to the View with same name (MVP architecture))
+│       ├── bookDetailsPresenter.js         # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── index.js                        # Renders the root & Resolves the initial persistence promise
 │       ├── loginPresenter.js               # (Presenter corresponding to the View with same name (MVP architecture))
+│       ├── navBarPresenter.js               # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── show.js                         # utility for deciding the change to a different view
-│       ├── swipeView.js                    # (Presenter corresponding to the View with same name (MVP architecture))
+│       ├── swipePresenter.js                    # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── userCreationGenrePresenter.js   # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── userCreationPresenter.js        # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── userInfoPresenter.js            # (Presenter corresponding to the View with same name (MVP architecture))
 │       ├── VueRoot.js                      # The Vue Root that ties the bindermodel and app together.
-│       └── ...                             # (Please ignore the other files, that are still boilerplate code.)
 └── ...
 ```
