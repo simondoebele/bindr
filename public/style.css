@@ -719,3 +719,42 @@ Remove comment when functionality exists
     
   }
 }
+
+
+
+/* SWIPING via Drag and Drop */
+
+.column {
+  float: left;
+}
+
+.left, .right {
+  width: 3%;
+}
+
+.middle {
+  width: 90%;
+}
+
+.row:after {
+  width: 100%;
+  display: table;
+}
+
+#div1 {
+  width: 200px;
+  height: 600px;
+  position: absolute;
+  bottom: 100px;
+  right: 400px;
+  border: 1px solid #aaaaaa;
+}
+
+#div2 {
+  width: 200px;
+  height: 600px;
+  position: absolute;
+  bottom: 100px;
+  right: -200px;
+  border: 1px solid #aaaaaa;
+}
