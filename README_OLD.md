@@ -20,7 +20,7 @@ Tinder for books. You get suggestions of books and you swipe left or right in or
 
 
 ## Mockup
-![alt text](screens.png)
+![alt text](img/screens.png)
 
 https://miro.com/app/board/uXjVOIKRW6w=/
 
