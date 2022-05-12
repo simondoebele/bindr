@@ -21,8 +21,20 @@ Binder is basically Tinder for books. You get suggestions of books based on what
 
 There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 
+# Project Status
 
-# Project file structure
+Most features from the MVP have been refined and we have also implemented almost all of the features we wanted to implement. Down below we will list key features that have been implemented.
+
+- Navigation bar which can be found in navBarView.js. This is rendered at the bottom to allow the user to keep track of their position.
+- Details about a book which can be found in bookDetailsView.js. By clicking a book in the list of books, or clicking a cover when swiping, the user can view more details.
+- Authentication. A user can now log in and register themselves which persists in the Firebase. Information stored is what books have already been seen, swiped and liked.
+- Error messages. If a user tries to login with wrong credentials they will be advised so has happened.
+- Swiping. The user can now drag-and-drop books in conjunction with pressing like/dislike.
+- Design overhaul. We changed the colors from earlier blue and orange to a deep dark green color and desgined a new logo.
+- Interactive popups. In all views we have implemented so that user gets immeadiate feedback on different actions. Swiped right? We will now tell you that you did in fact do that.
+
+
+## Project file structure
 
 ```
 .
@@ -42,9 +54,9 @@ There sure is. Right here https://binder-e215b.web.app/vue/index.html#login
 │   ├── views                  # THE VIEWS
 │   │   ├── aboutUsView.js             # (see description of the views above - "What we have done")
 │   │   ├── app.js                     # Displays the different components
-│   │   ├── bookDetailsView.js               # (see description of the views above - "What we have done")
+│   │   ├── bookDetailsView.js         # (see description of the views above - "What we have done")
 │   │   ├── loginView.js               # (see description of the views above - "What we have done")
-│   │   ├── navBarView.js               # (see description of the views above - "What we have done")
+│   │   ├── navBarView.js              # (see description of the views above - "What we have done")
 │   │   ├── navigation.js              # helps navigate at startup (to login view)
 │   │   ├── promiseNoData.js           # For user experience (when waiting for promise to be resolved)
 │   │   ├── swipeView.js               # (see description of the views above - "What we have done")
