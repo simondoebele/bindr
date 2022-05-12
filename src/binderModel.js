@@ -224,7 +224,6 @@ class BinderModel {
     }
 
     signIn(email, pass) {
-
         firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((userCredential) => {
             // Signed in
