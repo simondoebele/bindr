@@ -41,7 +41,7 @@ function userInfoView(props) {
         <div class="profileInfoHeader">
           Hi {props.currentUser.email.split("@")[0]}!
         </div>
-        <div class="profileInfoHeader">Here's your liked books.</div>
+        <div class="profileInfoHeader">Here are your liked books.</div>
 
         <div class="tableContainer">
           <table class="table">
@@ -70,7 +70,7 @@ function userInfoView(props) {
                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
               />
             </svg>
-            Profile
+          Profile
           </div>
 
           <div
@@ -91,7 +91,7 @@ function userInfoView(props) {
               <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
               <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
             </svg>
-            Swipe
+          Swipe
           </div>
 
           <div
@@ -111,7 +111,7 @@ function userInfoView(props) {
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
               <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
             </svg>
-            About
+          About
           </div>
 
           <div
@@ -137,7 +137,7 @@ function userInfoView(props) {
                 d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
               />
             </svg>
-            Logout
+          Logout
           </div>
         </div>
       </div>
