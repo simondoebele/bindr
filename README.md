@@ -35,21 +35,6 @@ Most features from the MVP have been refined and we have also implemented almost
 - Design overhaul. We changed the colors from earlier blue and orange to a deep dark green color and desgined a new logo.
 - Interactive popups. In all views we have implemented so that user gets immeadiate feedback on different actions. Swiped right? We will now tell you that you did in fact do that.
 
-## Version 0.500 (NOT CURRENT, mid project)
-
-- The user can sign in with username and password credentials (which takes the user to his list of liked books).
-- The user can choose to sign up, if the user has no account (which takes the user to the User Creation view).
-- The user can enter their username, e-mail and password (not connected to firebase, yet).
-- After a first sign-up, the user is taken to the User Creation Genre View.
-- The user is presented with different book genres (or subjects) that he is interested in.
-- This view takes the user to the user (profile) info(rmation) view.
-- Information about the user (picture, liked books) is presented to the user.
-- The user gets presented with books and gets the options to “like it” or “dislike it”.
-- The liked books get added to the liked books list (that can be seen in user info view).
-- We are using the following API to get our data: https://openlibrary.org/dev/docs/api/books
-- The data currently includes: book title, book cover. 
-
-
 ### Planned changelog for 0.500 ---> 1.000
 
 #### Implemented as of 1.000
@@ -70,6 +55,21 @@ Most features from the MVP have been refined and we have also implemented almost
 - Enable user to login even when password was forgotten.
 - The user can add a profile picture.
 - If there is time, a second, machine-learning-based translation API could be included to enable non-English users to use the app.
+
+## Version 0.500 (NOT CURRENT, mid project)
+
+- The user can sign in with username and password credentials (which takes the user to his list of liked books).
+- The user can choose to sign up, if the user has no account (which takes the user to the User Creation view).
+- The user can enter their username, e-mail and password (not connected to firebase, yet).
+- After a first sign-up, the user is taken to the User Creation Genre View.
+- The user is presented with different book genres (or subjects) that he is interested in.
+- This view takes the user to the user (profile) info(rmation) view.
+- Information about the user (picture, liked books) is presented to the user.
+- The user gets presented with books and gets the options to “like it” or “dislike it”.
+- The liked books get added to the liked books list (that can be seen in user info view).
+- We are using the following API to get our data: https://openlibrary.org/dev/docs/api/books
+- The data currently includes: book title, book cover. 
+
 
 ## Project file structure
 
