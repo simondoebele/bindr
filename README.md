@@ -15,7 +15,7 @@ Binder is basically Tinder for books. You get suggestions of books based on what
 2. Make sure you have Node.js installed. https://nodejs.org/en/
 3. Cd into project folder.
 4. Run ```npm install```to initiate.
-5. Install dependencies. It needs sweetalert, ```npm install sweetalert
+5. Install dependencies. It needs sweetalert, ```npm install sweetalert```
 6. Run ```npm run dev```to serve the app locally.
 
 # Is there a deployed version?
