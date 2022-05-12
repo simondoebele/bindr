@@ -748,7 +748,6 @@ Remove comment when functionality exists
   position: absolute;
   bottom: 100px;
   right: 400px;
-  border: 1px solid #aaaaaa;
 }
 
 #div2 {
@@ -757,6 +756,4 @@ Remove comment when functionality exists
   position: absolute;
   bottom: 100px;
   right: -200px;
-  border: 1px solid #aaaaaa;
-
 }
