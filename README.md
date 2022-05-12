@@ -29,7 +29,7 @@ Most features from the MVP have been refined and we have also implemented almost
 
 Down below we will list key features that have been implemented.
 
-- Navigation bar which can be found in navBarView.js. This is rendered at the bottom to allow the user to keep track of their position.
+- Navigation bar which can be found in found in almost every view. This is rendered at the bottom to allow the user to keep track of their position.
 - Details about a book which can be found in bookDetailsView.js. By clicking a book in the list of books, or clicking a cover when swiping, the user can view more details.
 - Authentication. A user can now log in and register themselves which persists in the Firebase. Information stored is what books have already been seen, swiped and liked.
 - Error messages. If a user tries to login with wrong credentials they will be advised so has happened.
