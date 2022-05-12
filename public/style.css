@@ -221,14 +221,6 @@ Remove comment when functionality exists
   overflow: scroll;
 }
 
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  display: none;
-}
-
 .create {
   width: 400px;
   height: 700px;
@@ -356,8 +348,8 @@ Remove comment when functionality exists
 }
 
 .bookInfo img {
-  width: 100%;
-  height: 100%;
+  width: 360px;
+  height: 480px;
   border-radius: 10px;
   cursor: pointer;
 
@@ -636,7 +628,7 @@ Remove comment when functionality exists
   border-radius: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  margin-top: 85px;
+  margin-top: 7px;
   opacity: 0.9;
   
 
@@ -726,29 +718,40 @@ Remove comment when functionality exists
   }
 }
 
-#mydiv {
+/* SWIPING via Drag and Drop */
+
+.column {
+  float: left;
+}
+
+.left, .right {
+  width: 3%;
+}
+
+.middle {
+  width: 90%;
+}
+
+.row:after {
+  width: 100%;
+  display: table;
+}
+
+#div1 {
+  width: 200px;
+  height: 600px;
   position: absolute;
-  text-align: center;
-  cursor: move;
+  bottom: 100px;
+  right: 400px;
+  border: 1px solid #aaaaaa;
 }
 
+#div2 {
+  width: 200px;
+  height: 600px;
+  position: absolute;
+  bottom: 100px;
+  right: -200px;
+  border: 1px solid #aaaaaa;
 
-.bookInfo {
-  width: 90%;
-  height: 75%;
-  margin-left: 5%;
-  margin-top: 20px;
-}
-
-.bookInfo img {
-  width: 340px;
-  height: 460px;
-  cursor: pointer;
-}
-
-.bookInfoDetails {
-  width: 90%;
-  height: 75%;
-  margin-left: 5%;
-  margin-top: 20px;
 }

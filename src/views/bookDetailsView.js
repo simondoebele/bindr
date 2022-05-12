@@ -5,7 +5,7 @@ function BookDetailsView(props) {
     //console.log("in function");
     if(props.detailsPromiseState.data.description === undefined) {
       //console.log("hello");
-      return "No Description";
+      return "Sorry, but there is no description available for this book, yet.";
     }
     else {
       return props.detailsPromiseState.data.description;

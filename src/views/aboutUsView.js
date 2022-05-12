@@ -5,10 +5,10 @@ function AboutUsView(props) {
 
   function helpMessageCB() {
     alert(
-      "We all need help sometimes.\n" +
-        "\nPress the heart icon to like a book.\n" +
-        "\nPress the X button to dislike a book.\n" +
-        "\nUse the navbar to navigate .\n" +
+      "Hello!\n" +
+        "\nHere is a short explanation of how the swiping works:\n" +
+        "\nYou can either: drag and drop the book. If you drop it to the right, you like it. If you drop it to the left, you dislike it.\n" +
+        "\nOtherwise simply: Press the heart icon to like a book. Press the X button to dislike a book.\n" +
         "\nHappy Swiping!"
     );
   }
@@ -18,21 +18,24 @@ function AboutUsView(props) {
       <div class="binder">
         <img src="https://i.ibb.co/jMvDC4d/bindr-logo.png" alt="bindr-logo" />
       </div>
-      <div>About us</div>
+      <div>Welcome to Bindr!</div>
       <div class="aboutUsDescription">
         Do you love reading but find it hard to find the right book to read?{" "}
         <br />
         Then Bindr is the solution for you!
         <br />
         <br />
-        Bindr is an app for book-lovers who are looking for more books to
-        explore. Bindr gives you suggestions based on your topics of interest,
-        you swipe left or right on the books in order to add them to your list
-        of books to read or discard them. Happy book-swiping!
+        In Bindr you can explore new books. Bindr suggests new books based on the 
+        book genres of your interest.
+        Under Swipe, you can swipe books in two ways (find out how, or click the help
+        button for an explanation.) The swiped books are then either added
+        to your books list (which you can see under Profile) or discarded.
+        Happy swiping!
+        <br />
         <button onClick={helpMessageCB}>Help</button>
       </div>
 
-      <div class="topnavDetails" style="margin-top:82px">
+      <div class="topnavDetails" style="margin-top:14px">
         <div
           class="iconcontain"
           onClick={function () {
