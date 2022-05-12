@@ -50,7 +50,7 @@ Most features from the MVP have been refined and we have also implemented almost
 - The data currently includes: book title, book cover. 
 
 
-### Plans for 0.500 ---> 1.000
+### Planned changelog for 0.500 ---> 1.000
 
 - Enable user sign up through firebase.
 - Enable user authentication through firebase.
