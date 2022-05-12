@@ -2,12 +2,14 @@ import swal from 'sweetalert';
 
 function SwipeView(props) {
   function addBookACB() {
+    swal("It's a match.", "Your book was added to your likes books.", "success");
     props.onAddToLiked(props.currentBook);
     props.onAddToSeen(props.currentBook);
     props.changeCurrentBook();
   }
 
   function deleteBookACB() {
+    swal("Nope", "You didn't like this book.", "error");
     props.onAddToSeen(props.currentBook);
     props.changeCurrentBook();
   }
@@ -44,11 +46,9 @@ function SwipeView(props) {
     console.log(ev.target.id);
     if (ev.target.id == "div1"){
       deleteBookACB();
-      swal("Nope", "You didn't like this book.", "error");
     }
     if (ev.target.id == "div2"){
       addBookACB();
-      swal("It's a match.", "Your book was added to your likes books.", "success");
       // ev.target.style.backgroundColor = '#49A078';
       // setTimeout(() => {
       //   console.log("Delayed for 2 seconds.");
