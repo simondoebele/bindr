@@ -30,7 +30,7 @@ function BookDetailsView(props) {
           </div>
         </div>
       </div>
-      <div class="topnavDetails">
+      <div class="topnavbookdetails" style="margin-top:86px">
         <div
           class="iconcontain"
           onClick={function () {

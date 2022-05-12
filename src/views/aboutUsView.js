@@ -1,16 +1,17 @@
+import swal from 'sweetalert';
+
 function AboutUsView(props) {
   function handleLogoutCB() {
     window.location.hash = "#login";
   }
 
   function helpMessageCB() {
-    alert(
-      "Hello!\n" +
-        "\nHere is a short explanation of how the swiping works:\n" +
-        "\nYou can either: drag and drop the book. If you drop it to the right, you like it. If you drop it to the left, you dislike it.\n" +
+    swal( "How swiping works!" ,
+      "Here is a short explanation of how the swiping works:\n" +
+        "\nYou can either: drag and drop the book. If you drop it to the right, outside of the screen, you like it. If you drop it to the left, you dislike it.\n" +
         "\nOtherwise simply: Press the heart icon to like a book. Press the X button to dislike a book.\n" +
-        "\nHappy Swiping!"
-    );
+        "\nHappy Swiping!",
+        "info");
   }
 
   return (
@@ -35,7 +36,7 @@ function AboutUsView(props) {
         <button onClick={helpMessageCB}>Help</button>
       </div>
 
-      <div class="topnavDetails" style="margin-top:14px">
+      <div class="topnavDetailsUser" style="margin-top:14px">
         <div
           class="iconcontain"
           onClick={function () {

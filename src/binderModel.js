@@ -4,7 +4,7 @@ import "firebase/auth";
 import "firebase/database";
 import { BASE_URL } from "./apiConfig";
 import { firebaseErrorMsgs } from "./firebaseErrorMsgs";
-
+import swal from 'sweetalert';
 
 class BinderModel {
     constructor(likedArray = [], seenArray = []) {
@@ -150,7 +150,7 @@ class BinderModel {
             this.listOfBooks = this.listOfBooks.concat(filtered2);
 
             if(filtered2.length == 0 || this.userSubjects.length == 0) {
-                alert("Seems we couldn't find any new books given your current subjects. Please pick some more :)")
+                swal("Out of books!", "Seems we couldn't find any new books given your current subjects. Please pick some more :)", "info");
                 window.location.hash = "#pick"
             }
         }
@@ -213,17 +213,17 @@ class BinderModel {
     }
     
     handleErrorCB(error){
+        console.log(error.code);
         var errorMessage = error.code;
         console.log("message: " + errorMessage);
         let errorMsg = firebaseErrorMsgs(error); // mapping errors to user understandble ones
-        alert(errorMsg);
-        return errorMsg;
+        swal ( "Oops" ,  errorMsg,  "warning" )
+        // return errorMsg;
         // https://github.com/firebase/firebase-functions/blob/d9fc8a6bb6e6a34e478bb6de98c64514e16ff1fa/src/providers/https.ts#L72-L110
         // throw new functions.https.HttpsError('unknown', 'ERROR0', { message: errorMsg } )
     }
 
     signIn(email, pass) {
-
         firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((userCredential) => {
             // Signed in
@@ -233,7 +233,7 @@ class BinderModel {
             resolvePromise(this.updateModelFromFB(), this.likedBooksPromise)
             window.location.hash = "#aboutus";
         })
-        .catch((error) => {return this.handleErrorCB(error)});
+        .catch((error) => {this.handleErrorCB(error)});
     }
 
     signUp(email, pass) {
@@ -247,6 +247,7 @@ class BinderModel {
             this.likedBooksPromise.promise = 1
             this.likedBooksPromise.data = []
             console.log("created user")
+            swal("Welcome!", "User creation successful", "success");
             window.location.hash = "#pick";
             // ...
         }).catch((error) => this.handleErrorCB(error));

@@ -9,8 +9,8 @@ function LoginView(props) {
     }
 
   function handleLoginACB(){
-      var msg = props.signIn(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value);
-      console.log("msg :" + msg)
+      props.signIn(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value);
+      //console.log("msg :" + msg)
       // if there is no error :-) navigate
       // if (msg === undefined && msg !== null) {
       //   navigateToUserInfoACB();
