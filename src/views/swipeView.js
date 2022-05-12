@@ -168,7 +168,7 @@ function SwipeView(props) {
       <br></br>
       <br></br>
       <div></div>
-      <div class="topnavDetails" style="margin-top:4px">
+      <div class="topnavDetailsUser" style="margin-top:4px">
         <div
           class="iconcontain"
           onClick={function () {

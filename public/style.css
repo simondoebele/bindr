@@ -340,6 +340,13 @@ Remove comment when functionality exists
   margin: auto;
 }
 
+.bookInfoDetails {
+  width: 90%;
+  height: 75%;
+  margin-left: 5%;
+  margin-top: 20px;
+} 
+
 .bookInfo {
   width: 90%;
   height: 75%;
@@ -477,7 +484,7 @@ Remove comment when functionality exists
 
 .bookDescriptionDetails {
   width: 350px;
-  height: 230px;
+  height: 200px;
   font-size: 20px;
   color: black;
 
@@ -626,7 +633,7 @@ Remove comment when functionality exists
 }
 
 
-.topnavDetails {
+.topnavbookdetails {
   background-color: #333;
   height: 70px;
   width: 100%;
@@ -635,6 +642,7 @@ Remove comment when functionality exists
   border-top-right-radius: 0;
   margin-top: 7px;
   opacity: 0.9;
+  position: absolute;
   
 
 }

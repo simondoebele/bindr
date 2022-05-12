@@ -36,7 +36,7 @@ function AboutUsView(props) {
         <button onClick={helpMessageCB}>Help</button>
       </div>
 
-      <div class="topnavDetails" style="margin-top:14px">
+      <div class="topnavDetailsUser" style="margin-top:14px">
         <div
           class="iconcontain"
           onClick={function () {
